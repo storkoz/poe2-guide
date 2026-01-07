@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POE 2 v0.4 - Guide Farming Complet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .section-content { display: none; }
+        .section-content.active { display: block; }
+        body { background: linear-gradient(to bottom right, #1a202c, #2d3748, #1a202c); }
+    </style>
+</head>
+<body class="min-h-screen text-gray-100 p-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- HEADER -->
+        <div class="text-center mb-8">
+            <h1 class="text-5xl font-bold text-yellow-500 mb-2">POE 2 v0.4 - GUIDE FARMING COMPLET</h1>
+            <p class="text-gray-400 text-lg">The Last of the Druids - Tous les 8 Points Atlas détaillés</p>
+        </div>
+
+        <!-- TABLEAU COMPARATIF -->
+        <div class="mb-6 border border-yellow-600 rounded-lg bg-gray-800 p-6">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-4">📊 Tableau Comparatif des Mécanismes</h2>
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-gray-700">
+                        <th class="text-left p-2 text-yellow-400">Mécanisme</th>
+                        <th class="text-left p-2 text-green-400">Profit/h</th>
+                        <th class="text-left p-2 text-blue-400">Difficulté</th>
+                        <th class="text-left p-2 text-purple-400">Biome</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                    <tr><td class="p-2 font-bold text-yellow-400">ABYSS</td><td class="p-2">6-10 Divine</td><td class="p-2">Hard</td><td class="p-2">Water/Cleansed</td></tr>
+                    <tr><td class="p-2 font-bold text-purple-400">BREACH</td><td class="p-2">4-6 Divine</td><td class="p-2">Medium</td><td class="p-2">Water/Open</td></tr>
+                    <tr><td class="p-2 font-bold text-blue-400">RITUAL</td><td class="p-2">3-5 Divine</td><td class="p-2">Easy</td><td class="p-2">Any</td></tr>
+                    <tr><td class="p-2 font-bold text-orange-400">EXPEDITION</td><td class="p-2">2-4 Divine</td><td class="p-2">Easy</td><td class="p-2">Any</td></tr>
+                </tbody>
+            </table>
+            <div class="mt-4 p-3 bg-yellow-900 bg-opacity-30 rounded">
+                <p class="font-bold text-yellow-400">VERDICT:</p>
+                <ul class="text-sm space-y-1 mt-2">
+                    <li>🏆 Best Overall: ABYSS + Local Knowledge</li>
+                    <li>🎯 Best Débutants: RITUAL puis EXPEDITION</li>
+                    <li>💎 Best Consistent: BREACH (Grasping Hand)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SHOPPING LIST -->
+        <div class="mb-6 border border-purple-600 rounded-lg bg-gray-800 p-6">
+            <h2 class="text-2xl font-bold text-purple-400 mb-4">🛒 Shopping List - Ce qu'il faut acheter</h2>
+            <div class="p-3 bg-red-900 bg-opacity-20 rounded border border-red-600 mb-3">
+                <p class="font-bold text-red-400 mb-2">PRIORITY 1 (100-200 Exalts):</p>
+                <ul class="text-sm space-y-1">
+                    <li><code class="text-green-400">Waystones T15-T16</code> - 50+ maps Water/Swamp</li>
+                    <li><code class="text-green-400">Precursor Tablets</code> - Abyss/Breach/Ritual</li>
+                    <li><code class="text-green-400">Orb of Alchemy</code> - 100+ pour roll maps</li>
+                </ul>
+            </div>
+            <div class="p-3 bg-gray-900 rounded">
+                <p class="font-bold text-blue-400 mb-2">Où acheter:</p>
+                <ul class="text-sm space-y-1">
+                    <li><strong class="text-yellow-400">poe2.trade</strong> - Site officiel</li>
+                    <li><strong class="text-yellow-400">TFT Discord</strong> - Bulk trades</li>
+                    <li><strong class="text-yellow-400">poe2.ninja</strong> - Check prix</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ATLAS TREE PRINCIPAL -->
+        <div class="mb-6 border border-yellow-600 rounded-lg bg-gray-800 p-6">
+            <h2 class="text-2xl font-bold text-yellow-400 mb-4">🗺️ Atlas Tree - Node ESSENTIEL</h2>
+            <div class="p-4 bg-blue-900 bg-opacity-30 rounded border border-blue-600">
+                <p class="font-bold text-blue-400 mb-2">MAIN ATLAS TREE:</p>
+                <div class="mt-2 p-3 bg-gray-900 rounded">
+                    <p class="font-bold text-yellow-400 text-lg"><code>Local Knowledge</code> ⭐ BROKEN NODE</p>
+                    <p class="text-sm text-gray-400 mt-1">+40% basic currency drops pour Water ET Swamp</p>
+                    <p class="text-sm text-red-400 mt-1">⚠️ Unspec si tu farm autre biome!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABYSS SECTION -->
+        <div class="mb-6 border border-yellow-600 rounded-lg bg-gray-800">
+            <button onclick="toggleSection('abyss')" class="w-full p-6 text-left hover:bg-gray-750 transition">
+                <h2 class="text-2xl font-bold text-yellow-400">⚡ ABYSS - Best Profit (6-10 Divine/h)</h2>
+            </button>
+            <div id="abyss" class="section-content p-6 border-t border-gray-700">
+                <div class="p-4 bg-yellow-900 bg-opacity-20 rounded border border-yellow-600 mb-4">
+                    <p class="font-bold text-yellow-400 mb-3 text-lg">⭐ TOUS LES 8 POINTS ABYSS ATLAS:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-yellow-500">
+                            <p class="font-bold text-yellow-300">1️⃣ From Out of the Pit (3 pts)</p>
+                            <p class="text-gray-400">+25% Abyssal Monster Effectiveness</p>
+                            <p class="text-green-400">→ NODE #1 PRIORITY!</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-yellow-400">
+                            <p class="font-bold text-yellow-300">2️⃣ Stir the Swarm (2 pts)</p>
+                            <p class="text-gray-400">Maps contain +1 Abyss</p>
+                            <p class="text-green-400">→ Plus d'Abyss garantis</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-orange-400">
+                            <p class="font-bold text-yellow-300">3️⃣ Sprawling Rupture (2 pts)</p>
+                            <p class="text-gray-400">Abysses spawn more monsters</p>
+                            <p class="text-green-400">→ Density massive</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-purple-400">
+                            <p class="font-bold text-yellow-300">4️⃣ Unholy Influence (1 pt)</p>
+                            <p class="text-gray-400">Abyssal monsters +mods</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-2 bg-red-900 bg-opacity-30 rounded">
+                        <p class="text-sm font-bold">🎯 PATH: Start → Stir → Out of Pit → Sprawling → Unholy</p>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://mobalytics.gg/poe-2/profile/fubgun/builds/fubgun-s-atlas-strats" target="_blank" class="inline-block px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-bold rounded text-sm transition mr-2">
+                            🗺️ Atlas ABYSS Optimisé (Fubgun)
+                        </a>
+                        <a href="https://mobalytics.gg/poe-2/profile/pathofevening/builds/0-4-atlas-passive-tree-setups" target="_blank" class="inline-block px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded text-sm transition">
+                            Atlas 0.4 Complete
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-gray-900 rounded mb-3">
+                    <p class="font-bold text-blue-400 mb-2">Meilleurs Biomes:</p>
+                    <ul class="text-sm space-y-1">
+                        <li>🏆 <strong>CLEANSED maps</strong> - Monsters drop ONLY currency</li>
+                        <li>🥈 <strong>Water</strong> (Atoll, Shore, Strand) + Local Knowledge</li>
+                        <li>🥉 <strong>Swamp</strong> (Bog, Marsh) + Local Knowledge</li>
+                    </ul>
+                </div>
+
+                <div class="p-3 bg-green-900 bg-opacity-20 rounded border border-green-600">
+                    <p class="font-bold text-green-400 mb-2">💎 DROPS EXCLUSIFS ABYSS 0.4:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-yellow-300">Lineage Support Gems:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Drop dans Dark Domain / Abyssal Cities</li>
+                                <li>Chance: TRES RARE (0.1-0.5%)</li>
+                                <li>Valeur: 5-50 Divine selon gem</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-orange-300">Desecration Currency:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Preserved Collarbone: 7-21 Exalts</li>
+                                <li>Ancient Jawbone: Variable</li>
+                                <li>Gnawed Collarbone: 1-3 Exalts</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-purple-300">Uniques Boss Abyss:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Kurgal items: 10-30 Divine</li>
+                                <li>Ulaman items: 15-40 Divine</li>
+                                <li>Amanamu items: 5-20 Divine</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BREACH SECTION -->
+        <div class="mb-6 border border-purple-600 rounded-lg bg-gray-800">
+            <button onclick="toggleSection('breach')" class="w-full p-6 text-left hover:bg-gray-750 transition">
+                <h2 class="text-2xl font-bold text-purple-400">⚡ BREACH - Consistent (4-6 Divine/h)</h2>
+            </button>
+            <div id="breach" class="section-content p-6 border-t border-gray-700">
+                <div class="p-4 bg-purple-900 bg-opacity-20 rounded border border-purple-600 mb-4">
+                    <p class="font-bold text-purple-400 mb-3 text-lg">⭐ TOUS LES 8 POINTS BREACH ATLAS:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-purple-500">
+                            <p class="font-bold text-purple-300">1️⃣ Grasping Hand (3 pts)</p>
+                            <p class="text-gray-400">Breach Hands 60% chance DOUBLE splinters</p>
+                            <p class="text-red-300">⚡ NODE #1 - 90% DU PROFIT!</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-purple-400">
+                            <p class="font-bold text-purple-300">2️⃣ Rising Pyre (3 pts)</p>
+                            <p class="text-gray-400">+40% Monster density in Breaches</p>
+                            <p class="text-green-400">→ UNIVERSAL BEST NODE</p>
+                        </div>
+                        <div class="p-3 bg-blue-900 bg-opacity-30 rounded">
+                            <p class="font-bold text-blue-300">OPTION A - Fast Clear (2 pts):</p>
+                            <p class="text-gray-400">Interdimensional Assault - Breaches faster</p>
+                        </div>
+                        <div class="p-3 bg-green-900 bg-opacity-30 rounded">
+                            <p class="font-bold text-green-300">OPTION B - Slow Clear (2 pts):</p>
+                            <p class="text-gray-400">Sustained Siege - Breaches slower</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-2 bg-red-900 bg-opacity-30 rounded">
+                        <p class="text-sm font-bold">🎯 PATH: Grasping → Rising → Option A/B</p>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://mobalytics.gg/poe-2/profile/fubgun/builds/fubgun-s-atlas-strats" target="_blank" class="inline-block px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded text-sm transition mr-2">
+                            🗺️ Atlas BREACH (Fubgun)
+                        </a>
+                        <a href="https://mobalytics.gg/poe-2/guides/breach" target="_blank" class="inline-block px-4 py-2 bg-purple-500 hover:bg-purple-600 text-white font-bold rounded text-sm transition">
+                            Breach Guide Complet
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-gray-900 rounded mb-3">
+                    <p class="font-bold text-blue-400 mb-2">Tablet Setup:</p>
+                    <ul class="text-sm space-y-1">
+                        <li><code class="text-green-400">"Map contains 3 additional Breach Hands"</code></li>
+                        <li class="text-yellow-400">Combo BROKEN avec Grasping Hand!</li>
+                    </ul>
+                </div>
+
+                <div class="p-3 bg-green-900 bg-opacity-20 rounded border border-green-600">
+                    <p class="font-bold text-green-400 mb-2">💎 DROPS EXCLUSIFS BREACH 0.4:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-yellow-300">Breach Rings:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Base Breach Ring: 1-5 Divine</li>
+                                <li>Triple Flat Damage Ring: 30-50 Divine</li>
+                                <li>Craft base TRES recherché</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-orange-300">Catalysts:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Valeur: 5-15 Exalts chaque</li>
+                                <li>HYPER demande patch 0.4</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-purple-300">Uniques Breachlord:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Hand of Wisdom and Action: 3-10 Divine</li>
+                                <li>Xoph's Blood: 50+ Divine</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-blue-300">Lineage Supports:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Xoph's Pyre: 10-30 Divine</li>
+                                <li>Esh's Radiance: 15-40 Divine</li>
+                                <li>Tul's Stillness: 12-35 Divine</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RITUAL SECTION -->
+        <div class="mb-6 border border-blue-600 rounded-lg bg-gray-800">
+            <button onclick="toggleSection('ritual')" class="w-full p-6 text-left hover:bg-gray-750 transition">
+                <h2 class="text-2xl font-bold text-blue-400">⚡ RITUAL - Easy Casual (3-5 Divine/h)</h2>
+            </button>
+            <div id="ritual" class="section-content p-6 border-t border-gray-700">
+                <div class="p-4 bg-blue-900 bg-opacity-20 rounded border border-blue-600 mb-4">
+                    <p class="font-bold text-blue-400 mb-3 text-lg">⭐ TOUS LES 8 POINTS RITUAL ATLAS:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-blue-500">
+                            <p class="font-bold text-blue-300">1️⃣ Spreading Darkness (3 pts)</p>
+                            <p class="text-gray-400">Maps contain 4 Ritual Altars</p>
+                            <p class="text-green-400">→ +33% Tribute = CRITICAL</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-purple-500">
+                            <p class="font-bold text-blue-300">2️⃣ Promise Devotion (3 pts)</p>
+                            <p class="text-gray-400">Defer costs 50% LESS Tribute</p>
+                            <p class="text-red-300">⚡ BROKEN NODE!</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-green-500">
+                            <p class="font-bold text-blue-300">3️⃣ Tempting Offers (2 pts)</p>
+                            <p class="text-gray-400">Reroll costs 25% less + 1 extra reroll</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-2 bg-red-900 bg-opacity-30 rounded">
+                        <p class="text-sm font-bold">🎯 PATH: Spreading → Promise → Tempting</p>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://mobalytics.gg/poe-2/profile/raychich/builds/ray-s-0-4-strats" target="_blank" class="inline-block px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded text-sm transition mr-2">
+                            🗺️ Atlas RITUAL (Ray)
+                        </a>
+                        <a href="https://mobalytics.gg/poe-2/profile/fubgun/builds/fubgun-s-atlas-strats" target="_blank" class="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded text-sm transition">
+                            Multi-Strat (Fubgun)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-gray-900 rounded mb-3">
+                    <p class="font-bold text-yellow-400 mb-2">Comment farmer:</p>
+                    <ol class="text-sm space-y-1 list-decimal list-inside">
+                        <li>Complete tous les 4 Ritual altars</li>
+                        <li>SPAM "Reroll" jusqu'à voir Omens</li>
+                        <li>DEFER tous les Omens (coûte 0!)</li>
+                        <li>BUY ALL à la fin</li>
+                    </ol>
+                </div>
+
+                <div class="p-3 bg-green-900 bg-opacity-20 rounded border border-green-600">
+                    <p class="font-bold text-green-400 mb-2">💎 DROPS EXCLUSIFS RITUAL 0.4:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-yellow-300">Omens TOP TIER:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Chaotic Omen of Rarity: 40-50 Exalts</li>
+                                <li>Omen of Dextral Annulment: 30-40 Exalts</li>
+                                <li>Omen of Whittling: 25-35 Exalts</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-orange-300">King in the Mists:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Audience with King: 60-70 Exalts</li>
+                                <li>Ingenuity Belt: 20-100+ Divine</li>
+                                <li>Chance spawn: 1-2%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXPEDITION SECTION -->
+        <div class="mb-6 border border-orange-600 rounded-lg bg-gray-800">
+            <button onclick="toggleSection('expedition')" class="w-full p-6 text-left hover:bg-gray-750 transition">
+                <h2 class="text-2xl font-bold text-orange-400">⚡ EXPEDITION - Logbooks (2-4 Divine/h)</h2>
+            </button>
+            <div id="expedition" class="section-content p-6 border-t border-gray-700">
+                <div class="p-4 bg-orange-900 bg-opacity-20 rounded border border-orange-600 mb-4">
+                    <p class="font-bold text-orange-400 mb-3 text-lg">⭐ TOUS LES 8 POINTS EXPEDITION ATLAS:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-orange-500">
+                            <p class="font-bold text-orange-300">1️⃣ Detailed Records (3 pts)</p>
+                            <p class="text-gray-400">Logbooks +1 level & +4 mods</p>
+                            <p class="text-gray-400">+40% Logbook drops</p>
+                            <p class="text-red-300">⚡ NODE #1 CRITICAL</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-orange-400">
+                            <p class="font-bold text-orange-300">2️⃣ Buried Riches (2 pts)</p>
+                            <p class="text-gray-400">+Exotic Coinage drops</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-yellow-500">
+                            <p class="font-bold text-orange-300">3️⃣ Unearthed Secrets (2 pts)</p>
+                            <p class="text-gray-400">+Remnants per Expedition</p>
+                        </div>
+                        <div class="p-3 bg-gray-900 rounded border-l-4 border-green-500">
+                            <p class="font-bold text-orange-300">4️⃣ Detonation Chain (1 pt)</p>
+                            <p class="text-gray-400">Explosive radius +15%</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-2 bg-red-900 bg-opacity-30 rounded">
+                        <p class="text-sm font-bold">🎯 PATH: Detailed → Buried → Unearthed → Detonation</p>
+                    </div>
+                    <div class="mt-3">
+                        <a href="https://mobalytics.gg/poe-2/profile/fubgun/builds/fubgun-s-atlas-strats" target="_blank" class="inline-block px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white font-bold rounded text-sm transition mr-2">
+                            🗺️ Atlas EXPEDITION
+                        </a>
+                        <a href="https://mobalytics.gg/poe-2/profile/pathofevening/builds/0-4-atlas-passive-tree-setups" target="_blank" class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded text-sm transition">
+                            Atlas 0.4 Complete
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-gray-900 rounded mb-3">
+                    <p class="font-bold text-yellow-400 mb-2">Comment faire:</p>
+                    <ol class="text-sm space-y-1 list-decimal list-inside">
+                        <li>CHAIN remnants AVANT monsters</li>
+                        <li>Priorise "Logbook drop chance"</li>
+                        <li>Vise 8-12 RED FLAGS (Runic Monsters)</li>
+                    </ol>
+                </div>
+
+                <div class="p-3 bg-green-900 bg-opacity-20 rounded border border-green-600">
+                    <p class="font-bold text-green-400 mb-2">💎 DROPS EXCLUSIFS EXPEDITION 0.4:</p>
+                    <div class="space-y-2 text-sm">
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-yellow-300">Logbooks:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>T79+ Logbooks: 0.5-1 Divine</li>
+                                <li>T85+ Logbooks: 1-2 Divine</li>
+                                <li>Drop rate: 5-10% avec tree</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-orange-300">Exotic Coinage:</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>Bulk 1000 coins: 1-2 Divine</li>
+                                <li>Utilise chez Tujen pour profit</li>
+                            </ul>
+                        </div>
+                        <div class="p-2 bg-gray-900 rounded">
+                            <p class="font-bold text-purple-300">Vendor Crafts (Rog):</p>
+                            <ul class="text-gray-400 space-y-1 mt-1">
+                                <li>GG items craftables: 10-50+ Divine</li>
+                                <li>RNG dependent</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER ROUTINE -->
+        <div class="mt-8 p-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg border-2 border-yellow-600 text-center">
+            <p class="text-3xl font-bold text-yellow-400 mb-4">🎯 ROUTINE 1H DE FARM</p>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-sm">
+                <div class="p-4 bg-gray-800 rounded">
+                    <p class="font-bold text-yellow-400 text-lg">0-10 min</p>
+                    <p class="text-sm">Prépare 15-20 maps</p>
+                </div>
+                <div class="p-4 bg-gray-800 rounded">
+                    <p class="font-bold text-yellow-400 text-lg">10-45 min</p>
+                    <p class="text-sm">Farm T15-T16</p>
+                </div>
+                <div class="p-4 bg-gray-800 rounded">
+                    <p class="font-bold text-yellow-400 text-lg">45-55 min</p>
+                    <p class="text-sm">Temple si complet</p>
+                </div>
+                <div class="p-4 bg-gray-800 rounded">
+                    <p class="font-bold text-yellow-400 text-lg">55-60 min</p>
+                    <p class="text-sm">Vends items</p>
+                </div>
+            </div>
+            <p class="text-yellow-400 mt-6 font-bold text-lg">Guide créé pour la communauté Twitch - GL HF Exile! 🎮</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            section.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
