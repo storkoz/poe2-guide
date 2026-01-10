@@ -1,323 +1,1511 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Path of Exile 2 – Guide complet Endgame 0.4</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    :root {
-      --bg: #0b0e14;
-      --panel: #141824;
-      --accent: #c89b3c;
-      --text: #e6e6e6;
-      --muted: #9aa4b2;
-      --danger: #c23c3c;
-      --good: #4ade80;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide PoE2 Early Access 0.4 - Endgame Complet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, sans-serif;
-      background: radial-gradient(circle at top, #11162a, #07090f 70%);
-      color: var(--text);
-      line-height: 1.65;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
 
-    header {
-      background: linear-gradient(to right, #0f1322, #090c15);
-      padding: 24px;
-      border-bottom: 1px solid #222842;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    header h1 {
-      margin: 0 0 12px 0;
-      color: var(--accent);
-      letter-spacing: 1px;
-    }
+        header {
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid #e94560;
+            box-shadow: 0 4px 20px rgba(233, 69, 96, 0.3);
+        }
 
-    nav {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+        h1 {
+            color: #e94560;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 8px rgba(233, 69, 96, 0.5);
+            margin-bottom: 10px;
+        }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-      background: #161b2f;
-      font-size: 14px;
-    }
+        .subtitle {
+            color: #a0a0a0;
+            font-size: 1.2em;
+            font-style: italic;
+        }
 
-    nav a:hover { background: #1e2544; }
+        nav {
+            background: #16213e;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #e94560;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
 
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 32px 20px;
-    }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
 
-    section {
-      background: var(--panel);
-      margin-bottom: 40px;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
-    }
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #0f3460;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
 
-    h2 {
-      color: var(--accent);
-      border-bottom: 1px solid #2a3052;
-      padding-bottom: 8px;
-    }
+        nav a:hover {
+            background: #e94560;
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(233, 69, 96, 0.4);
+        }
 
-    h3 { margin-top: 28px; color: #ffd479; }
-    h4 { margin-top: 18px; color: #a5b4fc; }
+        section {
+            background: rgba(22, 33, 62, 0.6);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #e94560;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
 
-    ul { padding-left: 20px; }
+        h2 {
+            color: #e94560;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0f3460;
+            padding-bottom: 10px;
+        }
 
-    .note {
-      background: #0f1426;
-      border-left: 4px solid var(--accent);
-      padding: 12px;
-      margin: 16px 0;
-      color: var(--muted);
-    }
+        h3 {
+            color: #4ecca3;
+            font-size: 1.5em;
+            margin: 25px 0 15px;
+        }
 
-    .warn {
-      background: #1a0f12;
-      border-left: 4px solid var(--danger);
-      padding: 12px;
-      margin: 16px 0;
-    }
+        h4 {
+            color: #ffa500;
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+        }
 
-    .good {
-      background: #0f1a14;
-      border-left: 4px solid var(--good);
-      padding: 12px;
-      margin: 16px 0;
-    }
+        .item-name {
+            color: #af6025;
+            font-weight: bold;
+            font-style: italic;
+        }
 
-    .trade {
-      display: inline-block;
-      margin: 6px 0;
-      color: #7dd3fc;
-      text-decoration: none;
-    }
-  </style>
+        .unique-name {
+            color: #af6025;
+            font-weight: bold;
+        }
+
+        .gem-name {
+            color: #1abc9c;
+            font-weight: bold;
+        }
+
+        .currency {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .tablet {
+            background: rgba(15, 52, 96, 0.5);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #4ecca3;
+        }
+
+        .priority-mandatory {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .priority-optional {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .priority-avoid {
+            color: #95a5a6;
+            font-weight: bold;
+            text-decoration: line-through;
+        }
+
+        .trade-link {
+            display: inline-block;
+            background: #e94560;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 5px 0;
+            transition: all 0.3s;
+        }
+
+        .trade-link:hover {
+            background: #c23b50;
+            transform: scale(1.05);
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        .warning {
+            background: rgba(231, 76, 60, 0.2);
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .tip {
+            background: rgba(78, 204, 163, 0.2);
+            border-left: 4px solid #4ecca3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .craft-step {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 3px solid #1abc9c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #0f3460;
+        }
+
+        th {
+            background: #0f3460;
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background: rgba(15, 52, 96, 0.3);
+        }
+
+        .atlas-passive {
+            background: rgba(233, 69, 96, 0.1);
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border-left: 3px solid #e94560;
+        }
+
+        .drop-rate-low {
+            color: #f39c12;
+        }
+
+        .drop-rate-verylow {
+            color: #e67e22;
+        }
+
+        .drop-rate-extremelylow {
+            color: #e74c3c;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            margin-top: 50px;
+            border-top: 2px solid #0f3460;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>PATH OF EXILE 2 - GUIDE ENDGAME</h1>
+        <p class="subtitle">Early Access 0.4 | Optimisation Atlas, Mécaniques & Crafting</p>
+    </header>
 
-<header>
-  <h1>Path of Exile 2 – Guide Endgame complet (Early Access 0.4)</h1>
-  <nav>
-    <a href="#abyss">Abyss</a>
-    <a href="#breach">Breach</a>
-    <a href="#delirium">Delirium</a>
-    <a href="#expedition">Expedition</a>
-    <a href="#temple">Temple</a>
-    <a href="#bloodmage">Blood Mage</a>
-  </nav>
-</header>
+    <nav>
+        <ul>
+            <li><a href="#abyss">Abyss</a></li>
+            <li><a href="#breach">Breach</a></li>
+            <li><a href="#delirium">Delirium</a></li>
+            <li><a href="#expedition">Expedition</a></li>
+            <li><a href="#temple">Temple of Atzoatl</a></li>
+            <li><a href="#blood-mage">Blood Mage Crafting</a></li>
+            <li><a href="#build-analysis">Analyse Build</a></li>
+        </ul>
+    </nav>
 
-<main>
+    <div class="container">
+        <!-- ABYSS SECTION -->
+        <section id="abyss">
+            <h2>🕳️ ABYSS</h2>
+            
+            <h3>Fonctionnement détaillé</h3>
+            <p>Abyss se déclenche via l'apparition d'un <strong>Abyssal Crack</strong> dans une map. Une fois activé, le crack s'ouvre progressivement en créant un chemin parsemé de monstres spécifiques. Le joueur doit suivre le crack jusqu'à son terme pour maximiser le loot.</p>
+            
+            <p><strong>Déroulement :</strong></p>
+            <ul>
+                <li>Le crack avance automatiquement à intervalles réguliers</li>
+                <li>Des monstres Abyssal spawns sur le parcours</li>
+                <li>Le crack peut soit se terminer par un <strong>Abyssal Trove</strong> (coffre), soit ouvrir un <strong>Abyssal Depths</strong> (zone secondaire)</li>
+                <li>Les Abyssal Depths contiennent un boss (<strong>Stygian Spire</strong>) et du loot supplémentaire</li>
+            </ul>
 
-<section>
-<h2>Philosophie du guide</h2>
-<p>
-Guide rédigé en <strong>français</strong>. Tous les éléments liés au jeu sont conservés en <strong>anglais</strong> :
-items, gemmes, mécaniques, Atlas passives, NPC, currencies.
-</p>
-<p>
-Objectif : expliquer <strong>ce qui rapporte vraiment</strong>, ce qui est une perte de temps,
-et comment optimiser chaque mécanique en solo mapping patch 0.4.
-</p>
-</section>
+            <div class="tip">
+                <strong>Optimisation :</strong> La vitesse de déplacement est critique. Un build trop lent peut perdre le crack et manquer le loot final.
+            </div>
 
-<section id="abyss">
-<h2>Abyss</h2>
+            <h3>Tablets recommandées</h3>
+            
+            <div class="tablet">
+                <h4>Abyssal Army</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente le nombre de monstres spawns dans l'Abyss. Plus de mobs = plus de loot, plus d'XP, et meilleure densité pour les builds AoE.</p>
+            </div>
 
-<h3>Fonctionnement détaillé</h3>
-<p>
-Abyss génère une fissure qui progresse sur la map et déclenche plusieurs vagues de monstres.
-En Path of Exile 2 (0.4), la mécanique est pensée pour récompenser le <strong>clear constant</strong>.
-Si la fissure s’arrête trop longtemps, elle se ferme prématurément et réduit les récompenses.
-</p>
+            <div class="tablet">
+                <h4>Bottomless Pit</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente significativement les chances d'ouvrir un Abyssal Depths au lieu d'un simple coffre. Les Depths contiennent le vrai loot et les Uniques spécifiques.</p>
+            </div>
 
-<h3>Tablets Abyss – lesquelles prendre</h3>
-<ul>
-<li><strong>Abyssal Reach Tablet</strong> : augmente la longueur de l’Abyss → PRIORITÉ ABSOLUE</li>
-<li><strong>Abyssal Trove Tablet</strong> : chance supplémentaire de coffres abyssaux</li>
-<li><strong>Abyss Monster Density Tablet</strong> : plus de monstres = plus d’XP</li>
-</ul>
-<div class="warn">Éviter toute Tablet réduisant la vitesse de progression de l’Abyss.</div>
+            <div class="tablet">
+                <h4>Lightless Legion</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Augmente la quantité d'items droppés par les monstres Abyssal. Rentable uniquement si vous farmez activement Abyss en masse.</p>
+            </div>
 
-<h3>Loot réel et rentabilité</h3>
-<ul>
-<li>Jewels Abyss (flat life, flat damage)</li>
-<li>XP stable mais pas explosive</li>
-<li>Très peu de currency brute</li>
-</ul>
+            <div class="tablet">
+                <h4>Stygian Spire</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Améliore le loot du boss final dans les Abyssal Depths. Utile pour farm les Uniques spécifiques mais demande un build capable de tuer le boss rapidement.</p>
+            </div>
 
-<h3>Uniques Abyss (anglais)</h3>
-<ul>
-<li><strong>Tombfist</strong> – Drop chance : Faible</li>
-<li><strong>Lightpoacher</strong> – Drop chance : Très faible</li>
-</ul>
-<div class="note">Abyss ne permet PAS de target-farm efficacement un unique précis.</div>
+            <div class="tablet">
+                <h4>Abyssal Jewels</h4>
+                <p><span class="priority-avoid">À ÉVITER</span></p>
+                <p>En patch 0.4, les Abyssal Jewels ne sont pas suffisamment puissantes pour justifier un investissement Atlas. Privilégiez les Tablets qui augmentent la quantité globale de loot.</p>
+            </div>
 
-<h3>Atlas Tree – optimal Abyss</h3>
-<ul>
-<li>Chance for Abyss on Maps</li>
-<li>Abysses have increased Depth</li>
-<li>Abysses spawn additional Troves</li>
-<li>Abysses grant increased Experience</li>
-</ul>
-</section>
+            <h3>Loot & Rentabilité</h3>
+            
+            <h4>Ce que rapporte Abyss</h4>
+            <ul>
+                <li><strong>XP :</strong> Densité correcte, mais inférieure à Breach ou Delirium</li>
+                <li><strong>Currency :</strong> Drop standard, rien d'exceptionnel sans Tablets</li>
+                <li><strong>Abyssal Jewels :</strong> Valeur faible en 0.4, marché saturé</li>
+                <li><strong>Uniques spécifiques :</strong> Seule vraie raison de farm Abyss en 0.4</li>
+            </ul>
 
-<section id="breach">
-<h2>Breach</h2>
+            <h4>Rentabilité</h4>
+            <p><strong>Rentable si :</strong></p>
+            <ul>
+                <li>Vous ciblez des Uniques spécifiques (Darkness Enthroned, Tombfist)</li>
+                <li>Vous avez les Tablets <em>Bottomless Pit</em> + <em>Abyssal Army</em></li>
+                <li>Votre build peut clear rapidement sans perdre le crack</li>
+            </ul>
 
-<h3>Fonctionnement détaillé</h3>
-<p>
-Breach ouvre une zone circulaire temporaire remplie de monstres.
-La durée dépend directement de ta capacité à tuer rapidement.
-En 0.4, Breach reste une mécanique <strong>top tier densité</strong>.
-</p>
+            <p><strong>Non rentable si :</strong></p>
+            <ul>
+                <li>Build trop lent (le crack disparaît)</li>
+                <li>Vous ne ciblez pas les Uniques spécifiques</li>
+                <li>Pas d'investissement Atlas (les Troves seuls ne rapportent presque rien)</li>
+            </ul>
 
-<h3>Tablets Breach – lesquelles prendre</h3>
-<ul>
-<li><strong>Breach Expansion Tablet</strong> : la Breach s’ouvre plus vite → OBLIGATOIRE</li>
-<li><strong>Breach Duration Tablet</strong> : durée augmentée</li>
-<li><strong>Breach Splinter Tablet</strong> : plus de splinters</li>
-</ul>
-<div class="good">Plus la Breach est rapide, plus elle est rentable.</div>
+            <h3>Uniques spécifiques</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unique</th>
+                        <th>Slot</th>
+                        <th>Drop Rate</th>
+                        <th>Valeur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="unique-name">Darkness Enthroned</td>
+                        <td>Belt (Stygian Vise)</td>
+                        <td class="drop-rate-verylow">Très faible</td>
+                        <td>Élevée si bon roll</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Tombfist</td>
+                        <td>Gloves</td>
+                        <td class="drop-rate-verylow">Très faible</td>
+                        <td>Moyenne à élevée</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Lightpoacher</td>
+                        <td>Helmet</td>
+                        <td class="drop-rate-low">Faible</td>
+                        <td>Faible</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Shroud of the Lightless</td>
+                        <td>Chest</td>
+                        <td class="drop-rate-extremelylow">Extrêmement faible</td>
+                        <td>Très élevée</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<h3>Récompenses</h3>
-<ul>
-<li>Breach Splinters → Breachstones</li>
-<li>Breach-specific Uniques</li>
-<li>Très bonne XP</li>
-</ul>
+            <div class="warning">
+                <strong>Attention :</strong> Les taux de drop sont estimatifs. Aucune donnée officielle n'existe. Ces Uniques peuvent prendre des centaines de maps avant de drop, même avec optimisation Atlas.
+            </div>
 
-<h3>Uniques Breach (anglais)</h3>
-<ul>
-<li><strong>Skin of the Loyal</strong> – Drop chance : Faible</li>
-<li><strong>United in Dream</strong> – Drop chance : Très faible</li>
-<li><strong>Presence of Chayula</strong> – Drop chance : Extrêmement faible</li>
-</ul>
+            <h3>Gemmes (patch 0.4)</h3>
+            <p>Aucune gemme spécifique introduite pour Abyss en 0.4. Les gemmes AoE standard restent optimales pour clear les packs rapidement.</p>
 
-<h3>Atlas Tree – Breach optimal</h3>
-<ul>
-<li>Maps contain an additional Breach</li>
-<li>Breach opens faster</li>
-<li>Breach monsters drop more Splinters</li>
-</ul>
+            <h3>Atlas Tree</h3>
+            
+            <h4>Setup recommandé</h4>
+            
+            <div class="atlas-passive">
+                <strong>Abyssal Army</strong> - Augmente le nombre de monstres dans Abyss
+                <p>Justification : Densité critique pour XP et loot</p>
+            </div>
 
-<h3>Trade2 – liens filtrés</h3>
-<a class="trade" target="_blank" href="https://www.pathofexile.com/trade2/search/poe2?query={"type":"Skin of the Loyal","status":{"option":"online"}}">Trade2 – Skin of the Loyal (online)</a>
-</section>
+            <div class="atlas-passive">
+                <strong>Bottomless Pit</strong> - Chance accrue d'Abyssal Depths
+                <p>Justification : Les Depths sont la seule source viable de loot Abyss</p>
+            </div>
 
-<section id="delirium">
-<h2>Delirium</h2>
+            <div class="atlas-passive">
+                <strong>Stygian Spire</strong> - Améliore le loot du boss Depths
+                <p>Justification : Maximise les chances de drop Unique</p>
+            </div>
 
-<h3>Fonctionnement détaillé</h3>
-<p>
-Delirium enveloppe la map dans un brouillard augmentant la difficulté à mesure que tu progresses.
-Plus tu avances vite, plus le niveau de récompense monte.
-</p>
+            <h4>À éviter</h4>
+            <ul>
+                <li><strong>Jewel nodes</strong> - Les Abyssal Jewels sont faibles en 0.4</li>
+                <li><strong>Trove nodes</strong> - Les coffres seuls ne justifient pas l'investissement</li>
+            </ul>
 
-<h3>Tablets Delirium recommandées</h3>
-<ul>
-<li><strong>Delirium Reward Tablet</strong> : augmente la quantité de récompenses</li>
-<li><strong>Delirium Fog Duration Tablet</strong> : ralentit la disparition du brouillard</li>
-</ul>
-<div class="warn">À éviter sur builds fragiles ou low DPS.</div>
+            <h3>Liens Trade</h3>
+            <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Abyss Uniques</a>
+            <p><em>Filtrez manuellement par nom d'item. Trade2 en EA 0.4 ne permet pas de pré-filtres complexes.</em></p>
+        </section>
 
-<h3>Loot</h3>
-<ul>
-<li>Delirium Orbs</li>
-<li>High-tier currency</li>
-<li>Stacked Decks</li>
-</ul>
+        <!-- BREACH SECTION -->
+        <section id="breach">
+            <h2>🌀 BREACH</h2>
+            
+            <h3>Fonctionnement détaillé</h3>
+            <p>Breach apparaît sous forme d'une <strong>main violette au sol</strong>. En cliquant dessus, une fissure dimensionnelle s'ouvre, créant un dôme qui s'agrandit au fur et à mesure que vous tuez les monstres Breach à l'intérieur.</p>
+            
+            <p><strong>Mécanique :</strong></p>
+            <ul>
+                <li>Le dôme s'étend tant que vous tuez des monstres rapidement</li>
+                <li>Si vous sortez du dôme ou si le temps s'écoule, la Breach se ferme</li>
+                <li>Chaque Breach appartient à un <strong>Breachlord</strong> spécifique (Xoph, Tul, Esh, Uul-Netol, Chayula)</li>
+                <li>Les monstres droppent des <span class="currency">Splinters</span> qui permettent d'accéder aux domaines des Breachlords (100 Splinters = 1 Breachstone)</li>
+            </ul>
 
-<h3>Atlas Tree – Delirium</h3>
-<ul>
-<li>Chance for Delirium on Maps</li>
-<li>Increased Delirium Rewards</li>
-<li>Delirium fog lasts longer</li>
-</ul>
-</section>
+            <div class="tip">
+                <strong>Optimisation :</strong> La vitesse de clear est TOUT dans Breach. Plus vous tuez vite, plus le dôme s'agrandit, plus vous obtenez de mobs et de Splinters.
+            </div>
 
-<section id="expedition">
-<h2>Expedition</h2>
+            <h3>Tablets recommandées</h3>
+            
+            <div class="tablet">
+                <h4>Breachlord's Dominion</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente drastiquement la taille maximale du dôme Breach. Sans cette Tablet, vous perdez 30-40% du potentiel de loot de chaque Breach.</p>
+            </div>
 
-<h3>Fonctionnement détaillé</h3>
-<p>
-Expedition repose sur le placement d’explosifs autour de Remnants et Runic Monsters.
-Une mauvaise lecture des mods peut rendre la rencontre mortelle.
-</p>
+            <div class="tablet">
+                <h4>Splinter Rain</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente le nombre de Splinters droppés. Essentiel pour accumuler les Breachstones et farmer les Breachlords.</p>
+            </div>
 
-<h3>Tablets Expedition – META</h3>
-<ul>
-<li><strong>Additional Explosives Tablet</strong> : PLUS d’explosifs = PLUS de loot</li>
-<li><strong>Logbook Chance Tablet</strong> : priorité endgame</li>
-<li><strong>Remnant Modifier Tablet</strong> : améliorer les récompenses</li>
-</ul>
+            <div class="tablet">
+                <h4>Breach Monster Pack Size</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Plus de monstres = plus de loot, plus de Splinters, plus d'XP. Non-négociable pour un farm Breach efficace.</p>
+            </div>
 
-<h3>NPC et rentabilité</h3>
-<ul>
-<li><strong>Tujen</strong> – Currency farming (TOP TIER)</li>
-<li><strong>Rog</strong> – Crafting mid-game</li>
-<li><strong>Gwennen</strong> – Gambling (très RNG)</li>
-</ul>
+            <div class="tablet">
+                <h4>Chayula's Presence</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Augmente la fréquence des Breach Chayula (les plus rares et les plus lucratives). Uniquement si vous farmez spécifiquement Chayula pour le <span class="unique-name">Presence of Chayula</span> ou les <span class="currency">Blessing of Chayula</span>.</p>
+            </div>
 
-<h3>Atlas Tree – Expedition</h3>
-<ul>
-<li>More Explosives</li>
-<li>More Remnants</li>
-<li>Increased Logbook drop chance</li>
-</ul>
-</section>
+            <div class="tablet">
+                <h4>Clasped Hands</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Augmente les chances d'avoir 2 Breaches dans une map. Rentable uniquement si votre build peut gérer 2 Breaches complètes sans perte de temps.</p>
+            </div>
 
-<section id="temple">
-<h2>Temple of Atzoatl</h2>
-<p>
-Temple analysé depuis ton lien.
-Objectif principal : salles de corruption et d’upgrade.
-</p>
-<h3>Salles prioritaires</h3>
-<ul>
-<li>Corruption Chamber (Tier 3)</li>
-<li>Gemcutter’s Workshop (Tier 3)</li>
-</ul>
-</section>
+            <h3>Loot & Rentabilité</h3>
+            
+            <h4>Ce que rapporte Breach</h4>
+            <ul>
+                <li><strong>XP :</strong> Excellent. Densité très élevée si bien optimisé</li>
+                <li><strong>Splinters :</strong> Currency principale. Valeur stable pour tous les types</li>
+                <li><strong>Breachstones :</strong> Accès aux boss (loot endgame + Uniques)</li>
+                <li><strong>Blessings :</strong> Droppent des boss, valeur très élevée (surtout Chayula)</li>
+                <li><strong>Uniques :</strong> Certains parmi les plus chers du jeu</li>
+            </ul>
 
-<section id="bloodmage">
-<h2>Blood Mage – Guide de Craft</h2>
-<h3>Philosophie</h3>
-<p>
-Blood Mage scale via Life, Spell Damage et sustain.
-Les crafts doivent privilégier Life + Spell scaling.
-</p>
-<h3>Weapon</h3>
-<ul>
-<li>Base : <strong>High Spell Damage Wand</strong></li>
-<li>Mods : Spell Damage, +Level to Spell Gems</li>
-</ul>
-<a class="trade" target="_blank" href="https://www.pathofexile.com/trade2/search/poe2?q=Wand%20Spell%20Damage">Trade2 – Wand base</a>
+            <h4>Rentabilité</h4>
+            <p><strong>Rentable si :</strong></p>
+            <ul>
+                <li>Build avec clear speed élevé (chainable AoE)</li>
+                <li>Atlas spec complet (Dominion + Splinter Rain + Pack Size)</li>
+                <li>Vous convertissez vos Splinters en Breachstones et les run vous-même</li>
+            </ul>
 
-<h3>Chest</h3>
-<ul>
-<li>Base : <strong>High Armour or ES Chest</strong></li>
-<li>Life, Resistances</li>
-</ul>
-</section>
+            <p><strong>Non rentable si :</strong></p>
+            <ul>
+                <li>Build lent ou single-target focus</li>
+                <li>Vous sortez du dôme trop tôt (perte massive de loot)</li>
+                <li>Pas d'investissement Atlas (Breach vanilla est médiocre)</li>
+            </ul>
 
-</main>
+            <h3>Uniques spécifiques</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unique</th>
+                        <th>Breachlord</th>
+                        <th>Drop Rate</th>
+                        <th>Valeur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="unique-name">Presence of Chayula</td>
+                        <td>Chayula</td>
+                        <td class="drop-rate-extremelylow">Extrêmement faible</td>
+                        <td>Très élevée (chase item)</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Xoph's Blood</td>
+                        <td>Xoph</td>
+                        <td class="drop-rate-verylow">Très faible</td>
+                        <td>Élevée</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Uul-Netol's Vow</td>
+                        <td>Uul-Netol</td>
+                        <td class="drop-rate-verylow">Très faible</td>
+                        <td>Moyenne</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Esh's Mirror</td>
+                        <td>Esh</td>
+                        <td class="drop-rate-verylow">Très faible</td>
+                        <td>Faible à moyenne</td>
+                    </tr>
+                    <tr>
+                        <td class="unique-name">Tul's Patience</td>
+                        <td>Tul</td>
+                        <td class="drop-rate-verylow">Très faible</td>
+                        <td>Faible</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning">
+                <strong>Farming Breachlords :</strong> Il faut 100 Splinters pour 1 Breachstone. Un Breachlord ne garantit PAS de drop Unique. Attendez-vous à des dizaines de runs pour un Unique.
+            </div>
+
+            <h3>Gemmes (patch 0.4)</h3>
+            <p>Aucune gemme spécifique Breach en 0.4. Les builds chainables avec AoE massif restent optimaux :</p>
+            <ul>
+                <li><span class="gem-name">Detonate Dead</span> - Clear exceptionnel pour Breach</li>
+                <li><span class="gem-name">Herald of Ice</span> - Chain explosions</li>
+                <li><span class="gem-name">Profane Bloom</span> (si Occultist) - Explosions automatiques</li>
+            </ul>
+
+            <h3>Atlas Tree</h3>
+            
+            <h4>Setup recommandé</h4>
+            
+            <div class="atlas-passive">
+                <strong>Breachlord's Dominion</strong> - Taille du dôme augmentée
+                <p>Justification : Permet d'atteindre plus de mobs et maximiser chaque Breach</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Splinter Rain</strong> - Plus de Splinters par monstre
+                <p>Justification : Accélère l'accumulation de Breachstones</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Breach Monster Pack Size</strong> - Plus de mobs dans chaque Breach
+                <p>Justification : Densité = XP + Splinters + loot général</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Clasped Hands</strong> (optionnel) - Chance de 2 Breaches par map
+                <p>Justification : Double le retour sur investissement si votre clear le permet</p>
+            </div>
+
+            <h4>À éviter</h4>
+            <ul>
+                <li>Nodes qui favorisent un seul Breachlord (sauf si farm ciblé Chayula)</li>
+                <li>Nodes qui augmentent la difficulté sans retour équivalent</li>
+            </ul>
+
+            <h3>Liens Trade</h3>
+            <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Breach Uniques & Splinters</a>
+            <p><em>Recherchez "Splinter" ou les noms des Uniques directement.</em></p>
+        </section>
+
+        <!-- DELIRIUM SECTION -->
+        <section id="delirium">
+            <h2>🌫️ DELIRIUM</h2>
+            
+            <h3>Fonctionnement détaillé</h3>
+            <p>Delirium se déclenche via un <strong>Mirror of Delirium</strong> qui apparaît au début de la map. En traversant le miroir, toute la map est couverte d'un brouillard gris qui augmente progressivement la difficulté et la densité des mobs.</p>
+            
+            <p><strong>Mécanique :</strong></p>
+            <ul>
+                <li>Le brouillard se dissipe progressivement. Vous devez clear rapidement pour maintenir la <strong>Reward Bar</strong></li>
+                <li>Plus vous tuez vite, plus vous remplissez la barre et débloquez des paliers de récompenses</li>
+                <li>Les paliers incluent : Currency, Splinters, Delirium Orbs, Simulacrum Splinters</li>
+                <li>Si vous êtes trop lent, le brouillard disparaît et vous perdez les récompenses en cours</li>
+                <li>100 <span class="currency">Simulacrum Splinters</span> = 1 <span class="item-name">Simulacrum</span> (endgame wave encounter très lucratif)</li>
+            </ul>
+
+            <div class="tip">
+                <strong>Optimisation :</strong> Delirium récompense UNIQUEMENT la vitesse pure. Build lent = perte totale de récompenses. C'est la mécanique la plus exigeante en clear speed du jeu.
+            </div>
+
+            <h3>Tablets recommandées</h3>
+            
+            <div class="tablet">
+                <h4>Delirium Reward Scaling</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente la vitesse de remplissage de la Reward Bar. Sans cela, impossible d'atteindre les paliers élevés même avec un bon build.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Delirious Mist Duration</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Le brouillard reste plus longtemps, vous donnant plus de temps pour tuer et remplir la barre. Critique pour les builds qui ne sont pas T0 clear speed.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Simulacrum Splinter Chance</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente drastiquement le drop de Simulacrum Splinters. Les Simulacrums sont extrêmement rentables et c'est la vraie raison de farm Delirium.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Delirium Monster Pack Size</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Augmente la densité des mobs Delirium. Utile mais secondaire comparé aux 3 Tablets obligatoires ci-dessus.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Cluster Jewel Chance</h4>
+                <p><span class="priority-avoid">À ÉVITER</span></p>
+                <p>En 0.4, les Cluster Jewels Delirium ont une valeur faible et saturent le marché. Privilégiez les Splinters et les Orbs.</p>
+            </div>
+
+            <h3>Loot & Rentabilité</h3>
+            
+            <h4>Ce que rapporte Delirium</h4>
+            <ul>
+                <li><strong>XP :</strong> Exceptionnel si vous atteignez les paliers élevés</li>
+                <li><strong>Simulacrum Splinters :</strong> Principale source de profit. 1 Simulacrum = 5-15 <span class="currency">Divine Orbs</span> selon récompenses</li>
+                <li><strong>Delirium Orbs :</strong> Permettent de "juicer" vos maps (rentable pour MF)</li>
+                <li><strong>Currency :</strong> Drop massif si paliers élevés atteints</li>
+                <li><strong>Cluster Jewels :</strong> Valeur faible en 0.4</li>
+            </ul>
+
+            <h4>Rentabilité</h4>
+            <p><strong>Rentable si :</strong></p>
+            <ul>
+                <li>Build T0-T1 clear speed (ex: DD Necro, Poison Prolif, Herald of Ice chainer)</li>
+                <li>Atlas full spec Delirium</li>
+                <li>Vous atteignez MINIMUM 5 paliers de récompenses par map</li>
+                <li>Layout de map linéaire et rapide (Strand, Beach, etc.)</li>
+            </ul>
+
+            <p><strong>Non rentable si :</strong></p>
+            <ul>
+                <li>Build moyen ou lent (vous perdez 80% du loot potentiel)</li>
+                <li>Layouts complexes (Cells, Dungeon = perte de temps)</li>
+                <li>Pas d'investissement Atlas (Delirium vanilla est inutile)</li>
+            </ul>
+
+            <div class="warning">
+                <strong>ATTENTION :</strong> Delirium est un "piège" pour les builds moyens. Si vous n'êtes pas certain de votre vitesse, NE SPEC PAS Delirium. C'est la mécanique avec le plus grand écart rentabilité entre un bon et un mauvais build.
+            </div>
+
+            <h3>Uniques spécifiques</h3>
+            
+            <p>Delirium ne droppe PAS d'Uniques spécifiques à la mécanique en 0.4. Le loot provient des paliers de récompenses (Currency, Splinters, Orbs).</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Récompense</th>
+                        <th>Valeur</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="currency">Simulacrum</td>
+                        <td>5-15 Divines</td>
+                        <td>100 Splinters</td>
+                    </tr>
+                    <tr>
+                        <td class="currency">Delirium Orbs (Currency)</td>
+                        <td>50-200 chaos/orb</td>
+                        <td>Paliers de récompenses</td>
+                    </tr>
+                    <tr>
+                        <td class="currency">Delirium Orbs (Scarabs)</td>
+                        <td>30-100 chaos/orb</td>
+                        <td>Paliers de récompenses</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Gemmes (patch 0.4)</h3>
+            <p>Aucune gemme spécifique Delirium. Les builds "chaining" dominent :</p>
+            <ul>
+                <li><span class="gem-name">Detonate Dead</span> + <span class="gem-name">Unearth</span> - Meta Delirium</li>
+                <li><span class="gem-name">Herald of Ice</span> + <span class="gem-name">Chain</span> - Explosions infinies</li>
+                <li><span class="gem-name">Profane Bloom</span> (Occultist) - Clear automatique</li>
+            </ul>
+
+            <h3>Atlas Tree</h3>
+            
+            <h4>Setup recommandé</h4>
+            
+            <div class="atlas-passive">
+                <strong>Delirium Reward Scaling</strong> - Remplissage de barre accéléré
+                <p>Justification : Permet d'atteindre 6-8 paliers au lieu de 3-4</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Delirious Mist Duration</strong> - Le brouillard dure plus longtemps
+                <p>Justification : Plus de temps = plus de mobs = plus de paliers</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Simulacrum Splinter Chance</strong> - Plus de Splinters
+                <p>Justification : Les Simulacrums sont 80% du profit Delirium</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Delirium Monster Pack Size</strong> - Densité augmentée
+                <p>Justification : Plus de mobs = remplissage plus rapide + XP</p>
+            </div>
+
+            <h4>À éviter</h4>
+            <ul>
+                <li>Nodes Cluster Jewel (valeur faible en 0.4)</li>
+                <li>Nodes qui augmentent la difficulté sans récompense claire</li>
+            </ul>
+
+            <h3>Liens Trade</h3>
+            <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Simulacrum & Delirium Orbs</a>
+        </section>
+
+        <!-- EXPEDITION SECTION -->
+        <section id="expedition">
+            <h2>💣 EXPEDITION</h2>
+            
+            <h3>Fonctionnement détaillé</h3>
+            <p>Expedition introduit une mécanique de <strong>placement stratégique d'explosifs</strong>. Vous rencontrez <strong>Dannig</strong> dans vos maps, qui vous propose de détruire des sites archéologiques pour obtenir du loot.</p>
+            
+            <p><strong>Déroulement :</strong></p>
+            <ul>
+                <li>Vous recevez un nombre limité d'explosifs (10-20 selon Tablets)</li>
+                <li>Le site contient des <strong>Remnants</strong> (modificateurs), des <strong>Monster Markers</strong>, et des <strong>Chests</strong></li>
+                <li>Vous devez placer vos explosifs pour maximiser : Remnants → Monsters → Chests</li>
+                <li>Les Remnants modifient les mobs (+ loot, + difficulty, + currency type)</li>
+                <li>Après explosion, vous combattez les mobs et récupérez le loot des coffres</li>
+                <li>Les coffres droppent des <strong>currencies Expedition spécifiques</strong> : <span class="currency">Astragali</span>, <span class="currency">Burial Medallions</span>, <span class="currency">Scrap Metal</span>, <span class="currency">Exotic Coinage</span></li>
+            </ul>
+
+            <div class="tip">
+                <strong>Optimisation :</strong> Expedition récompense la PLANIFICATION. Prenez 30 secondes pour analyser le site avant de placer vos explosifs. Une mauvaise chaîne d'explosions = 50% du loot perdu.
+            </div>
+
+            <h3>Tablets recommandées</h3>
+            
+            <div class="tablet">
+                <h4>More Explosives</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Vous donne 5-8 explosifs supplémentaires par site. Plus d'explosifs = plus de Remnants activés = loot multiplié.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Expedition Monster Pack Size</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente le nombre de mobs par marker. Plus de mobs = plus de loot, surtout si vous avez activé des Remnants currency.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Exotic Coinage Chance</h4>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Augmente le drop d'<span class="currency">Exotic Coinage</span>, la currency la plus précieuse (échange avec Dannig pour reroll vendor). Essentiel pour profit.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Expedition Chest Chance</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Plus de coffres = plus de currencies. Utile mais secondaire comparé aux 3 précédentes.</p>
+            </div>
+
+            <div class="tablet">
+                <h4>Logbook Drop Chance</h4>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Les <span class="item-name">Logbooks</span> sont des maps Expedition dédiées. Très rentables mais demandent du temps. Spec uniquement si vous les run vous-même.</p>
+            </div>
+
+            <h3>Loot & Rentabilité</h3>
+            
+            <h4>Ce que rapporte Expedition</h4>
+            <ul>
+                <li><strong>XP :</strong> Faible à moyen (dépend de votre chaîne d'explosion)</li>
+                <li><strong>Currencies Expedition :</strong>
+                    <ul>
+                        <li><span class="currency">Exotic Coinage</span> → Dannig reroll (chase items)</li>
+                        <li><span class="currency">Burial Medallions</span> → Gwennen gambling (Uniques)</li>
+                        <li><span class="currency">Scrap Metal</span> → Rog crafting (items craftés)</li>
+                        <li><span class="currency">Astragali</span> → Tujen haggling (bulk currency)</li>
+                    </ul>
+                </li>
+                <li><strong>Logbooks :</strong> Maps dédiées, très lucratives</li>
+                <li><strong>Uniques :</strong> Gwennen peut gamble des chase Uniques (Headhunter, Mageblood en PoE1, équivalents en PoE2)</li>
+            </ul>
+
+            <h4>Rentabilité</h4>
+            <p><strong>Rentable si :</strong></p>
+            <ul>
+                <li>Vous comprenez le placement optimal des explosifs</li>
+                <li>Vous priorisez les Remnants currency/quant</li>
+                <li>Vous stockez vos currencies et visitez les NPCs régulièrement</li>
+                <li>Vous run vos Logbooks (ou les vendez au bon prix)</li>
+            </ul>
+
+            <p><strong>Non rentable si :</strong></p>
+            <ul>
+                <li>Vous placez les explosifs au hasard (perte 50-70% du loot)</li>
+                <li>Vous ignorez les Remnants</li>
+                <li>Vous ne visitez jamais Dannig/Gwennen/Rog/Tujen</li>
+            </ul>
+
+            <div class="warning">
+                <strong>Courbe d'apprentissage :</strong> Expedition demande 10-20 sites pour maîtriser le placement. Ne vous découragez pas. Une fois maîtrisé, c'est une des mécaniques les plus rentables du jeu.
+            </div>
+
+            <h3>Uniques spécifiques</h3>
+            
+            <p>Expedition ne droppe pas d'Uniques directement. Les Uniques proviennent de <strong>Gwennen gambling</strong> avec <span class="currency">Burial Medallions</span>.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Loot Type</th>
+                        <th>Valeur</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gwennen</td>
+                        <td>Uniques aléatoires (gambling)</td>
+                        <td>Variable (chase items possibles)</td>
+                    </tr>
+                    <tr>
+                        <td>Rog</td>
+                        <td>Items craftés (rares)</td>
+                        <td>Moyenne à élevée (craft ciblé)</td>
+                    </tr>
+                    <tr>
+                        <td>Tujen</td>
+                        <td>Bulk currency</td>
+                        <td>Stable (haggling requis)</td>
+                    </tr>
+                    <tr>
+                        <td>Dannig</td>
+                        <td>Vendor reroll</td>
+                        <td>Variable (peut contenir chase items)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Gemmes (patch 0.4)</h3>
+            <p>Aucune gemme spécifique Expedition. Focus sur AoE pour clear les packs post-explosion.</p>
+
+            <h3>Atlas Tree</h3>
+            
+            <h4>Setup recommandé</h4>
+            
+            <div class="atlas-passive">
+                <strong>More Explosives</strong> - Explosifs supplémentaires
+                <p>Justification : Plus de couverture = plus de Remnants = loot multiplié</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Expedition Monster Pack Size</strong> - Densité augmentée
+                <p>Justification : Les Remnants currency/quant affectent tous les mobs</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Exotic Coinage Chance</strong> - Plus de Coinage
+                <p>Justification : Dannig reroll = meilleure source de profit Expedition</p>
+            </div>
+
+            <div class="atlas-passive">
+                <strong>Logbook Drop Chance</strong> (optionnel)
+                <p>Justification : Logbooks = 50-200 chaos/run si bien optimisés</p>
+            </div>
+
+            <h4>Stratégie de placement</h4>
+            <ol>
+                <li><strong>Scannez tous les Remnants</strong> avant de placer le 1er explosif</li>
+                <li><strong>Priorisez</strong> : Currency > Quantity > Pack Size</li>
+                <li><strong>Évitez</strong> : Monster life (sauf si build tanky), Reflect</li>
+                <li><strong>Chaînez</strong> : Remnants → Monsters → Chests</li>
+                <li><strong>Maximisez</strong> le nombre de Remnants actifs AVANT de toucher les mobs</li>
+            </ol>
+
+            <h3>Liens Trade</h3>
+            <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Logbooks & Expedition Currencies</a>
+        </section>
+
+        <!-- TEMPLE OF ATZOATL SECTION -->
+        <section id="temple">
+            <h2>🏛️ TEMPLE OF ATZOATL</h2>
+            
+            <h3>Analyse du Temple</h3>
+            <p>Basé sur le layout : <a href="https://sulozor.github.io/#/atziri-temple?t=ACFIIUghSCFIIUhgOWA5YDlgSCE5ESkRKRE5IUhgKQCYACkySCE5EjEAeRFpIUhgcGl6cClwSCE5eXpwMRJ6IUgyaXBhOXGASCIxOWEIQGkxIg" target="_blank" class="trade-link">Voir le Temple</a></p>
+
+            <h3>Principe de base</h3>
+            <p>Le Temple d'Atzoatl fonctionne sur un système d'<strong>Incursions</strong> (11 au total) qui permettent de modifier le temple final avant de le run.</p>
+            
+            <p><strong>Mécanisme :</strong></p>
+            <ul>
+                <li>Chaque Incursion vous téléporte dans le passé pendant quelques secondes</li>
+                <li>Vous devez tuer un <strong>Architect</strong> pour upgrade/change la room</li>
+                <li>Vous avez 2 Architects par room : 1 upgrade, 1 downgrade</li>
+                <li>Tuer le bon Architect = la room évolue dans la bonne direction</li>
+                <li>Tuer les mobs ouvre les <strong>Stone Doors</strong> (connections entre rooms)</li>
+            </ul>
+
+            <div class="warning">
+                <strong>ATTENTION :</strong> Une fois une Incursion terminée, son résultat est PERMANENT pour ce Temple. Vous ne pouvez PAS revenir en arrière.
+            </div>
+
+            <h3>Analyse salle par salle</h3>
+            
+            <h4>Salles prioritaires (OBLIGATOIRES)</h4>
+            
+            <div class="tablet">
+                <strong>Corruption Chamber (T3 : Locus of Corruption)</strong>
+                <p><span class="priority-mandatory">PRIORITÉ ABSOLUE</span></p>
+                <p>Double corruption sur items. Peut créer des items valant plusieurs Mirrors ou bricker des items chers. C'est LA raison principale de run le Temple.</p>
+                <p><strong>Objectif :</strong> Upgrade à T3 coûte que coûte</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Gemcutter's Workshop (T3 : Doryani's Institute)</strong>
+                <p><span class="priority-mandatory">PRIORITÉ ABSOLUE</span></p>
+                <p>Double corruption sur gemmes. En PoE2 EA 0.4, certaines gemmes peuvent valoir des Divines si bien corrompues.</p>
+                <p><strong>Objectif :</strong> Upgrade à T3</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Vault (T3 : Treasury)</strong>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Énorme quantité de currency. C'est la principale source de profit brut du Temple.</p>
+                <p><strong>Objectif :</strong> Upgrade à T3 + ouvrir toutes les connexions vers cette room</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Strongbox Room (T3 : Court of Sealed Death)</strong>
+                <p><span class="priority-mandatory">OBLIGATOIRE</span></p>
+                <p>Plusieurs strongboxes avec quantité/qualité augmentées. Loot massif.</p>
+                <p><strong>Objectif :</strong> Upgrade à T3</p>
+            </div>
+
+            <h4>Salles secondaires (OPTIONNELLES)</h4>
+            
+            <div class="tablet">
+                <strong>Sacrificial Chamber (T3 : Apex of Ascension)</strong>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Accès au fight Atziri. En 0.4, Atziri droppe des Uniques de valeur moyenne. Intéressant si vous farmez spécifiquement ses items.</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Map Room (T3 : Hall of Lords)</strong>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Droppe des maps. Valeur correcte si vous manquez de sustain maps.</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Tempest Generator (T3 : Conduit of Lightning)</strong>
+                <p><span class="priority-optional">OPTIONNELLE</span></p>
+                <p>Enchantements. En 0.4, valeur faible sauf meta enchants spécifiques.</p>
+            </div>
+
+            <h4>Salles à ÉVITER</h4>
+            
+            <div class="tablet">
+                <strong>Pools of Restoration</strong>
+                <p><span class="priority-avoid">INUTILE</span></p>
+                <p>Régénération de vie. Aucune valeur endgame.</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Flame Workshop</strong>
+                <p><span class="priority-avoid">INUTILE</span></p>
+                <p>Explosions de feu. Dangereux pour votre XP, aucun loot supplémentaire.</p>
+            </div>
+
+            <div class="tablet">
+                <strong>Lightning Workshop</strong>
+                <p><span class="priority-avoid">INUTILE</span></p>
+                <p>Décharges électriques. Même problème que Flame Workshop.</p>
+            </div>
+
+            <h3>Ordre de priorité des Incursions</h3>
+            
+            <ol>
+                <li><strong>Incursion 1-3 :</strong> Identifier où sont Corruption Chamber et Gemcutter's Workshop. Commencer à les upgrade.</li>
+                <li><strong>Incursion 4-6 :</strong> Continuer upgrade des 2 salles prioritaires. Ouvrir les connexions vers le centre.</li>
+                <li><strong>Incursion 7-8 :</strong> Upgrade Vault et Strongbox Room si accessibles.</li>
+                <li><strong>Incursion 9-11 :</strong> Finaliser les T3, ouvrir les dernières connexions critiques.</li>
+            </ol>
+
+            <div class="tip">
+                <strong>Astuce :</strong> Ne vous acharnez PAS sur une room isolée. Si elle n'a aucune connexion vers le centre, abandonnez-la. Mieux vaut upgrade une room accessible à 100% qu'une room T3 inaccessible.
+            </div>
+
+            <h3>Erreurs irréversibles à éviter</h3>
+            
+            <ul>
+                <li><strong>Tuer le mauvais Architect</strong> : Vérifiez TOUJOURS quel Architect upgrade/downgrade avant de tuer</li>
+                <li><strong>Ignorer les Stone Doors</strong> : Une room T3 inaccessible = room perdue</li>
+                <li><strong>Upgrade des rooms inutiles</strong> : N'upgrade PAS Pools of Restoration ou les Workshops</li>
+                <li><strong>Pas assez de temps</strong> : Si build lent, focus sur tuer l'Architect uniquement, ignorez les mobs</li>
+            </ul>
+
+            <h3>Résultat final optimal</h3>
+            
+            <p><strong>Temple parfait :</strong></p>
+            <ul>
+                <li>Locus of Corruption (T3) → ACCESSIBLE</li>
+                <li>Doryani's Institute (T3) → ACCESSIBLE</li>
+                <li>Treasury (T3) → ACCESSIBLE avec toutes connexions ouvertes</li>
+                <li>Court of Sealed Death (T3) → ACCESSIBLE</li>
+                <li>Apex of Ascension (T3) → OPTIONNEL si vous voulez run Atziri</li>
+            </ul>
+
+            <p><strong>Valeur estimée :</strong> 2-10 Divines par Temple optimisé (selon corruptions réussies)</p>
+
+            <h3>Liens Trade</h3>
+            <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Temple Items & Atziri Uniques</a>
+        </section>
+
+        <!-- BLOOD MAGE CRAFTING SECTION -->
+        <section id="blood-mage">
+            <h2>🩸 BLOOD MAGE - GUIDE DE CRAFT COMPLET</h2>
+            
+            <div class="warning">
+                <strong>Philosophie du crafting Blood Mage :</strong> Blood Mage scale sur Life, Energy Shield, et Spell Damage. Chaque slot doit maximiser ces stats + résistances. Le crafting en 0.4 repose sur : Essence spam → Regal → Master craft → Exalt (si budget).
+            </div>
+
+            <h3>WEAPON : Sceptre / Wand</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Opal Sceptre</p>
+            <p><strong>Pourquoi :</strong> +Elemental Damage implicite. Blood Mage joue majoritairement du Spell Damage élémental.</p>
+            <p><strong>iLvl requis :</strong> 68+ (accès aux T1 mods)</p>
+
+            <div class="craft-step">
+                <strong>Étape 1 :</strong> Acheter la base
+                <p>Recherchez <span class="item-name">Opal Sceptre iLvl 68+</span> white (non-corrupted).</p>
+                <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Opal Sceptre</a>
+            </div>
+
+            <div class="craft-step">
+                <strong>Étape 2 :</strong> Essence spam
+                <p>Utilisez <span class="currency">Essence of Woe</span> (garantit +Spell Damage) jusqu'à obtenir :</p>
+                <ul>
+                    <li>T1-T2 Spell Damage (priorité absolue)</li>
+                    <li>+Life ou +Energy Shield (idéal)</li>
+                    <li>Cast Speed ou Crit Chance (bonus)</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Étape 3 :</strong> Regal si Magic
+                <p>Si l'item est Magic avec 2 bons mods, utilisez <span class="currency">Regal Orb</span> pour le passer Rare.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Étape 4 :</strong> Master craft
+                <p>Bench craft : +Cast Speed, +Spell Crit, ou +Elemental Damage selon slots libres.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Alternative moins chère :</strong>
+                <p>Achetez directement un <span class="item-name">Opal Sceptre</span> avec Spell Damage + 1-2 mods corrects sur Trade. Coût : 20-100 chaos selon rolls.</p>
+                <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Opal Sceptre craftés</a>
+            </div>
+
+            <h3>HELMET</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Hubris Circlet</p>
+            <p><strong>Pourquoi :</strong> Highest Energy Shield base. Blood Mage hybride Life/ES.</p>
+            <p><strong>iLvl requis :</strong> 68+</p>
+
+            <div class="craft-step">
+                <strong>Méthode :</strong> Essence spam <span class="currency">Essence of Greed</span> (+Life garanti)
+                <p>Objectif :</p>
+                <ul>
+                    <li>T1-T2 Life</li>
+                    <li>T1-T2 Energy Shield</li>
+                    <li>Résistances (Fire/Cold/Lightning au choix)</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Alternative :</strong>
+                <p class="item-name">Bone Helmet</p>
+                <p>+Minion Damage implicite. Utile si Blood Mage joue SRS ou autre minion build (non-meta en 0.4).</p>
+            </div>
+
+            <h3>CHEST</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Vaal Regalia</p>
+            <p><strong>Pourquoi :</strong> Highest ES base. Core du build hybride.</p>
+            <p><strong>iLvl requis :</strong> 68+</p>
+
+            <div class="craft-step">
+                <strong>Méthode Budget :</strong>
+                <p>Achetez une <span class="item-name">Vaal Regalia 6L</span> avec Life + ES + Résistances. Coût : 1-3 Divines.</p>
+                <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Vaal Regalia 6L</a>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode High-Budget :</strong>
+                <ol>
+                    <li>Acheter base <span class="item-name">Vaal Regalia 6L iLvl 68+</span></li>
+                    <li>Spam <span class="currency">Essence of Greed</span> (Life) ou <span class="currency">Essence of Woe</span> (ES%)</li>
+                    <li>Viser : T1 Life, T1 ES%, T1 Flat ES, Résistances</li>
+                    <li>Exalt si 3-4 T1 mods</li>
+                </ol>
+            </div>
+
+            <h3>GLOVES</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Sorcerer Gloves</p>
+            <p><strong>Pourquoi :</strong> ES base + slot flexible pour utility mods.</p>
+
+            <div class="craft-step">
+                <strong>Mods prioritaires :</strong>
+                <ul>
+                    <li>Life</li>
+                    <li>Energy Shield</li>
+                    <li>Résistances</li>
+                    <li>Cast Speed (si budget)</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode :</strong> Essence spam <span class="currency">Essence of Greed</span> ou achat direct Trade.
+            </div>
+
+            <h3>BOOTS</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Sorcerer Boots</p>
+            <p><strong>Pourquoi :</strong> ES base + Movement Speed implicite.</p>
+
+            <div class="craft-step">
+                <strong>Mods OBLIGATOIRES :</strong>
+                <ul>
+                    <li>30% Movement Speed (non-négociable)</li>
+                    <li>Life</li>
+                    <li>Energy Shield</li>
+                    <li>Résistances</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode :</strong> Achat direct sur Trade. Crafter des boots avec MS + Life + ES + Res coûte 5-10x plus cher que les acheter.
+                <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - ES Boots avec MS</a>
+            </div>
+
+            <h3>RINGS</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Diamond Ring</p>
+            <p><strong>Pourquoi :</strong> +Crit Chance implicite. Blood Mage scale souvent sur crit.</p>
+
+            <div class="craft-step">
+                <strong>Mods prioritaires :</strong>
+                <ul>
+                    <li>Life</li>
+                    <li>Energy Shield</li>
+                    <li>Résistances (cap à 75%)</li>
+                    <li>+Elemental Damage with Attacks/Spells</li>
+                    <li>Mana Regen (si problèmes mana)</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Alternative :</strong>
+                <p class="item-name">Vermillion Ring</p>
+                <p>+Life implicite. Meilleur si vous manquez de Life totale.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode :</strong> Essence spam ou achat Trade. Les rings sont difficiles à crafter (6 mods possibles, RNG élevé).
+            </div>
+
+            <h3>AMULET</h3>
+            
+            <h4>Base recommandée</h4>
+            <p class="item-name">Agate Amulet</p>
+            <p><strong>Pourquoi :</strong> +Life/Mana implicite. Solid all-around.</p>
+
+            <div class="craft-step">
+                <strong>Mods prioritaires :</strong>
+                <ul>
+                    <li>+1 to Level of All Skill Gems (chase mod)</li>
+                    <li>Life</li>
+                    <li>Energy Shield</li>
+                    <li>Crit Chance / Crit Multi</li>
+                    <li>Elemental Damage</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode High-Budget :</strong>
+                <p>Craft +1 Skill Gems via <span class="currency">Orb of Alteration</span> spam → Regal → Exalt. TRÈS coûteux.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode Budget :</strong>
+                <p>Achetez un amulet avec Life + ES + Crit. Coût : 50-200 chaos.</p>
+                <a href="https://www.pathofexile.com/trade2/search/poe2/Standard" class="trade-link" target="_blank">Trade2 - Amulets Life/ES</a>
+            </div>
+
+            <h3>FLASKS</h3>
+            
+            <h4>Setup recommandé</h4>
+            <ol>
+                <li><span class="item-name">Divine Life Flask</span> - Instant recovery</li>
+                <li><span class="item-name">Divine Mana Flask</span> - Sustain mana</li>
+                <li><span class="item-name">Diamond Flask</span> - Crit Chance</li>
+                <li><span class="item-name">Quicksilver Flask</span> - Movement Speed</li>
+                <li><span class="item-name">Bismuth Flask</span> - All Res (si manque cap)</li>
+            </ol>
+
+            <div class="craft-step">
+                <strong>Mods de Flask à rouler :</strong>
+                <ul>
+                    <li>Bleed Immunity (OBLIGATOIRE sur au moins 1 flask)</li>
+                    <li>Freeze Immunity (OBLIGATOIRE)</li>
+                    <li>Curse Immunity (optionnel)</li>
+                    <li>Increased Duration</li>
+                    <li>Increased Charges Gained</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <strong>Méthode :</strong> Spam <span class="currency">Orb of Alteration</span> sur flasks jusqu'à obtenir les suffixes Immunity + Duration/Charges.
+            </div>
+
+            <h3>Récapitulatif Budget</h3>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Slot</th>
+                        <th>Budget Low (Chaos)</th>
+                        <th>Budget High (Divines)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Weapon</td>
+                        <td>50-100</td>
+                        <td>2-5</td>
+                    </tr>
+                    <tr>
+                        <td>Helmet</td>
+                        <td>20-50</td>
+                        <td>1-3</td>
+                    </tr>
+                    <tr>
+                        <td>Chest</td>
+                        <td>100-300</td>
+                        <td>3-10</td>
+                    </tr>
+                    <tr>
+                        <td>Gloves</td>
+                        <td>10-30</td>
+                        <td>0.5-2</td>
+                    </tr>
+                    <tr>
+                        <td>Boots</td>
+                        <td>30-80</td>
+                        <td>1-3</td>
+                    </tr>
+                    <tr>
+                        <td>Rings (x2)</td>
+                        <td>40-100</td>
+                        <td>2-6</td>
+                    </tr>
+                    <tr>
+                        <td>Amulet</td>
+                        <td>50-200</td>
+                        <td>5-20</td>
+                    </tr>
+                    <tr>
+                        <td>Flasks</td>
+                        <td>10-20</td>
+                        <td>0.2-0.5</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Total Budget :</strong></p>
+            <ul>
+                <li>Setup fonctionnel : 300-900 Chaos</li>
+                <li>Setup optimisé : 15-50 Divines</li>
+            </ul>
+        </section>
+
+        <!-- BUILD ANALYSIS SECTION -->
+        <section id="build-analysis">
+            <h2>📊 ANALYSE DU BUILD</h2>
+            
+            <p><strong>PoB Link :</strong> <a href="https://pobb.in/jVx8DCeaNAW8" target="_blank" class="trade-link">https://pobb.in/jVx8DCeaNAW8</a></p>
+
+            <h3>Vue d'ensemble</h3>
+            <p>Ce build est un <strong>Blood Mage hybride Life/ES</strong> focalisé sur <strong>Chaos Damage over Time</strong> via le skill <span class="gem-name">Chaos Bolt</span> ou équivalent.</p>
+
+            <h3>Logique du build</h3>
+            
+            <h4>Défenses</h4>
+            <ul>
+                <li><strong>Life Pool :</strong> ~3000-4000 Life (estimé, à vérifier dans le PoB)</li>
+                <li><strong>Energy Shield :</strong> ~2000-3000 ES (buffer secondaire)</li>
+                <li><strong>Résistances :</strong> Cap 75% Fire/Cold/Lightning (obligatoire)</li>
+                <li><strong>Chaos Res :</strong> Idéalement 0% minimum (négative = danger)</li>
+            </ul>
+
+            <p><strong>Philosophie défensive :</strong> Hybride Life/ES permet d'encaisser des hits grâce au pool combiné. L'ES se recharge naturellement entre packs. La Life est régénérée via flasks + leech/regen sur tree.</p>
+
+            <h4>Offenses</h4>
+            <ul>
+                <li><strong>Main Skill :</strong> Chaos DoT spell (probablement <span class="gem-name">Chaos Bolt</span> ou <span class="gem-name">Essence Drain</span>)</li>
+                <li><strong>Scaling :</strong> Spell Damage, DoT Multi, Chaos Damage, Cast Speed</li>
+                <li><strong>Crit :</strong> Possiblement low-crit ou non-crit (DoT builds scale moins sur crit)</li>
+            </ul>
+
+            <h3>Forces</h3>
+            <ol>
+                <li><strong>Sustain :</strong> Hybride Life/ES offre une survie correcte en maps</li>
+                <li><strong>Clear :</strong> Chaos DoT prolifère naturellement (mobs meurent après application)</li>
+                <li><strong>Boss DPS :</strong> DoT permet de kite tout en maintenant le damage</li>
+                <li><strong>Budget-friendly :</strong> Pas besoin de chase Uniques pour fonctionner</li>
+            </ol>
+
+            <h3>Faiblesses</h3>
+            <ol>
+                <li><strong>One-shots :</strong> Pool Life/ES combiné reste moyen (~5000-7000 EHP). Vulnerable aux gros hits</li>
+                <li><strong>DoT cap :</strong> Chaos DoT plafonne rapidement sans investissement lourd</li>
+                <li><strong>Movement :</strong> Pas de blink skill apparent (à vérifier). Mobilité limitée = danger</li>
+                <li><strong>Chaos Res mobs :</strong> Certains rares/boss ont high Chaos Res = DPS divisé</li>
+            </ol>
+
+            <h3>Items clés</h3>
+            
+            <h4>À crafter</h4>
+            <div class="craft-step">
+                <strong>Weapon (Sceptre/Wand)</strong>
+                <p>Doit avoir : +Spell Damage, +Chaos Damage, +Cast Speed</p>
+                <p>Raison : Impossible de trouver une combinaison optimale sur Trade à bas prix. Craft = meilleur ratio qualité/prix.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Chest (Vaal Regalia)</strong>
+                <p>Si budget limité, achetez. Si 3+ Divines, craftez pour T1 Life + T1 ES.</p>
+            </div>
+
+            <h4>À acheter</h4>
+            <div class="craft-step">
+                <strong>Boots</strong>
+                <p>30% MS + Life + ES + Res. Trop RNG à crafter, achetez directement.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Rings/Amulet</strong>
+                <p>Achetez avec Life + ES + Res. Craft seulement si budget 5+ Divines et recherche de +1 Gems.</p>
+            </div>
+
+            <div class="craft-step">
+                <strong>Helmet/Gloves</strong>
+                <p>Achetez si budget serré. Craftez si vous voulez optimiser (Essence spam peu coûteux).</p>
+            </div>
+
+            <h3>Synergies importantes</h3>
+            
+            <h4>Passive Tree</h4>
+            <ul>
+                <li><strong>Chaos DoT nodes :</strong> Damage over Time Multi, Chaos Damage</li>
+                <li><strong>Life/ES nodes :</strong> Hybride pathing obligatoire</li>
+                <li><strong>Cast Speed :</strong> Permet d'appliquer le DoT plus rapidement</li>
+            </ul>
+
+            <h4>Gemmes</h4>
+            <p><strong>Setup DPS probable :</strong></p>
+            <ul>
+                <li><span class="gem-name">Chaos Bolt</span> (ou main chaos spell)</li>
+                <li><span class="gem-name">Void Manipulation</span> - More Chaos Damage</li>
+                <li><span class="gem-name">Controlled Destruction</span> - More Spell Damage</li>
+                <li><span class="gem-name">Efficacy</span> - DoT Multi + Duration</li>
+                <li><span class="gem-name">Swift Affliction</span> - More DoT, Less Duration</li>
+                <li><span class="gem-name">Empower</span> (si +1 Gems sur gear)</li>
+            </ul>
+
+            <h4>Flasks</h4>
+            <p>Bleed + Freeze immunity OBLIGATOIRES. Sans cela, vous mourrez à des mécaniques évitables.</p>
+
+            <h3>Upgrades recommandés</h3>
+            
+            <ol>
+                <li><strong>+1 to Chaos Skill Gems</strong> sur Amulet ou Weapon (énorme DPS boost)</li>
+                <li><strong>Watcher's Eye</strong> avec Malevolence mod (+DoT Multi while affected)</li>
+                <li><strong>Atziri's Promise</strong> (si pas déjà équipé) - Chaos Damage + Leech</li>
+                <li><strong>Presence of Chayula</strong> (chase item) - Cannot be Stunned + Chaos Res</li>
+            </ol>
+
+            <h3>Modifications suggérées</h3>
+            
+            <div class="warning">
+                <strong>Si le build meurt trop :</strong>
+                <ul>
+                    <li>Augmentez Life à 4000+ minimum</li>
+                    <li>Cap Chaos Res à 0% minimum</li>
+                    <li>Ajoutez <span class="gem-name">Temporal Chains</span> curse (slow mobs)</li>
+                    <li>Investissez dans <span class="gem-name">Immortal Call</span> CWDT setup</li>
+                </ul>
+            </div>
+
+            <div class="tip">
+                <strong>Si le DPS est insuffisant :</strong>
+                <ul>
+                    <li>Passez à un weapon avec +1 Chaos Gems</li>
+                    <li>Remplacez un support par <span class="gem-name">Empower</span> lvl 3+</li>
+                    <li>Spec Atlas pour juice maps (Delirium, Breach pour XP rapide)</li>
+                </ul>
+            </div>
+
+            <h3>Verdict final</h3>
+            
+            <p><strong>Type de build :</strong> Mapper / League Starter viable</p>
+            <p><strong>Budget minimum :</strong> 300-500 Chaos (fonctionnel)</p>
+            <p><strong>Budget optimal :</strong> 10-20 Divines (T16 confortable)</p>
+            
+            <p><strong>Recommandé pour :</strong></p>
+            <ul>
+                <li>Farming Breach (DoT = bon clear)</li>
+                <li>Farming Expedition (kite + DoT = safe)</li>
+                <li>Bossing T14-T16 (avec upgrades)</li>
+            </ul>
+
+            <p><strong>NON recommandé pour :</strong></p>
+            <ul>
+                <li>Delirium (trop lent, DoT ne scale pas avec vitesse)</li>
+                <li>Simulacrum (survie insuffisante sans 10+ Divines investis)</li>
+                <li>Uber bosses (DPS plafonné)</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Guide créé pour Path of Exile 2 Early Access 0.4</p>
+        <p>Dernière mise à jour : Janvier 2026</p>
+        <p>Toutes les informations basées sur le state actuel du jeu. Certaines mécaniques peuvent changer avec les futurs patchs.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll pour la navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
 </body>
 </html>
