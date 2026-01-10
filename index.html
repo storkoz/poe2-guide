@@ -3,19 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Tank - The War Within S3</title>
+    <title>Guide Blood Mage Spark Crit Comet - PoE2 v0.4</title>
     <style>
-        :root {
-            --wow-gold: #f8b700;
-            --wow-dark: #0a0a0f;
-            --wow-darker: #000000;
-            --wow-blue: #00ccff;
-            --wow-accent: #daa520;
-            --wow-legendary: #ff8000;
-            --text-light: #f0e6d2;
-            --season: "The War Within - Saison 3";
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -24,744 +13,1277 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #0a0a0f 50%, #1a1a2e 100%);
-            background-attachment: fixed;
-            color: var(--text-light);
+            background: #0a0a0a;
+            color: #d4d4d4;
             line-height: 1.6;
         }
 
-        header {
+        .header {
+            background: linear-gradient(135deg, #8b0000 0%, #4a0000 100%);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.5);
+            border-bottom: 3px solid #ff4444;
+        }
+
+        .header h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            color: #ffaaaa;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .version-tag {
+            display: inline-block;
+            background: #ff4444;
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        nav {
+            background: #1a1a1a;
+            padding: 1rem;
             position: sticky;
             top: 0;
-            background: linear-gradient(180deg, rgba(10, 10, 15, 0.98) 0%, rgba(0, 0, 0, 0.95) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 3px solid var(--wow-gold);
-            box-shadow: 0 2px 20px rgba(248, 183, 0, 0.3);
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .header-title {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .header-title h1 {
-            color: var(--wow-gold);
-            font-size: 2rem;
-            text-shadow: 0 0 10px rgba(248, 183, 0, 0.5), 2px 2px 4px rgba(0,0,0,0.8);
-            letter-spacing: 1px;
-        }
-
-        .season-tag {
-            color: var(--wow-blue);
-            font-size: 0.9rem;
-            font-weight: normal;
-            text-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         nav ul {
+            list-style: none;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
-            list-style: none;
         }
 
         nav a {
-            color: var(--text-light);
+            color: #ff6666;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--wow-accent);
+            padding: 0.5rem 1.5rem;
             border-radius: 5px;
             transition: all 0.3s;
-            font-weight: 500;
-            background: rgba(218, 165, 32, 0.1);
+            border: 1px solid transparent;
         }
 
         nav a:hover {
-            background: linear-gradient(135deg, var(--wow-gold) 0%, var(--wow-legendary) 100%);
-            color: var(--wow-darker);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(248, 183, 0, 0.5);
-            border-color: var(--wow-gold);
+            background: #8b0000;
+            border-color: #ff4444;
+            color: #fff;
         }
 
         .container {
             max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
 
-        .spec-section {
-            margin: 3rem 0;
+        section {
+            background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+            border-radius: 12px;
             padding: 2rem;
-            background: linear-gradient(135deg, rgba(218, 165, 32, 0.05) 0%, rgba(0, 0, 0, 0.3) 100%);
-            border-radius: 10px;
-            border: 2px solid var(--wow-accent);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(248, 183, 0, 0.1);
-        }
-
-        .spec-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
             margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid var(--wow-gold);
-            box-shadow: 0 2px 10px rgba(248, 183, 0, 0.2);
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
         }
 
-        .spec-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 10px;
-            border: 3px solid var(--wow-gold);
-            box-shadow: 0 0 15px rgba(248, 183, 0, 0.5);
-        }
-
-        .spec-header h2 {
-            color: var(--wow-gold);
+        h2 {
+            color: #ff4444;
             font-size: 2rem;
-            text-shadow: 0 0 10px rgba(248, 183, 0, 0.5), 2px 2px 4px rgba(0,0,0,0.8);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8b0000;
         }
 
-        .subsection {
-            margin: 2rem 0;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(10, 10, 15, 0.4) 100%);
-            border-radius: 8px;
-            border-left: 4px solid var(--wow-blue);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .subsection h3 {
-            color: var(--wow-gold);
-            margin-bottom: 1rem;
+        h3 {
+            color: #ff6666;
             font-size: 1.5rem;
-            text-shadow: 0 0 8px rgba(248, 183, 0, 0.5);
+            margin: 1.5rem 0 1rem 0;
         }
 
-        .talent-block {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(10, 10, 15, 0.6) 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 2px solid var(--wow-accent);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(248, 183, 0, 0.1);
+        h4 {
+            color: #ffaaaa;
+            font-size: 1.2rem;
+            margin: 1rem 0 0.5rem 0;
         }
 
-        .talent-string {
-            background: var(--wow-darker);
-            padding: 1rem;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            color: var(--wow-gold);
-            overflow-x: auto;
-            margin: 1rem 0;
-            position: relative;
-            border: 1px solid var(--wow-accent);
-        }
-
-        .copy-btn {
-            background: linear-gradient(135deg, var(--wow-gold) 0%, var(--wow-legendary) 100%);
-            color: var(--wow-darker);
-            border: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
-            margin-top: 0.5rem;
-            box-shadow: 0 2px 10px rgba(248, 183, 0, 0.4);
-        }
-
-        .copy-btn:hover {
-            background: linear-gradient(135deg, var(--wow-legendary) 0%, var(--wow-gold) 100%);
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(255, 128, 0, 0.6);
-        }
-
-        .ability-grid {
+        .build-tier {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .ability-card {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(10, 10, 15, 0.5) 100%);
+        .tier-card {
+            background: linear-gradient(145deg, #2a1515 0%, #1a0a0a 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid;
+            transition: transform 0.3s;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tier-low {
+            border-color: #4a9eff;
+        }
+
+        .tier-medium {
+            border-color: #ffd700;
+        }
+
+        .tier-high {
+            border-color: #ff4444;
+        }
+
+        .tier-tag {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .tag-low {
+            background: #4a9eff;
+            color: #000;
+        }
+
+        .tag-medium {
+            background: #ffd700;
+            color: #000;
+        }
+
+        .tag-high {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-card {
+            background: #2a2a2a;
             padding: 1rem;
             border-radius: 8px;
-            border: 2px solid var(--wow-blue);
-            transition: all 0.3s;
-            display: flex;
-            gap: 1rem;
-            align-items: start;
+            border-left: 4px solid #ff4444;
         }
 
-        .ability-card:hover {
-            border-color: var(--wow-gold);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(248, 183, 0, 0.4);
-            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1) 0%, rgba(10, 10, 15, 0.6) 100%);
-        }
-
-        .ability-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 5px;
-            border: 2px solid var(--wow-gold);
-            flex-shrink: 0;
-            box-shadow: 0 0 10px rgba(248, 183, 0, 0.3);
-        }
-
-        .ability-info h4 {
-            color: var(--wow-gold);
+        .skill-name {
+            color: #ff6666;
+            font-weight: bold;
+            font-size: 1.1rem;
             margin-bottom: 0.5rem;
         }
 
-        .ability-info p {
+        .skill-supports {
+            color: #aaa;
             font-size: 0.9rem;
-            color: #ccc;
+            margin-top: 0.5rem;
         }
 
-        .stat-priority {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        .stat-table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 1rem 0;
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .stat-item {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.8rem;
-            border-radius: 5px;
-            border-left: 3px solid var(--wow-gold);
-        }
-
-        .stat-item strong {
-            color: var(--wow-accent);
-        }
-
-        .placeholder-text {
-            color: #888;
-            font-style: italic;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, rgba(0, 204, 255, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%);
-            border-left: 4px solid var(--wow-blue);
+        .stat-table th {
+            background: #8b0000;
+            color: #fff;
             padding: 1rem;
+            text-align: left;
+        }
+
+        .stat-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .stat-table tr:hover {
+            background: #2a2a2a;
+        }
+
+        .accordion {
             margin: 1rem 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 204, 255, 0.2);
+        }
+
+        .accordion-header {
+            background: #2a2a2a;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            border: 1px solid #444;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background: #3a3a3a;
+            border-color: #ff4444;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+
+        .accordion-content.active {
+            max-height: 2000px;
+            padding: 1rem 1.5rem;
+        }
+
+        .unique-item {
+            background: #3a2020;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #af6025;
+            margin: 0.5rem 0;
+        }
+
+        .unique-name {
+            color: #af6025;
+            font-weight: bold;
+        }
+
+        .drop-rate {
+            color: #ffcc00;
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        .price {
+            color: #4ecdc4;
+            font-weight: bold;
+            margin-top: 0.5rem;
         }
 
         .warning-box {
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%);
-            border-left: 4px solid #e74c3c;
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(139, 0, 0, 0.2) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #ff4444;
+            margin: 1.5rem 0;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.2) 0%, rgba(33, 150, 243, 0.2) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #4a9eff;
+            margin: 1.5rem 0;
+        }
+
+        .temple-layout {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border: 2px solid #8b0000;
+        }
+
+        .temple-room {
+            background: #2a2a2a;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            border-left: 4px solid #ff6666;
+        }
+
+        .craft-step {
+            background: #2a2a2a;
             padding: 1rem;
             margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .step-number {
+            background: #ffd700;
+            color: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .cost-estimate {
+            background: #1a3a1a;
+            color: #4eff4e;
+            padding: 0.5rem 1rem;
             border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(231, 76, 60, 0.2);
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            background: #0a0a0a;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #333;
+            margin-top: 3rem;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
+            .header h1 {
+                font-size: 1.8rem;
             }
             
             nav ul {
                 flex-direction: column;
-                align-items: center;
             }
             
-            .spec-header {
-                flex-direction: column;
-                text-align: center;
+            .build-tier {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1rem;
             }
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .patch-category {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(10, 10, 15, 0.4) 100%);
+        .pobb-link {
+            background: #8b0000;
+            color: #fff;
+            padding: 1rem 2rem;
             border-radius: 8px;
-            border-left: 4px solid var(--wow-gold);
+            display: inline-block;
+            text-decoration: none;
+            margin: 1rem 0;
+            transition: all 0.3s;
         }
 
-        .patch-category h4 {
-            color: var(--wow-gold);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+        .pobb-link:hover {
+            background: #ff4444;
+            transform: scale(1.05);
         }
-
-        .patch-item {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        .buff-item { border-left-color: #2ecc71; }
-        .nerf-item { border-left-color: #e74c3c; }
-        .adjust-item { border-left-color: var(--wow-blue); }
     </style>
-    <script>
-        // Gestion du cache pour les patch notes
-        const CACHE_KEY = 'paladin_patch_notes';
-        const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 heures
-
-        function getCachedPatchNotes() {
-            const cached = localStorage.getItem(CACHE_KEY);
-            if (!cached) return null;
-            
-            const data = JSON.parse(cached);
-            const now = Date.now();
-            
-            if (now - data.timestamp > CACHE_DURATION) {
-                localStorage.removeItem(CACHE_KEY);
-                return null;
-            }
-            
-            return data.content;
-        }
-
-        function setCachedPatchNotes(content) {
-            const data = {
-                content: content,
-                timestamp: Date.now()
-            };
-            localStorage.setItem(CACHE_KEY, JSON.stringify(data));
-        }
-
-        async function loadPatchNotes() {
-            const patchContent = document.getElementById('patch-content');
-            
-            // Vérifier le cache d'abord
-            const cached = getCachedPatchNotes();
-            if (cached) {
-                patchContent.innerHTML = cached;
-                return;
-            }
-
-            try {
-                // Recherche des derniers patch notes
-                const response = await fetch("https://api.anthropic.com/v1/messages", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        model: "claude-sonnet-4-20250514",
-                        max_tokens: 1000,
-                        messages: [{
-                            role: "user",
-                            content: `Recherche les derniers patch notes de World of Warcraft The War Within pour le Paladin Protection (tank). Je veux uniquement les changements les plus récents (dernier patch ou hotfix). 
-
-Formate ta réponse EXACTEMENT comme ceci en HTML, sans aucun texte avant ou après :
-
-<div style="padding: 1rem;">
-<h3 style="color: var(--wow-gold); margin-bottom: 1rem;">Patch X.X.X - [Date]</h3>
-
-<div class="patch-category buff-item">
-<h4>🔼 BUFFS</h4>
-<div class="patch-item">• [Sort] : [Description du buff]</div>
-</div>
-
-<div class="patch-category nerf-item">
-<h4>🔽 NERFS</h4>
-<div class="patch-item">• [Sort] : [Description du nerf]</div>
-</div>
-
-<div class="patch-category adjust-item">
-<h4>⚖️ AJUSTEMENTS</h4>
-<div class="patch-item">• [Sort] : [Description]</div>
-</div>
-</div>
-
-Si aucun changement récent, écris : <p style="text-align: center; color: var(--wow-accent);">✅ Aucun changement récent pour le Paladin Protection.</p>`
-                        }],
-                        tools: [{
-                            type: "web_search_20250305",
-                            name: "web_search"
-                        }]
-                    })
-                });
-
-                const data = await response.json();
-                
-                // Extraire le contenu texte
-                let content = '';
-                if (data.content && data.content.length > 0) {
-                    content = data.content
-                        .filter(item => item.type === 'text')
-                        .map(item => item.text)
-                        .join('');
-                }
-
-                if (!content) {
-                    content = '<p style="text-align: center; color: var(--wow-accent);">✅ Aucun changement récent détecté.</p>';
-                }
-
-                // Mettre en cache et afficher
-                setCachedPatchNotes(content);
-                patchContent.innerHTML = content;
-
-            } catch (error) {
-                console.error('Erreur lors du chargement des patch notes:', error);
-                patchContent.innerHTML = `
-                    <div class="warning-box">
-                        <strong>⚠️ Erreur de chargement</strong>
-                        <p>Impossible de récupérer les derniers patch notes. Réessayez plus tard.</p>
-                    </div>
-                `;
-            }
-        }
-
-        function copyToClipboard(elementId) {
-            const element = document.getElementById(elementId);
-            const text = element.textContent.trim();
-            
-            navigator.clipboard.writeText(text).then(() => {
-                const btn = element.nextElementSibling;
-                const originalText = btn.textContent;
-                btn.textContent = '✅ Copié !';
-                btn.style.background = '#2ecc71';
-                
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                    btn.style.background = '';
-                }, 2000);
-            }).catch(err => {
-                alert('Erreur lors de la copie : ' + err);
-            });
-        }
-
-        // Charger les patch notes au chargement de la page
-        window.addEventListener('DOMContentLoaded', () => {
-            loadPatchNotes();
-        });
-    </script>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-title">
-                <h1>Guide Tank <span class="season-tag">- The War Within S3</span></h1>
-                <p style="font-size: 0.85rem; color: var(--wow-accent); margin-top: 0.5rem;">Par Storkoz</p>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#patch-notes">Derniers Changements</a></li>
-                    <li><a href="#paladin">Paladin Protection</a></li>
-                    <li><a href="#dk">Chevalier de la Mort</a></li>
-                    <li><a href="#dh">Chasseur de Démons</a></li>
-                    <li><a href="#monk">Moine</a></li>
-                    <li><a href="#warrior">Guerrier</a></li>
-                    <li><a href="#druid">Druide</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="header">
+        <h1>⚡ Blood Mage Spark Crit Comet</h1>
+        <div class="subtitle">Guide Complet - Witch Blood Mage</div>
+        <span class="version-tag">Version 0.4 Early Access</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#overview">Vue d'ensemble</a></li>
+            <li><a href="#builds">Progression Build</a></li>
+            <li><a href="#skills">Setup Skills</a></li>
+            <li><a href="#gamemodes">Modes de Jeu</a></li>
+            <li><a href="#temple">Temple Atzoatl</a></li>
+            <li><a href="#crafting">Guide Craft</a></li>
+            <li><a href="#upgrades">Optimisations</a></li>
+        </ul>
+    </nav>
 
     <div class="container">
-        <!-- SECTION PATCH NOTES AUTOMATIQUE -->
-        <section class="spec-section" id="patch-notes" style="margin-top: 2rem;">
-            <div class="spec-header">
-                <img src="https://render.worldofwarcraft.com/us/icons/56/inv_scroll_10.jpg" alt="Patch Notes" class="spec-icon">
-                <h2>Derniers Changements</h2>
-            </div>
+        <section id="overview">
+            <h2>🎯 Vue d'ensemble du Build</h2>
             
-            <div id="patch-content" class="subsection">
-                <div style="text-align: center; padding: 2rem;">
-                    <div class="loading-spinner" style="display: inline-block; width: 40px; height: 40px; border: 4px solid rgba(248, 183, 0, 0.3); border-top: 4px solid var(--wow-gold); border-radius: 50%; animation: spin 1s linear infinite;"></div>
-                    <p style="margin-top: 1rem; color: var(--wow-accent);">Chargement des derniers patch notes...</p>
+            <div class="tip-box">
+                <h4>💡 Concept du Build</h4>
+                <p>Le Blood Mage Spark Crit Comet exploite la synergie entre <strong>Spark</strong> (projectile lightning) et <strong>Comet</strong> (AOE cold) pour créer un build hybrid extrêmement puissant. La mécanique Blood Magic convertit votre mana en life, permettant de réserver tout votre life pool pour des auras massives tout en castant avec la vie.</p>
+            </div>
+
+            <a href="https://pobb.in/jVx8DCeaNAW8" target="_blank" class="pobb-link">📊 Voir le build complet sur PoB</a>
+
+            <h3>Forces du build</h3>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>🔥 <strong>DPS extrême</strong> : Spark + Comet offrent un clear speed et un boss DPS exceptionnels</li>
+                <li>⚡ <strong>Synergies élémentaires</strong> : Lightning et Cold damage se complètent parfaitement</li>
+                <li>🛡️ <strong>Defenses solides</strong> : High ES pool, regen, et layered defenses</li>
+                <li>💰 <strong>Scaling accessible</strong> : Fonctionne avec budget low, excellent avec investment</li>
+                <li>🎯 <strong>Polyvalent</strong> : Excellent en mapping ET en bossing</li>
+            </ul>
+
+            <h3>Faiblesses à gérer</h3>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li>⚠️ Dépendance à la vie pour caster (Blood Magic)</li>
+                <li>⚠️ Positionnement crucial (glass cannon à bas budget)</li>
+                <li>⚠️ Nécessite bonne compréhension des mechanics</li>
+                <li>⚠️ Items spécifiques requis pour version finale</li>
+            </ul>
+
+            <h3>Stats cibles (High Budget)</h3>
+            <table class="stat-table">
+                <tr>
+                    <th>Stat</th>
+                    <th>Valeur cible</th>
+                    <th>Notes</th>
+                </tr>
+                <tr>
+                    <td>Life</td>
+                    <td>3500-4500</td>
+                    <td>Avec Blood Magic, c'est aussi votre mana pool</td>
+                </tr>
+                <tr>
+                    <td>Energy Shield</td>
+                    <td>2000-3000</td>
+                    <td>Layer défensif principal</td>
+                </tr>
+                <tr>
+                    <td>Crit Chance</td>
+                    <td>60-75%</td>
+                    <td>Essentiel pour DPS</td>
+                </tr>
+                <tr>
+                    <td>Crit Multi</td>
+                    <td>350-450%</td>
+                    <td>Plus = mieux</td>
+                </tr>
+                <tr>
+                    <td>Cast Speed</td>
+                    <td>3-4 casts/sec</td>
+                    <td>Pour smooth gameplay</td>
+                </tr>
+                <tr>
+                    <td>Elemental Resistances</td>
+                    <td>75%/75%/75%</td>
+                    <td>Cap obligatoire</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="builds">
+            <h2>📈 Progression du Build</h2>
+
+            <div class="build-tier">
+                <div class="tier-card tier-low">
+                    <span class="tier-tag tag-low">LOW BUDGET - Starter</span>
+                    <h3>Budget: 5-15 Exalts</h3>
+                    
+                    <h4>Items Essentiels</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Tabula Rasa</div>
+                        <div>6-link temporaire pour Spark</div>
+                        <div class="price">Prix: ~1-2 Exalts</div>
+                    </div>
+                    
+                    <div class="unique-item">
+                        <div class="unique-name">Goldwyrm (Boots)</div>
+                        <div>+Item Rarity pour farming early</div>
+                        <div class="price">Prix: ~0.5-1 Exalt</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Rare Wand</div>
+                        <div>+Lightning Spell Damage, +Cast Speed, +Crit</div>
+                        <div class="price">Prix: ~2-3 Exalts</div>
+                    </div>
+
+                    <h4>Objectifs Stats</h4>
+                    <ul>
+                        <li>Life: 2500+</li>
+                        <li>Resistances cappées (75%)</li>
+                        <li>Crit Chance: 40%+</li>
+                        <li>Mana sustain via flasks</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Attention:</strong> À ce budget, évitez les high-tier maps et les boss difficiles. Farmez T1-T10 pour accumulation currency.
+                    </div>
                 </div>
-            </div>
-            
-            <div class="info-box" style="margin-top: 1rem;">
-                <strong>ℹ️ Information :</strong> Cette section se met à jour automatiquement avec les derniers changements du Paladin Protection. Les données sont récupérées des patch notes officiels et mises en cache pendant 24h.
+
+                <div class="tier-card tier-medium">
+                    <span class="tier-tag tag-medium">MEDIUM BUDGET - Transition</span>
+                    <h3>Budget: 50-100 Exalts</h3>
+                    
+                    <h4>Upgrades Clés</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Rare 6-Link Body Armour</div>
+                        <div>+Life, +ES, +Resistances, +Spell Crit</div>
+                        <div class="price">Prix: ~20-30 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Astramentis (Amulet)</div>
+                        <div>+All Attributes pour scaling</div>
+                        <div class="price">Prix: ~5-10 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Rare Wand (Upgraded)</div>
+                        <div>T1 Spell Damage, T1 Crit Multi, Cast Speed</div>
+                        <div class="price">Prix: ~15-25 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Rare Ring x2</div>
+                        <div>+Life, +ES, +Resistances, +Crit Multi</div>
+                        <div class="price">Prix: ~8-15 Exalts chaque</div>
+                    </div>
+
+                    <h4>Objectifs Stats</h4>
+                    <ul>
+                        <li>Life: 3500+</li>
+                        <li>ES: 1500+</li>
+                        <li>Crit Chance: 55%+</li>
+                        <li>Crit Multi: 300%+</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Conseil:</strong> À ce stade, commencez à investir dans les Cluster Jewels pour augmenter votre scaling exponentiel.
+                    </div>
+                </div>
+
+                <div class="tier-card tier-high">
+                    <span class="tier-tag tag-high">HIGH BUDGET - Endgame</span>
+                    <h3>Budget: 200-500+ Exalts</h3>
+                    
+                    <h4>Items BiS (Best in Slot)</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Shavonne's Wrappings</div>
+                        <div>Low Life enabled, Chaos Damage doesn't bypass ES</div>
+                        <div class="price">Prix: ~80-150 Exalts (6-link corrupted)</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Presence of Chayula (Amulet)</div>
+                        <div>Cannot be Stunned, +ES, +Attributes</div>
+                        <div class="price">Prix: ~40-80 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Bottled Faith (Flask)</div>
+                        <div>+Crit Chance, Consecrated Ground</div>
+                        <div class="price">Prix: ~50-100 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Perfect Rare Wand</div>
+                        <div>Triple T1: Spell Damage, Crit Multi, Cast Speed + crafted mod</div>
+                        <div class="price">Prix: ~60-120 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Influenced Helmet</div>
+                        <div>+Spark Projectiles, +Crit Multi, +ES</div>
+                        <div class="price">Prix: ~30-60 Exalts</div>
+                    </div>
+
+                    <h4>Objectifs Stats (Build Final)</h4>
+                    <ul>
+                        <li>Life: 4000+</li>
+                        <li>ES: 2500-3000</li>
+                        <li>Crit Chance: 70%+</li>
+                        <li>Crit Multi: 400%+</li>
+                        <li>DPS: 5M+ Spark + 3M+ Comet</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Min-Max:</strong> À ce niveau, chaque 1% amélioration coûte des dizaines d'exalts. Focus sur perfect rolls et corruptions.
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- PALADIN PROTECTION -->
-        <section id="paladin" class="spec-section">
-            <div class="spec-header">
-                <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_devotionaura.jpg" alt="Protection Paladin" class="spec-icon">
-                <h2>Paladin Protection</h2>
+        <section id="skills">
+            <h2>⚔️ Setup des Skills</h2>
+
+            <h3>Main DPS - Spark (6-Link)</h3>
+            <div class="skill-card">
+                <div class="skill-name">⚡ Spark</div>
+                <div>Projectile lightning principal pour clear et single target</div>
+                <div class="skill-supports">
+                    <strong>Supports:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><strong>Lightning Penetration Support</strong> - Ignore résistances ennemies</li>
+                        <li><strong>Spell Echo Support</strong> - Double cast pour DPS massif</li>
+                        <li><strong>Controlled Destruction Support</strong> - +Spell Damage</li>
+                        <li><strong>Critical Strike Support</strong> - Augmente crit chance</li>
+                        <li><strong>Energy Leech Support</strong> - ES sustain via leech (0.4 NEW)</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Présentation -->
-            <div class="subsection">
-                <h3>Vue d'Ensemble</h3>
-                <p>Le Paladin Protection reste un des tanks les plus solides de cette saison. Après avoir testé toutes les compositions en haute clé, je peux vous assurer que c'est un choix extrêmement sûr pour le prog. Ce qui fait la force du Paladin, c'est sa polyvalence : vous avez des défensifs pour presque toutes les situations, une utilité de groupe incroyable avec les bénédictions et l'immunité, et surtout une capacité à absorber des coups massifs grâce au Bouclier sacré.</p>
+            <h3>Secondary DPS - Comet (6-Link)</h3>
+            <div class="skill-card">
+                <div class="skill-name">❄️ Comet</div>
+                <div>AOE cold damage pour pack clear et freeze</div>
+                <div class="skill-supports">
+                    <strong>Supports:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li><strong>Cold Penetration Support</strong> - Ignore cold res</li>
+                        <li><strong>Concentrated Effect Support</strong> - +AOE damage</li>
+                        <li><strong>Controlled Destruction Support</strong> - +Spell Damage</li>
+                        <li><strong>Hypothermia Support</strong> - More damage vs chilled</li>
+                        <li><strong>Ice Bite Support</strong> - Frenzy charge generation (0.4 NEW)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Auras & Buffs</h3>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <div class="skill-name">💠 Wrath</div>
+                    <div>+Lightning Damage pour tout le groupe</div>
+                    <div class="skill-supports">Réservation: 50% Life (Blood Magic)</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-name">❄️ Hatred</div>
+                    <div>Conversion Physical → Cold</div>
+                    <div class="skill-supports">Réservation: 50% Life</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-name">🛡️ Discipline</div>
+                    <div>+ES regeneration et max ES</div>
+                    <div class="skill-supports">Réservation: 35% Life</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-name">⚡ Herald of Thunder</div>
+                    <div>Lightning procs on kill</div>
+                    <div class="skill-supports">Réservation: 25% Life</div>
+                </div>
+            </div>
+
+            <h3>Utility & Movement</h3>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <div class="skill-name">🌀 Flame Dash</div>
+                    <div>Mobilité principale</div>
+                    <div class="skill-supports">Support: Faster Casting</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-name">⚡ Conductivity</div>
+                    <div>Curse - Réduit lightning res</div>
+                    <div class="skill-supports">Support: Blasphemy (aura)</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-name">🛡️ Cast when Damage Taken</div>
+                    <div>Auto-proc défensif</div>
+                    <div class="skill-supports">Linked: Immortal Call + Increased Duration</div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-name">💎 Vaal Righteous Fire</div>
+                    <div>Burst DPS pour boss</div>
+                    <div class="skill-supports">Support: Increased Duration</div>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Gestion Blood Magic</h4>
+                <p>Avec Blood Magic, vous castez avec la vie. Assurez-vous d'avoir:</p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Minimum 30% life non-réservée pour caster</li>
+                    <li>Life Regeneration ou Leech pour sustain</li>
+                    <li>Life Flask avec charges adéquates</li>
+                    <li>Éviter de spammer skills si life trop basse</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="gamemodes">
+            <h2>🗺️ Modes de Jeu - Atlas Content</h2>
+
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><strong>🌊 BREACH - Lightning Chayula</strong></span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Description</h4>
+                    <p>Breach spawns des portails qui libèrent des vagues d'ennemis. Excellent pour farming currency et exp. Le build Spark excelle grâce à son clear speed.</p>
+
+                    <h4>Tablets Recommandées (Atlas Tree)</h4>
+                    <ul>
+                        <li><strong>Breachstone Splinters</strong> - +100% splinter drop chance</li>
+                        <li><strong>Breach Chance</strong> - +15% chance de breach par map</li>
+                        <li><strong>Breach Monster Density</strong> - Plus de mobs = plus de loot</li>
+                        <li><strong>Chayula Breach</strong> - Focus sur Chayula (best rewards)</li>
+                    </ul>
+
+                    <h4>Uniques à farmer</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Presence of Chayula (Amulet)</div>
+                        <div class="drop-rate">Drop Rate: 0.05% (1/2000 Chayula Breach)</div>
+                        <div class="price">Prix Moyen: 60 Exalts</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Skin of the Lords (Body Armour)</div>
+                        <div class="drop-rate">Drop Rate: 0.8% (1/125 Breachstone)</div>
+                        <div class="price">Prix Moyen: 15-40 Exalts (selon roll)</div>
+                    </div>
+
+                    <h4>Stratégie d'optimisation</h4>
+                    <ul>
+                        <li>Farm Chayula Breaches spécifiquement (atlas passives)</li>
+                        <li>Utilise Comet pour freeze les packs instantanément</li>
+                        <li>Spark bounce dans les portails pour max clear</li>
+                        <li>Focus sur speed - temps = currency en Breach</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Pro Tip:</strong> Stack movement speed et clear radius. En Breach, chaque seconde compte avant la fermeture du portail.
+                    </div>
+                </div>
+
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><strong>💀 DELIRIUM - Madness Mirror</strong></span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Description</h4>
+                    <p>Delirium ajoute fog progressif qui augmente difficulté ET rewards. Parfait pour high-risk high-reward farming. Build nécessite good defenses.</p>
+
+                    <h4>Tablets Recommandées</h4>
+                    <ul>
+                        <li><strong>Delirium Reward Type</strong> - Focus Scarabs ou Currency</li>
+                        <li><strong>Mirror Spawn Chance</strong> - +8% chance par map</li>
+                        <li><strong>Delirium Everywhere</strong> - Maps ont chance de full Delirium</li>
+                        <li><strong>Simulacrum Splinters</strong> - +50% splinter drop</li>
+                    </ul>
+
+                    <h4>Uniques à farmer</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Voices (Cluster Jewel)</div>
+                        <div class="drop-rate">Drop Rate: 0.3% (Wave 20 Simulacrum)</div>
+                        <div class="price">Prix Moyen: 80-200 Exalts (1 passive = mirror tier)</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Thread of Hope (Jewel)</div>
+                        <div class="drop-rate">Drop Rate: 1.2% (Delirium rewards)</div>
+                        <div class="price">Prix Moyen: 5-15 Exalts</div>
+                    </div>
+
+                    <h4>Stratégie</h4>
+                    <ul>
+                        <li>Maintain max fog stacks pour best rewards</li>
+                        <li>Skip si trop rippy (vaut mieux finish que die)</li>
+                        <li>Build nécessite minimum Medium Budget pour Delirium</li>
+                        <li>Use Flame Dash agressivement pour maintenir pace</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><strong>⚔️ EXPEDITION - Explosive Remnants</strong></span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Description</h4>
+                    <p>Place explosifs sur remnants pour farmer currency et reroll crafting materials. Moins intense que Breach/Delirium, excellent pour chill farming.</p>
+
+                    <h4>Tablets Recommandées</h4>
+                    <ul>
+                        <li><strong>Expedition Chance</strong> - +12% spawn par map</li>
+                        <li><strong>Logbook Drop Chance</strong> - Double logbook drops</li>
+                        <li><strong>Expedition Vendors</strong> - Tujen pour currency, Dannig pour trade</li>
+                        <li><strong>Remnant Effects</strong> - Augmente rewards par remnant</li>
+                    </ul>
+
+                    <h4>Currency Farming</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Astragali (Currency)</div>
+                        <div>Pour gamble chez Tujen</div>
+                        <div class="drop-rate">Drop: Common (5-15 par expedition)</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Logbooks</div>
+                        <div>Maps d'expedition avec rewards massifs</div>
+                        <div class="drop-rate">Drop Rate: 8-12% par expedition</div>
+                        <div class="price">Prix: 0.5-3 Exalts selon type</div>
+                    </div>
+
+                    <h4>Stratégie</h4>
+                    <ul>
+                        <li>Chain remnants pour maximize modifiers</li>
+                        <li>Avoid "Monsters immune to X" si possible</li>
+                        <li>Sell logbooks ou run pour mass currency</li>
+                        <li>Use Tujen rerolls intelligemment (check prices first)</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><strong>🌀 RITUAL - Blood Altars</strong></span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Description</h4>
+                    <p>Ritual spawns altars où vous combattez waves pour tribute points. Dépensez tribute pour acheter rewards. Excellent pour targeted farming.</p>
+
+                    <h4>Tablets Recommandées</h4>
+                    <ul>
+                        <li><strong>Ritual Altars</strong> - +1 altar par map</li>
+                        <li><strong>Tribute Gained</strong> - +25% tribute par ritual</li>
+                        <li><strong>Ritual Reroll Currency</strong> - Plus de rerolls gratuits</li>
+                        <li><strong>Favoured Rewards</strong> - Focus divination cards ou currency</li>
+                    </ul>
+
+                    <h4>Best Rewards</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">High-Value Uniques</div>
+                        <div>Peuvent apparaître dans ritual rewards</div>
+                        <div class="drop-rate">Chance: Variable (check prices before defer)</div>
+                    </div>
+
+                    <div class="unique-item">
+                        <div class="unique-name">Divination Cards</div>
+                        <div>The Doctor, House of Mirrors, etc.</div>
+                        <div class="drop-rate">Très rare mais possible</div>
+                    </div>
+
+                    <h4>Stratégie</h4>
+                    <ul>
+                        <li>Always defer expensive items si pas assez tribute</li>
+                        <li>Skip low-value items pour stack tribute</li>
+                        <li>Build excellent pour Ritual (good clear + tanky enough)</li>
+                        <li>Check market prices avant acheter</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><strong>🗺️ MAPS FARMING - T16+ Strategy</strong></span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Description</h4>
+                    <p>Maps standard avec focus sur density, pack size, et multiple mechanics. Base de tout endgame farming.</p>
+
+                    <h4>Atlas Passives Essentielles</h4>
+                    <ul>
+                        <li><strong>Map Modifier Effect</strong> - +20% effect des mods</li>
+                        <li><strong>Pack Size</strong> - +15% monster pack size</li>
+                        <li><strong>Magic Monster Packs</strong> - Plus rare/magic packs</li>
+                        <li><strong>Boss Rewards</strong> - Double boss drops</li>
+                        <li><strong>Awakening Bonus</strong> - Complete atlas pour +bonuses</li>
+                    </ul>
+
+                    <h4>Best Maps pour Spark</h4>
+                    <table class="stat-table">
+                        <tr>
+                            <th>Map</th>
+                            <th>Layout</th>
+                            <th>Pourquoi ?</th>
+                        </tr>
+                        <tr>
+                            <td>Strand</td>
+                            <td>Linear</td>
+                            <td>Parfait pour Spark bounces, super fast</td>
+                        </tr>
+                        <tr>
+                            <td>Toxic Sewer</td>
+                            <td>Linear</td>
+                            <td>High density, enclosed = Spark heaven</td>
+                        </tr>
+                        <tr>
+                            <td>Burial Chambers</td>
+                            <td>Semi-linear</td>
+                            <td>Doctor card farm + good layout</td>
+                        </tr>
+                        <tr>
+                            <td>Crimson Temple</td>
+                            <td>Compact</td>
+                            <td>High mob density, Comet clears everything</td>
+                        </tr>
+                    </table>
+
+                    <h4>Map Rolling Strategy</h4>
+                    <ul>
+                        <li><strong>Alch and Go:</strong> Simple alch pour T14-T16</li>
+                        <li><strong>Chisel + Alch + Vaal:</strong> Maximum juice</li>
+                        <li><strong>Avoid mods:</strong> Reflect Elemental, No Regen</li>
+                        <li><strong>Scarabs:</strong> Breach/Delirium/Expedition selon strat</li>
+                    </ul>
+
+                    <div class="tip-box">
+                        <strong>💡 Speed Farming:</strong> Ce build excelle en speed. Visez 2-3 minutes par map T16 fully juiced.
+                    </div>
+                </div>
+
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span><strong>👑 BOSS FARMING - Pinnacle Content</strong></span>
+                    <span>▼</span>
+                </div>
+                <div class="accordion-content">
+                    <h4>Description</h4>
+                    <p>Endgame boss fights pour les meilleurs uniques du jeu. Nécessite build optimisé (Medium-High budget minimum).</p>
+
+                    <h4>Maven (The Maven)</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Awakened Gems</div>
+                        <div class="drop-rate">Drop: Guaranteed (1 par kill)</div>
+                        <div class="price">Prix: 5-50 Exalts selon gem</div>
+                    </div>
+                    <p><strong>Difficulté:</strong> Moyenne - Patterns prévisibles. Comet freeze aide énormément.</p>
+
+                    <h4>Searing Exarch</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Omniscience (Amulet)</div>
+                        <div class="drop-rate">Drop Rate: ~3%</div>
+                        <div class="price">Prix: 80-150 Exalts</div>
+                    </div>
+                    <p><strong>Difficulté:</strong> Haute - Beaucoup de fire damage. Stack cold res.</p>
+
+                    <h4>Eater of Worlds</h4>
+                    <div class="unique-item">
+                        <div class="unique-name">Ashes of the Stars (Amulet)</div>
+                        <div class="drop-rate">Drop Rate: ~3%</div>
+                        <div class="price">Prix: 60-120 Exalts</div>
+                    </div>
+                    <p><strong>Difficulté:</strong> Haute - Chaos damage dangerous. Build a decent chaos res.</p>
+
+                    <h4>Stratégie Boss</h4>
+                    <ul>
+                        <li>Practice patterns en Standard first</li>
+                        <li>Use defensive flasks agressivement</li>
+                        <li>Comet pour freeze phases adds</li>
+                        <li>Spark pour constant DPS pendant movement</li>
+                        <li>Don't be greedy - dodge > DPS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="temple">
+            <h2>🏛️ Temple d'Atzoatl - Configuration Optimale</h2>
+
+            <div class="tip-box">
+                <h4>📊 Votre Configuration Actuelle</h4>
+                <p>Configuration basée sur: <a href="https://sulozor.github.io/#/atziri-temple?t=ACFIIUghSCFIIUhgOWA5YDlgSCE5ESkRKRE5IUhgKQCYACkySCE5EjEAeRFpIUhgcGl6cClwSCE5eXpwMRJ6IUgyaXBhOXGASCIxOWEIQGkxIg" target="_blank" style="color: #4a9eff;">Temple Layout Viewer</a></p>
+            </div>
+
+            <div class="temple-layout">
+                <h3>Rooms Tier 3 Prioritaires</h3>
+
+                <div class="temple-room">
+                    <h4>⚡ Lightning Room (Locus of Corruption)</h4>
+                    <p><strong>Reward:</strong> Double corruption sur items</p>
+                    <p><strong>Utilité:</strong> BiS pour corrupting Shavonne's, amulets, jewels</p>
+                    <p><strong>Risque:</strong> Peut brick items (destroy)</p>
+                    <div class="cost-estimate">Value: 50-500 Exalts (si hit good corruption)</div>
+                </div>
+
+                <div class="temple-room">
+                    <h4>💎 Gem Room (Doryani's Institute)</h4>
+                    <p><strong>Reward:</strong> Double corrupt gems, +1-2 gem levels</p>
+                    <p><strong>Utilité:</strong> Level 21/23% quality gems = huge DPS boost</p>
+                    <p><strong>Priority:</strong> Corrupt Spark, Comet, supports critiques</p>
+                    <div class="cost-estimate">Value: 10-80 Exalts par gem réussie</div>
+                </div>
+
+                <div class="temple-room">
+                    <h4>🗺️ Map Room (Atlas of Worlds)</h4>
+                    <p><strong>Reward:</strong> +1 map tier upgrade</p>
+                    <p><strong>Utilité:</strong> Transform T15 → T16 pour sustain</p>
+                    <div class="cost-estimate">Value: 0.5-2 Exalts par map upgrade</div>
+                </div>
+
+                <div class="temple-room">
+                    <h4>💰 Currency Room (Wealth of the Vaal)</h4>
+                    <p><strong>Reward:</strong> Stacks of currency</p>
+                    <p><strong>Utilité:</strong> Pure profit, toujours worth</p>
+                    <div class="cost-estimate">Value: 5-15 Exalts par room</div>
+                </div>
+
+                <div class="temple-room">
+                    <h4>🛡️ Armour Room (Chamber of Iron)</h4>
+                    <p><strong>Reward:</strong> Rare armours avec bons mods</p>
+                    <p><strong>Utilité:</strong> Peut drop upgrades ou sell bases</p>
+                    <div class="cost-estimate">Value: 2-20 Exalts (RNG dependent)</div>
+                </div>
+
+                <div class="temple-room">
+                    <h4>⚔️ Weapon Room (Apex of Ascension)</h4>
+                    <p><strong>Reward:</strong> Rare weapons high ilvl</p>
+                    <p><strong>Utilité:</strong> Peut drop wand upgrade pour build</p>
+                    <div class="cost-estimate">Value: 5-40 Exalts (bonne base wand)</div>
+                </div>
+            </div>
+
+            <h3>Stratégie Temple Farming</h3>
+            <ul style="margin-left: 2rem; margin-top: 1rem;">
+                <li><strong>Atlas Passives:</strong> +Temple spawn chance, +Architect pack size</li>
+                <li><strong>Focus T3 rooms:</strong> Skip temples sans T3 rooms prioritaires</li>
+                <li><strong>Corruption Strategy:</strong> Corrupt Spark/Comet gems first, puis items</li>
+                <li><strong>Boss (Atzoatl):</strong> Easy avec ce build, always kill pour completion</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>⚠️ Corruption Risks</h4>
+                <p><strong>Important:</strong> Corruption peut transformer item en rare random ou le détruire complètement. Ne corrupt que:</p>
+                <ul style="margin-left: 1.5rem;">
+                    <li>Items dont vous avez backup</li>
+                    <li>Items à 6-link déjà établi</li>
+                    <li>Gems level 20/20% quality minimum</li>
+                    <li>Jamais corrupt votre seul équipement principal</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="crafting">
+            <h2>🔨 Guide de Craft Complet</h2>
+
+            <div class="intro-box">
+                <p>Le crafting est essentiel pour optimiser le build. Chaque slot peut être crafté avec des mods spécifiques pour maximiser DPS et survie. Voici le processus détaillé pour chaque pièce.</p>
+            </div>
+
+            <h3>🪄 Wand (Main Hand) - PRIORITY #1</h3>
+            
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Acquérir la base</strong>
+                <p>Achetez: <strong>Imbued Wand</strong> (ilvl 83+) avec implicit +spell damage</p>
+                <div class="cost-estimate">Coût: 1-3 Exalts (bonne base)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Craft T1 Spell Damage</strong>
+                <p>Méthode: Spam <strong>Essence of Woe</strong> jusqu'à hit T1 Spell Damage + 1-2 bons mods</p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Mods désirés: +Crit Multi, +Cast Speed, +Lightning Damage</li>
+                    <li>Essences nécessaires: 20-50 Essence of Woe</li>
+                </ul>
+                <div class="cost-estimate">Coût: 15-30 Exalts (essences)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">3</span>
+                <strong>Bench Craft le dernier mod</strong>
+                <p>Si 2 T1 mods + 1 ouvert: craft <strong>+Non-Chaos Damage as Chaos</strong> ou <strong>+Cast Speed</strong></p>
+                <div class="cost-estimate">Coût: Craft bench gratuit (hideout)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">4</span>
+                <strong>Quality Perfect</strong>
+                <p>Use <strong>Perfect Fossils</strong> ou <strong>Hillock (Betrayal)</strong> pour 28-30% quality</p>
+                <div class="cost-estimate">Coût: 2-5 Exalts</div>
+            </div>
+
+            <div class="warning-box">
+                <strong>Budget Alternative:</strong> Achetez wand déjà craftée sur market. Souvent moins cher que craft yourself (20-40 Exalts pour bonne wand).
+            </div>
+
+            <h3>🛡️ Body Armour - 6-Link</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Option Low Budget: Tabula Rasa</strong>
+                <p>Achetez <strong>Tabula Rasa</strong> pour 6-link temporaire</p>
+                <div class="cost-estimate">Coût: 1-2 Exalts</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Option Medium: Rare 6-Link</strong>
+                <p>Achetez base <strong>Vaal Regalia</strong> (high ES) déjà 6-linked</p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>ilvl 84+ pour T1 mods</li>
+                    <li>Corrupt avec +life/ES implicit si possible</li>
+                </ul>
+                <div class="cost-estimate">Coût: 15-30 Exalts (base 6L)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">3</span>
+                <strong>Spam Essence of Woe (ES)</strong>
+                <p>Essences: <strong>Deafening Essence of Woe</strong> pour T1 ES</p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Targets: +ES%, +flat ES, +Resistances</li>
+                    <li>Besoin: 30-80 essences</li>
+                </ul>
+                <div class="cost-estimate">Coût: 20-40 Exalts</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">4</span>
+                <strong>Option High: Shavonne's Wrappings</strong>
+                <p>Achetez <strong>Shavonne's Wrappings</strong> 6-linked pour Low Life build</p>
+                <div class="cost-estimate">Coût: 80-150 Exalts (6L corrupted)</div>
+            </div>
+
+            <h3>💍 Rings (x2) - Crit Multi Focus</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Base: Vermillion Ring ou Opal Ring</strong>
+                <p>Implicit: +Life (Vermillion) ou +Elemental Damage (Opal)</p>
+                <div class="cost-estimate">Coût: 0.5-2 Exalts (base ilvl 83+)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Fossil Crafting</strong>
+                <p>Combo: <strong>Pristine Fossil</strong> + <strong>Metallic Fossil</strong></p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Pristine: More life mods</li>
+                    <li>Metallic: More lightning mods</li>
+                    <li>Target: +Life, +Lightning Damage, +Crit Multi</li>
+                </ul>
+                <div class="cost-estimate">Coût: 10-25 Exalts par ring (fossiles)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">3</span>
+                <strong>Bench Craft Resistances</strong>
+                <p>Si manque resistances: craft bench pour cap 75%</p>
+            </div>
+
+            <h3>📿 Amulet - Crit/Attributes</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Low Budget: Astramentis</strong>
+                <p>Unique: <strong>Astramentis</strong> (+all attributes)</p>
+                <div class="cost-estimate">Coût: 5-10 Exalts</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>High Budget: Presence of Chayula</strong>
+                <p>Unique BiS: Cannot be Stunned + +ES + Chaos res</p>
+                <div class="cost-estimate">Coût: 60-100 Exalts</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">3</span>
+                <strong>Alternative Rare: Crit Multi Amulet</strong>
+                <p>Fossil craft avec <strong>Frigid Fossil</strong> + <strong>Metallic Fossil</strong></p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Target: +Crit Multi, +Cast Speed, +Life, +Attributes</li>
+                </ul>
+                <div class="cost-estimate">Coût: 15-40 Exalts</div>
+            </div>
+
+            <h3>👢 Boots - Movement + Resistances</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Base: Sorcerer Boots</strong>
+                <p>Implicit: +Movement Speed</p>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Essence Spam</strong>
+                <p><strong>Essence of Greed</strong> pour +Life garanti</p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Autres mods désirés: +Movement Speed 30%, +Resistances</li>
+                </ul>
+                <div class="cost-estimate">Coût: 5-15 Exalts</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">3</span>
+                <strong>Enchantement Lab</strong>
+                <p>Lab enchant: <strong>+Damage if killed recently</strong> ou <strong>+Regen</strong></p>
+            </div>
+
+            <h3>🧤 Gloves - Cast Speed Focus</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Base: Sorcerer Gloves (ilvl 82+)</strong>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Fossil Spam</strong>
+                <p>Combo: <strong>Frigid</strong> + <strong>Pristine</strong> + <strong>Metallic</strong></p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Target: +Life, +ES, +Cast Speed, +Resistances</li>
+                </ul>
+                <div class="cost-estimate">Coût: 8-20 Exalts</div>
+            </div>
+
+            <h3>⛑️ Helmet - ES + Resistances</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>High Budget: Influenced Helmet</strong>
+                <p>Shaper/Elder influenced pour <strong>+Spark Projectiles</strong></p>
+                <div class="cost-estimate">Coût: 30-80 Exalts (crafted)</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Medium/Low: Rare ES Helmet</strong>
+                <p>Essence spam: <strong>Essence of Woe</strong> pour ES</p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>Mods: +ES, +Life, +Resistances, +Attributes</li>
+                </ul>
+                <div class="cost-estimate">Coût: 10-25 Exalts</div>
+            </div>
+
+            <h3>🛡️ Shield (Option) - Block or ES</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Si dual wield: Skip shield</strong>
+                <p>Build utilise dual wield pour max DPS</p>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Alternative tank: Spirit Shield</strong>
+                <p>+Spell Damage, +Spell Crit, +ES pour plus de survie</p>
+                <div class="cost-estimate">Coût: 15-40 Exalts</div>
+            </div>
+
+            <h3>🎴 Jewels - Crit Multi Stacking</h3>
+
+            <div class="craft-step">
+                <span class="step-number">1</span>
+                <strong>Rare Jewels (besoin: 4-6)</strong>
+                <p>Mods prioritaires:</p>
+                <ul style="margin-left: 3.5rem;">
+                    <li>+Crit Multi (Lightning/Cold/Global)</li>
+                    <li>+Life%</li>
+                    <li>+Cast Speed</li>
+                    <li>+Damage</li>
+                </ul>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">2</span>
+                <strong>Craft Method: Alteration Spam</strong>
+                <p>Spam <strong>Orb of Alteration</strong> jusqu'à hit 2 T1 mods → Regal → Craft 3ème mod</p>
+                <div class="cost-estimate">Coût: 3-8 Exalts par jewel</div>
+            </div>
+
+            <div class="craft-step">
+                <span class="step-number">3</span>
+                <strong>High Budget: Cluster Jewels</strong>
+                <p>Large Cluster: <strong>+Lightning Damage</strong> with passives:</p>
+                <ul style="margin-left: 3.5rem;">
                 
-                <p><strong>En Mythic+ :</strong> Le Paladin brille particulièrement dans les packs où vous devez gérer plusieurs mobs simultanément. Votre AoE est correct, mais ce qui fait vraiment la différence, c'est votre capacité à maintenir la survie du groupe. Bénédiction de protection et Bénédiction de sacrifice peuvent sauver vos DPS dans des situations critiques. En haute clé (+25 et au-delà), j'ai remarqué que le Paladin excelle dans les donjons avec beaucoup de damage magic comme Azure Vault ou Brackenhide, où vous pouvez utiliser votre immunité stratégiquement.</p>
-
-                <div class="info-box">
-                    <strong>Points forts :</strong> Excellent burst mitigation, utilité de groupe exceptionnelle, bonne mobilité avec Coursier divin, immunité complète avec Bouclier divin, healing passif décent.
-                </div>
-
-                <div class="warning-box">
-                    <strong>Points faibles :</strong> Dépendant du GCD (beaucoup de boutons à presser), mitigation active requise (pas de mitigation passive massive), peut être punishing si vous ratez vos défensifs.
-                </div>
-
-                <p><strong>En Raid :</strong> Le Paladin est un excellent main tank. Vous gérez très bien les gros tank busters grâce à votre kit défensif, et votre immunité est clutch sur certains boss. J'ai maintenu le Paladin en progression mythique et il performe très bien. Votre utilité reste top-tier avec les bénédictions qui peuvent sauver des pull entiers.</p>
-            </div>
-
-            <!-- Talents Mythic+ -->
-            <div class="subsection">
-                <h3>Talents Mythic+</h3>
-                <div class="talent-block">
-                    <h4>Build Standard (Clés 20-30)</h4>
-                    <p>Ce build est celui que j'utilise dans 90% de mes clés. Il maximise votre survie tout en gardant une threat et un damage correct. Les points clés sont dans le tree de classe pour avoir toutes les bénédictions et l'immunité réduite, puis dans Protection pour optimiser vos défensifs.</p>
-                    
-                    <p><strong>Explications des choix principaux :</strong></p>
-                    <ul style="margin-left: 2rem; margin-top: 1rem;">
-                        <li><strong>Improved Consecration</strong> : Essentiel pour l'AoE et la threat. C'est votre base.</li>
-                        <li><strong>Blessed Hammer</strong> : Rotation plus fluide et meilleur damage. J'ai testé les deux builds et Hammer est supérieur en M+.</li>
-                        <li><strong>Bulwark of Order</strong> : Le talent qui transforme votre Bouclier sacré en mur infranchissable. Critique pour les tank busters.</li>
-                        <li><strong>Moment of Glory</strong> : Votre gros défensif AoE. Utilisé correctement sur les gros pulls, ça vous rend presque immortel pendant 8 secondes.</li>
-                        <li><strong>Seal of Mercy</strong> : Le healing passif est non négligeable, surtout sur les trash packs longs.</li>
-                        <li><strong>Tirion's Devotion</strong> : Augmente votre uptime sur Bouclier sacré, ce qui se traduit par moins de risque de mourir.</li>
-                    </ul>
-
-                    <div class="talent-string" id="talent-mm-plus">
-CwQAAAAAAAAAAAAAAAAAAAAAAMzMzMzMmZmZGzMzMzMzMDmxMzMjZmZmBmZmZMzsYmZmZmxMz2MzMDjZGAAAAAAAMbmZmZmZmZA
-                    </div>
-                    <button class="copy-btn" onclick="copyToClipboard('talent-mm-plus')">📋 Copier les talents</button>
-
-                    <div class="info-box" style="margin-top: 1rem;">
-                        <strong>Variantes :</strong> Si vous faites des donjons avec beaucoup de magic damage (Azure Vault, Brackenhide), prenez les talents qui buffent votre résistance magique. Pour les tyrannical weeks, renforcez vos single-target cooldowns.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Talents Raid -->
-            <div class="subsection">
-                <h3>Talents Raid</h3>
-                <div class="talent-block">
-                    <h4>Build Progression Mythique</h4>
-                    <p>En raid, on adapte légèrement le build pour privilégier la survie single-target et l'efficacité sur les tank swaps. La principale différence avec le build M+ est qu'on retire un peu d'AoE pour renforcer nos défensifs single-target et améliorer notre uptime sur le boss.</p>
-                    
-                    <p><strong>Différences clés avec le build M+ :</strong></p>
-                    <ul style="margin-left: 2rem; margin-top: 1rem;">
-                        <li><strong>Moins d'AoE</strong> : On peut se permettre de drop quelques points d'AoE vu qu'on se concentre principalement sur le boss.</li>
-                        <li><strong>Focus sur les défensifs</strong> : Maximum d'uptime sur Bouclier sacré et cooldowns réduits.</li>
-                        <li><strong>Talents de positioning</strong> : Selon les boss, prenez des talents qui améliorent votre mobilité pour gérer les mechanics.</li>
-                        <li><strong>Utilité</strong> : Gardez toutes vos bénédictions, elles sont clutch pour sauver des raiders sur les boss difficiles.</li>
-                    </ul>
-
-                    <div class="talent-string" id="talent-raid">
-CwQAAAAAAAAAAAAAAAAAAAAAAMzMzMzMmZmZGzMzMzMzMDmxMzMjZmZmBGzsYmZmZmxMz2MzMDjZmZmZmZmZmZmBAAAAA
-                    </div>
-                    <button class="copy-btn" onclick="copyToClipboard('talent-raid')">📋 Copier les talents</button>
-
-                    <div class="info-box" style="margin-top: 1rem;">
-                        <strong>Adaptation par boss :</strong> Certains boss nécessitent des ajustements. Par exemple, sur des boss avec des bleeds importants, renforcez votre armor. Sur des boss avec du burst magic, prenez tous les talents de résistance magique disponibles.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Rotation -->
-            <div class="subsection">
-                <h3>Rotation & Priorités</h3>
-                <p>La rotation du Paladin Protection n'est pas complexe dans sa théorie, mais elle demande de la réactivité et une bonne gestion de la Puissance sacrée. Voici comment j'aborde chaque situation :</p>
-
-                <h4 style="color: var(--wow-accent); margin-top: 1.5rem;">Single Target (Boss)</h4>
-                <ol style="margin-left: 2rem; line-height: 2;">
-                    <li><strong>Bouclier du vengeur</strong> : Votre priorité absolue. Génère de la Puissance sacrée et applique votre debuff principal.</li>
-                    <li><strong>Jugement</strong> : À maintenir sur cooldown, génère de la Puissance sacrée.</li>
-                    <li><strong>Marteau béni</strong> : Si vous avez le talent (recommandé), spam dès que disponible.</li>
-                    <li><strong>Bouclier sacré</strong> : Utilisez votre Puissance sacrée pour cast ce sort dès que possible. C'est votre principal défensif actif.</li>
-                    <li><strong>Consécration</strong> : Toujours maintenu au sol sous vous et le boss.</li>
-                    <li><strong>Mot de gloire</strong> : Utilisez vos procs pour vous heal ou heal un allié en danger.</li>
-                </ol>
-
-                <h4 style="color: var(--wow-accent); margin-top: 1.5rem;">AoE (Trash Packs M+)</h4>
-                <ol style="margin-left: 2rem; line-height: 2;">
-                    <li><strong>Bouclier du vengeur</strong> : Pull avec, touche tout le pack.</li>
-                    <li><strong>Consécration</strong> : Posée immédiatement, maintenue 100% du temps.</li>
-                    <li><strong>Marteau béni</strong> : Spam sur tous les targets.</li>
-                    <li><strong>Jugement</strong> : Sur cooldown pour la Puissance sacrée.</li>
-                    <li><strong>Bouclier sacré</strong> : Même priorité qu'en single, ne négligez jamais votre défensif.</li>
-                    <li><strong>Courroux du vengeur</strong> : Votre burst AoE, utilisé quand le pack est bien stack.</li>
-                </ol>
-
-                <div class="info-box" style="margin-top: 1.5rem;">
-                    <strong>Gestion de la Puissance sacrée :</strong> Ne cappez jamais à 5 charges. Utilisez toujours vos charges de Bouclier sacré dès que vous êtes à 3+ pour maintenir l'uptime maximum sur le buff. Dans les gros pulls M+, il vaut mieux avoir Bouclier sacré actif en permanence que de sauver sa Puissance sacrée.
-                </div>
-
-                <h4 style="color: var(--wow-accent); margin-top: 1.5rem;">Utilisation des Défensifs</h4>
-                <p>C'est ici que le Paladin demande le plus de skill. Vous devez anticiper les dégâts et utiliser le bon défensif au bon moment :</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><strong>Bouclier divin</strong> : Votre panique button ultime. Utilisez-le sur les mechanics qui oneshot ou quand vous êtes à 20% HP et que vous savez qu'un gros hit arrive.</li>
-                    <li><strong>Gardien des anciens rois</strong> : Votre gros défensif, 50% de réduction. Utilisez sur les gros tank busters ou les pulls M+ massifs. Cooldown court, n'hésitez pas.</li>
-                    <li><strong>Ardent défenseur</strong> : Cheat death qui réduit aussi les dégâts. Parfait pour les situations où vous pourriez mourir mais pas assez critique pour utiliser Bouclier divin.</li>
-                    <li><strong>Mot de gloire (proc)</strong> : Healing d'urgence instantané. Je garde toujours 3 charges de Puissance sacrée en réserve pour pouvoir cast ça si besoin.</li>
-                    <li><strong>Sacrifice divin</strong> : Underrated. Sauve votre healer ou un DPS sur une mechanic mortelle. En haute clé, ça peut sauver le run.</li>
-                </ul>
-            </div>
-
-            <!-- Stats -->
-            <div class="subsection">
-                <h3>Statistiques & Optimisation</h3>
-                <p>D'après les données actuelles de la saison 3 et mon expérience en haute clé, voici la priorité de stats que je recommande pour le Paladin Protection :</p>
-
-                <div class="stat-priority">
-                    <div class="stat-item">
-                        <strong>1. Force</strong> : Votre stat principale. Elle augmente votre AP, ce qui améliore à la fois votre damage et votre threat. Toujours prioritaire sur toutes vos pièces.
-                    </div>
-                    <div class="stat-item">
-                        <strong>2. Critique (~21-23k rating)</strong> : La stat la plus importante en ce moment. Elle augmente votre damage, améliore votre génération de Puissance sacrée via les procs, et booste votre threat. Les top tanks stackent autour de 21-23k rating.
-                    </div>
-                    <div class="stat-item">
-                        <strong>3. Hâte (~20-22k rating)</strong> : Votre deuxième stat prioritaire. Elle réduit vos GCD, accélère vos casts, et améliore votre uptime sur Bouclier sacré. Ciblez environ 20-22k rating pour un équilibre optimal.
-                    </div>
-                    <div class="stat-item">
-                        <strong>4. Maîtrise (~11-12k rating)</strong> : Augmente l'absorption de Bouclier sacré et améliore votre block. C'est une bonne stat défensive mais elle passe après Crit et Hâte en saison 3.
-                    </div>
-                    <div class="stat-item">
-                        <strong>5. Polyvalence (~5-6k rating)</strong> : La stat la moins importante actuellement. Elle donne de la réduction passive mais n'apporte pas assez comparé aux autres stats. Ne la cherchez pas activement.
-                    </div>
-                </div>
-
-                <div class="info-box" style="margin-top: 1.5rem;">
-                    <strong>Note importante :</strong> Cette priorité est basée sur les données réelles des meilleurs Paladins Protection en M+ haute clé (données Archon.gg). Le meta actuel favorise clairement Crit > Hâte > Maîtrise, contrairement aux saisons précédentes où on stackait principalement Hâte.
-                </div>
-
-                <h4 style="color: var(--wow-accent); margin-top: 2rem;">Gems & Enchants</h4>
-                <p>Pour l'optimisation finale de votre équipement :</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><strong>Gems</strong> : Priorisez Critique puis Hâte. Utilisez des <strong>Quick Ruby</strong> (Maîtrise/Hâte) ou des gems Crit/Hâte selon vos besoins. Meta gem avec bonus de stats.</li>
-                    <li><strong>Enchant arme</strong> : Authority of Radiant Power (Critique) ou Council's Guile si vous avez besoin de Hâte.</li>
-                    <li><strong>Enchant Cape</strong> : Chant of Leeching Fangs (Leech crucial pour la survie).</li>
-                    <li><strong>Enchant Torse</strong> : Crystalline Radiance (Hâte/Crit).</li>
-                    <li><strong>Enchant Bracers</strong> : Chant of Armored Leech (Stats + Leech).</li>
-                    <li><strong>Enchant Jambes</strong> : Stormbound Armor Kit (Stats principales).</li>
-                    <li><strong>Enchant Bottes</strong> : Defender's March (Speed + Avoidance crucial en M+).</li>
-                    <li><strong>Enchant Anneau</strong> : Radiant Mastery ou Radiant Haste selon vos ratios actuels.</li>
-                </ul>
-
-                <h4 style="color: var(--wow-accent); margin-top: 2rem;">Trinkets Recommandés</h4>
-                <p>Les meilleurs trinkets pour cette saison :</p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li><strong>Astral Antenna</strong> (Nerub-ar Palace) : Le meilleur trinket tank actuellement. Utilisé par 28.5% des meilleurs Paladins.</li>
-                    <li><strong>Brand of Ceaseless Ire</strong> (Nerub-ar Palace) : Excellent trinket défensif/offensif. Égalité avec Antenna.</li>
-                    <li><strong>Alternatives</strong> : Sacred Weapon (si vous n'avez pas les raid trinkets), ou tout trinket avec des stats Crit/Hâte élevées.</li>
-                </ul>
-            </div>
-
-            <!-- Sorts Clés -->
-            <div class="subsection">
-                <h3>Sorts Clés</h3>
-                <div class="ability-grid">
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/ability_paladin_shieldofthetemplar.jpg" alt="Shield of the Righteous" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Bouclier sacré</h4>
-                            <p>Votre principal défensif actif. Spam dès que vous avez 3+ Puissance sacrée pour maintenir le buff en permanence.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_avengersshield.jpg" alt="Avenger's Shield" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Bouclier du vengeur</h4>
-                            <p>Votre interrupt qui silence. Génère de la Puissance sacrée. À utiliser sur cooldown sauf si vous savez qu'un cast important arrive.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_sealofmight.jpg" alt="Judgment" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Jugement</h4>
-                            <p>Génère de la Puissance sacrée et applique un debuff. Spam sur cooldown pour maximiser votre génération de ressources.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_divineshield.jpg" alt="Divine Shield" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Bouclier divin</h4>
-                            <p>Immunité complète 8 secondes. Votre panique button ultime. Drop votre threat, attention en début de pull.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_heroism.jpg" alt="Guardian of Ancient Kings" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Gardien des anciens rois</h4>
-                            <p>50% de réduction des dégâts pendant 8 secondes. Votre gros défensif, cooldown court (5 minutes). Utilisez généreusement.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_ardentdefender.jpg" alt="Ardent Defender" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Ardent défenseur</h4>
-                            <p>20% de réduction + cheat death si vous tombez sous 20% HP. Excellent pour les situations dangereuses mais pas critiques.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/paladin_retribution.jpg" alt="Blessed Hammer" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Marteau béni</h4>
-                            <p>Votre principal spell de génération de threat et damage. Lance 3 marteaux qui tournent autour de vous et touchent tous les ennemis à proximité. Lancez autant que possible, fonctionne en AoE. Génère de la Puissance sacrée sur chaque hit.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_innerfire.jpg" alt="Consecration" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Consécration</h4>
-                            <p>Doit être maintenue 100% du temps. Génère de la threat passive et fait des dégâts constants en AoE.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_prayerofhealing.jpg" alt="Word of Glory" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Mot de gloire</h4>
-                            <p>Heal instantané avec vos procs ou en dépensant 3 Puissance sacrée. Gardez toujours des charges en réserve pour les urgences. Peut sauver votre vie ou celle d'un allié en situation critique.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_righteousfury.jpg" alt="Blessing of Protection" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Bénédiction de protection</h4>
-                            <p>Immunité physical 10 secondes sur un allié. Clutch pour sauver vos DPS des mechanics melee ou des bleeds.</p>
-                        </div>
-                    </div>
-
-                    <div class="ability-card">
-                        <img src="https://render.worldofwarcraft.com/us/icons/56/spell_holy_sealofsacrifice.jpg" alt="Blessing of Sacrifice" class="ability-icon">
-                        <div class="ability-info">
-                            <h4>Bénédiction de sacrifice</h4>
-                            <p>Transfère 30% des dégâts d'un allié sur vous pendant 12 secondes. Parfait pour sauver votre healer ou un DPS qui va prendre un gros hit. Vous absorbez les dégâts donc c'est gérable avec vos défensifs.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
