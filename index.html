@@ -1,1289 +1,278 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Blood Mage Spark Crit Comet - PoE2 v0.4</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <title>Path of Exile 2 – Guide complet Endgame 0.4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --panel: #141824;
+      --accent: #c89b3c;
+      --text: #e6e6e6;
+      --muted: #9aa4b2;
+      --danger: #c23c3c;
+      --good: #4ade80;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #d4d4d4;
-            line-height: 1.6;
-        }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: radial-gradient(circle at top, #11162a, #07090f 70%);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-        .header {
-            background: linear-gradient(135deg, #8b0000 0%, #4a0000 100%);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.5);
-            border-bottom: 3px solid #ff4444;
-        }
+    header {
+      background: linear-gradient(to right, #0f1322, #090c15);
+      padding: 24px;
+      border-bottom: 1px solid #222842;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        .header h1 {
-            color: #fff;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-            margin-bottom: 0.5rem;
-        }
+    header h1 {
+      margin: 0 0 12px 0;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
 
-        .header .subtitle {
-            color: #ffaaaa;
-            font-size: 1.2rem;
-            font-weight: 300;
-        }
+    nav {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
-        .version-tag {
-            display: inline-block;
-            background: #ff4444;
-            color: #fff;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      background: #161b2f;
+      font-size: 14px;
+    }
 
-        nav {
-            background: #1a1a1a;
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
+    nav a:hover { background: #1e2544; }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
 
-        nav a {
-            color: #ff6666;
-            text-decoration: none;
-            padding: 0.5rem 1.5rem;
-            border-radius: 5px;
-            transition: all 0.3s;
-            border: 1px solid transparent;
-        }
+    section {
+      background: var(--panel);
+      margin-bottom: 40px;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+    }
 
-        nav a:hover {
-            background: #8b0000;
-            border-color: #ff4444;
-            color: #fff;
-        }
+    h2 {
+      color: var(--accent);
+      border-bottom: 1px solid #2a3052;
+      padding-bottom: 8px;
+    }
 
-        .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
+    h3 { margin-top: 28px; color: #ffd479; }
+    h4 { margin-top: 18px; color: #a5b4fc; }
 
-        section {
-            background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid #333;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-        }
+    ul { padding-left: 20px; }
 
-        h2 {
-            color: #ff4444;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #8b0000;
-        }
+    .note {
+      background: #0f1426;
+      border-left: 4px solid var(--accent);
+      padding: 12px;
+      margin: 16px 0;
+      color: var(--muted);
+    }
 
-        h3 {
-            color: #ff6666;
-            font-size: 1.5rem;
-            margin: 1.5rem 0 1rem 0;
-        }
+    .warn {
+      background: #1a0f12;
+      border-left: 4px solid var(--danger);
+      padding: 12px;
+      margin: 16px 0;
+    }
 
-        h4 {
-            color: #ffaaaa;
-            font-size: 1.2rem;
-            margin: 1rem 0 0.5rem 0;
-        }
+    .good {
+      background: #0f1a14;
+      border-left: 4px solid var(--good);
+      padding: 12px;
+      margin: 16px 0;
+    }
 
-        .build-tier {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .tier-card {
-            background: linear-gradient(145deg, #2a1515 0%, #1a0a0a 100%);
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 2px solid;
-            transition: transform 0.3s;
-        }
-
-        .tier-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .tier-low {
-            border-color: #4a9eff;
-        }
-
-        .tier-medium {
-            border-color: #ffd700;
-        }
-
-        .tier-high {
-            border-color: #ff4444;
-        }
-
-        .tier-tag {
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .tag-low {
-            background: #4a9eff;
-            color: #000;
-        }
-
-        .tag-medium {
-            background: #ffd700;
-            color: #000;
-        }
-
-        .tag-high {
-            background: #ff4444;
-            color: #fff;
-        }
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .skill-card {
-            background: #2a2a2a;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #ff4444;
-        }
-
-        .skill-name {
-            color: #ff6666;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-supports {
-            color: #aaa;
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
-
-        .stat-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            background: #1a1a1a;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .stat-table th {
-            background: #8b0000;
-            color: #fff;
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .stat-table td {
-            padding: 0.8rem 1rem;
-            border-bottom: 1px solid #333;
-        }
-
-        .stat-table tr:hover {
-            background: #2a2a2a;
-        }
-
-        .accordion {
-            margin: 1rem 0;
-        }
-
-        .accordion-header {
-            background: #2a2a2a;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            border-radius: 8px;
-            border: 1px solid #444;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .accordion-header:hover {
-            background: #3a3a3a;
-            border-color: #ff4444;
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-        }
-
-        .accordion-content.active {
-            max-height: 2000px;
-            padding: 1rem 1.5rem;
-        }
-
-        .unique-item {
-            background: #3a2020;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #af6025;
-            margin: 0.5rem 0;
-        }
-
-        .unique-name {
-            color: #af6025;
-            font-weight: bold;
-        }
-
-        .drop-rate {
-            color: #ffcc00;
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-        }
-
-        .price {
-            color: #4ecdc4;
-            font-weight: bold;
-            margin-top: 0.5rem;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(139, 0, 0, 0.2) 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #ff4444;
-            margin: 1.5rem 0;
-        }
-
-        .tip-box {
-            background: linear-gradient(135deg, rgba(74, 158, 255, 0.2) 0%, rgba(33, 150, 243, 0.2) 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #4a9eff;
-            margin: 1.5rem 0;
-        }
-
-        .temple-layout {
-            background: #1a1a1a;
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border: 2px solid #8b0000;
-        }
-
-        .temple-room {
-            background: #2a2a2a;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 6px;
-            border-left: 4px solid #ff6666;
-        }
-
-        .craft-step {
-            background: #2a2a2a;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 8px;
-            border-left: 4px solid #ffd700;
-        }
-
-        .step-number {
-            background: #ffd700;
-            color: #000;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-
-        .cost-estimate {
-            background: #1a3a1a;
-            color: #4eff4e;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        footer {
-            background: #0a0a0a;
-            padding: 2rem;
-            text-align: center;
-            color: #666;
-            border-top: 1px solid #333;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            .build-tier {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-        }
-
-        .pobb-link {
-            background: #8b0000;
-            color: #fff;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            display: inline-block;
-            text-decoration: none;
-            margin: 1rem 0;
-            transition: all 0.3s;
-        }
-
-        .pobb-link:hover {
-            background: #ff4444;
-            transform: scale(1.05);
-        }
-    </style>
+    .trade {
+      display: inline-block;
+      margin: 6px 0;
+      color: #7dd3fc;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>⚡ Blood Mage Spark Crit Comet</h1>
-        <div class="subtitle">Guide Complet - Witch Blood Mage</div>
-        <span class="version-tag">Version 0.4 Early Access</span>
-    </div>
 
-    <nav>
-        <ul>
-            <li><a href="#overview">Vue d'ensemble</a></li>
-            <li><a href="#builds">Progression Build</a></li>
-            <li><a href="#skills">Setup Skills</a></li>
-            <li><a href="#gamemodes">Modes de Jeu</a></li>
-            <li><a href="#temple">Temple Atzoatl</a></li>
-            <li><a href="#crafting">Guide Craft</a></li>
-            <li><a href="#upgrades">Optimisations</a></li>
-        </ul>
-    </nav>
-
-    <div class="container">
-        <section id="overview">
-            <h2>🎯 Vue d'ensemble du Build</h2>
-            
-            <div class="tip-box">
-                <h4>💡 Concept du Build</h4>
-                <p>Le Blood Mage Spark Crit Comet exploite la synergie entre <strong>Spark</strong> (projectile lightning) et <strong>Comet</strong> (AOE cold) pour créer un build hybrid extrêmement puissant. La mécanique Blood Magic convertit votre mana en life, permettant de réserver tout votre life pool pour des auras massives tout en castant avec la vie.</p>
-            </div>
-
-            <a href="https://pobb.in/jVx8DCeaNAW8" target="_blank" class="pobb-link">📊 Voir le build complet sur PoB</a>
-
-            <h3>Forces du build</h3>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li>🔥 <strong>DPS extrême</strong> : Spark + Comet offrent un clear speed et un boss DPS exceptionnels</li>
-                <li>⚡ <strong>Synergies élémentaires</strong> : Lightning et Cold damage se complètent parfaitement</li>
-                <li>🛡️ <strong>Defenses solides</strong> : High ES pool, regen, et layered defenses</li>
-                <li>💰 <strong>Scaling accessible</strong> : Fonctionne avec budget low, excellent avec investment</li>
-                <li>🎯 <strong>Polyvalent</strong> : Excellent en mapping ET en bossing</li>
-            </ul>
-
-            <h3>Faiblesses à gérer</h3>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li>⚠️ Dépendance à la vie pour caster (Blood Magic)</li>
-                <li>⚠️ Positionnement crucial (glass cannon à bas budget)</li>
-                <li>⚠️ Nécessite bonne compréhension des mechanics</li>
-                <li>⚠️ Items spécifiques requis pour version finale</li>
-            </ul>
-
-            <h3>Stats cibles (High Budget)</h3>
-            <table class="stat-table">
-                <tr>
-                    <th>Stat</th>
-                    <th>Valeur cible</th>
-                    <th>Notes</th>
-                </tr>
-                <tr>
-                    <td>Life</td>
-                    <td>3500-4500</td>
-                    <td>Avec Blood Magic, c'est aussi votre mana pool</td>
-                </tr>
-                <tr>
-                    <td>Energy Shield</td>
-                    <td>2000-3000</td>
-                    <td>Layer défensif principal</td>
-                </tr>
-                <tr>
-                    <td>Crit Chance</td>
-                    <td>60-75%</td>
-                    <td>Essentiel pour DPS</td>
-                </tr>
-                <tr>
-                    <td>Crit Multi</td>
-                    <td>350-450%</td>
-                    <td>Plus = mieux</td>
-                </tr>
-                <tr>
-                    <td>Cast Speed</td>
-                    <td>3-4 casts/sec</td>
-                    <td>Pour smooth gameplay</td>
-                </tr>
-                <tr>
-                    <td>Elemental Resistances</td>
-                    <td>75%/75%/75%</td>
-                    <td>Cap obligatoire</td>
-                </tr>
-            </table>
-        </section>
-
-        <section id="builds">
-            <h2>📈 Progression du Build</h2>
-
-            <div class="build-tier">
-                <div class="tier-card tier-low">
-                    <span class="tier-tag tag-low">LOW BUDGET - Starter</span>
-                    <h3>Budget: 5-15 Exalts</h3>
-                    
-                    <h4>Items Essentiels</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Tabula Rasa</div>
-                        <div>6-link temporaire pour Spark</div>
-                        <div class="price">Prix: ~1-2 Exalts</div>
-                    </div>
-                    
-                    <div class="unique-item">
-                        <div class="unique-name">Goldwyrm (Boots)</div>
-                        <div>+Item Rarity pour farming early</div>
-                        <div class="price">Prix: ~0.5-1 Exalt</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Rare Wand</div>
-                        <div>+Lightning Spell Damage, +Cast Speed, +Crit</div>
-                        <div class="price">Prix: ~2-3 Exalts</div>
-                    </div>
-
-                    <h4>Objectifs Stats</h4>
-                    <ul>
-                        <li>Life: 2500+</li>
-                        <li>Resistances cappées (75%)</li>
-                        <li>Crit Chance: 40%+</li>
-                        <li>Mana sustain via flasks</li>
-                    </ul>
-
-                    <div class="warning-box">
-                        <strong>⚠️ Attention:</strong> À ce budget, évitez les high-tier maps et les boss difficiles. Farmez T1-T10 pour accumulation currency.
-                    </div>
-                </div>
-
-                <div class="tier-card tier-medium">
-                    <span class="tier-tag tag-medium">MEDIUM BUDGET - Transition</span>
-                    <h3>Budget: 50-100 Exalts</h3>
-                    
-                    <h4>Upgrades Clés</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Rare 6-Link Body Armour</div>
-                        <div>+Life, +ES, +Resistances, +Spell Crit</div>
-                        <div class="price">Prix: ~20-30 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Astramentis (Amulet)</div>
-                        <div>+All Attributes pour scaling</div>
-                        <div class="price">Prix: ~5-10 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Rare Wand (Upgraded)</div>
-                        <div>T1 Spell Damage, T1 Crit Multi, Cast Speed</div>
-                        <div class="price">Prix: ~15-25 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Rare Ring x2</div>
-                        <div>+Life, +ES, +Resistances, +Crit Multi</div>
-                        <div class="price">Prix: ~8-15 Exalts chaque</div>
-                    </div>
-
-                    <h4>Objectifs Stats</h4>
-                    <ul>
-                        <li>Life: 3500+</li>
-                        <li>ES: 1500+</li>
-                        <li>Crit Chance: 55%+</li>
-                        <li>Crit Multi: 300%+</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Conseil:</strong> À ce stade, commencez à investir dans les Cluster Jewels pour augmenter votre scaling exponentiel.
-                    </div>
-                </div>
-
-                <div class="tier-card tier-high">
-                    <span class="tier-tag tag-high">HIGH BUDGET - Endgame</span>
-                    <h3>Budget: 200-500+ Exalts</h3>
-                    
-                    <h4>Items BiS (Best in Slot)</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Shavonne's Wrappings</div>
-                        <div>Low Life enabled, Chaos Damage doesn't bypass ES</div>
-                        <div class="price">Prix: ~80-150 Exalts (6-link corrupted)</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Presence of Chayula (Amulet)</div>
-                        <div>Cannot be Stunned, +ES, +Attributes</div>
-                        <div class="price">Prix: ~40-80 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Bottled Faith (Flask)</div>
-                        <div>+Crit Chance, Consecrated Ground</div>
-                        <div class="price">Prix: ~50-100 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Perfect Rare Wand</div>
-                        <div>Triple T1: Spell Damage, Crit Multi, Cast Speed + crafted mod</div>
-                        <div class="price">Prix: ~60-120 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Influenced Helmet</div>
-                        <div>+Spark Projectiles, +Crit Multi, +ES</div>
-                        <div class="price">Prix: ~30-60 Exalts</div>
-                    </div>
-
-                    <h4>Objectifs Stats (Build Final)</h4>
-                    <ul>
-                        <li>Life: 4000+</li>
-                        <li>ES: 2500-3000</li>
-                        <li>Crit Chance: 70%+</li>
-                        <li>Crit Multi: 400%+</li>
-                        <li>DPS: 5M+ Spark + 3M+ Comet</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Min-Max:</strong> À ce niveau, chaque 1% amélioration coûte des dizaines d'exalts. Focus sur perfect rolls et corruptions.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>⚔️ Setup des Skills</h2>
-
-            <h3>Main DPS - Spark (6-Link)</h3>
-            <div class="skill-card">
-                <div class="skill-name">⚡ Spark</div>
-                <div>Projectile lightning principal pour clear et single target</div>
-                <div class="skill-supports">
-                    <strong>Supports:</strong>
-                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                        <li><strong>Lightning Penetration Support</strong> - Ignore résistances ennemies</li>
-                        <li><strong>Spell Echo Support</strong> - Double cast pour DPS massif</li>
-                        <li><strong>Controlled Destruction Support</strong> - +Spell Damage</li>
-                        <li><strong>Critical Strike Support</strong> - Augmente crit chance</li>
-                        <li><strong>Energy Leech Support</strong> - ES sustain via leech (0.4 NEW)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Secondary DPS - Comet (6-Link)</h3>
-            <div class="skill-card">
-                <div class="skill-name">❄️ Comet</div>
-                <div>AOE cold damage pour pack clear et freeze</div>
-                <div class="skill-supports">
-                    <strong>Supports:</strong>
-                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                        <li><strong>Cold Penetration Support</strong> - Ignore cold res</li>
-                        <li><strong>Concentrated Effect Support</strong> - +AOE damage</li>
-                        <li><strong>Controlled Destruction Support</strong> - +Spell Damage</li>
-                        <li><strong>Hypothermia Support</strong> - More damage vs chilled</li>
-                        <li><strong>Ice Bite Support</strong> - Frenzy charge generation (0.4 NEW)</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h3>Auras & Buffs</h3>
-            <div class="skill-grid">
-                <div class="skill-card">
-                    <div class="skill-name">💠 Wrath</div>
-                    <div>+Lightning Damage pour tout le groupe</div>
-                    <div class="skill-supports">Réservation: 50% Life (Blood Magic)</div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-name">❄️ Hatred</div>
-                    <div>Conversion Physical → Cold</div>
-                    <div class="skill-supports">Réservation: 50% Life</div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-name">🛡️ Discipline</div>
-                    <div>+ES regeneration et max ES</div>
-                    <div class="skill-supports">Réservation: 35% Life</div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-name">⚡ Herald of Thunder</div>
-                    <div>Lightning procs on kill</div>
-                    <div class="skill-supports">Réservation: 25% Life</div>
-                </div>
-            </div>
-
-            <h3>Utility & Movement</h3>
-            <div class="skill-grid">
-                <div class="skill-card">
-                    <div class="skill-name">🌀 Flame Dash</div>
-                    <div>Mobilité principale</div>
-                    <div class="skill-supports">Support: Faster Casting</div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-name">⚡ Conductivity</div>
-                    <div>Curse - Réduit lightning res</div>
-                    <div class="skill-supports">Support: Blasphemy (aura)</div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-name">🛡️ Cast when Damage Taken</div>
-                    <div>Auto-proc défensif</div>
-                    <div class="skill-supports">Linked: Immortal Call + Increased Duration</div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-name">💎 Vaal Righteous Fire</div>
-                    <div>Burst DPS pour boss</div>
-                    <div class="skill-supports">Support: Increased Duration</div>
-                </div>
-            </div>
-
-            <div class="warning-box">
-                <h4>⚠️ Gestion Blood Magic</h4>
-                <p>Avec Blood Magic, vous castez avec la vie. Assurez-vous d'avoir:</p>
-                <ul style="margin-left: 1.5rem;">
-                    <li>Minimum 30% life non-réservée pour caster</li>
-                    <li>Life Regeneration ou Leech pour sustain</li>
-                    <li>Life Flask avec charges adéquates</li>
-                    <li>Éviter de spammer skills si life trop basse</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="gamemodes">
-            <h2>🗺️ Modes de Jeu - Atlas Content</h2>
-
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><strong>🌊 BREACH - Lightning Chayula</strong></span>
-                    <span>▼</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Description</h4>
-                    <p>Breach spawns des portails qui libèrent des vagues d'ennemis. Excellent pour farming currency et exp. Le build Spark excelle grâce à son clear speed.</p>
-
-                    <h4>Tablets Recommandées (Atlas Tree)</h4>
-                    <ul>
-                        <li><strong>Breachstone Splinters</strong> - +100% splinter drop chance</li>
-                        <li><strong>Breach Chance</strong> - +15% chance de breach par map</li>
-                        <li><strong>Breach Monster Density</strong> - Plus de mobs = plus de loot</li>
-                        <li><strong>Chayula Breach</strong> - Focus sur Chayula (best rewards)</li>
-                    </ul>
-
-                    <h4>Uniques à farmer</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Presence of Chayula (Amulet)</div>
-                        <div class="drop-rate">Drop Rate: 0.05% (1/2000 Chayula Breach)</div>
-                        <div class="price">Prix Moyen: 60 Exalts</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Skin of the Lords (Body Armour)</div>
-                        <div class="drop-rate">Drop Rate: 0.8% (1/125 Breachstone)</div>
-                        <div class="price">Prix Moyen: 15-40 Exalts (selon roll)</div>
-                    </div>
-
-                    <h4>Stratégie d'optimisation</h4>
-                    <ul>
-                        <li>Farm Chayula Breaches spécifiquement (atlas passives)</li>
-                        <li>Utilise Comet pour freeze les packs instantanément</li>
-                        <li>Spark bounce dans les portails pour max clear</li>
-                        <li>Focus sur speed - temps = currency en Breach</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Pro Tip:</strong> Stack movement speed et clear radius. En Breach, chaque seconde compte avant la fermeture du portail.
-                    </div>
-                </div>
-
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><strong>💀 DELIRIUM - Madness Mirror</strong></span>
-                    <span>▼</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Description</h4>
-                    <p>Delirium ajoute fog progressif qui augmente difficulté ET rewards. Parfait pour high-risk high-reward farming. Build nécessite good defenses.</p>
-
-                    <h4>Tablets Recommandées</h4>
-                    <ul>
-                        <li><strong>Delirium Reward Type</strong> - Focus Scarabs ou Currency</li>
-                        <li><strong>Mirror Spawn Chance</strong> - +8% chance par map</li>
-                        <li><strong>Delirium Everywhere</strong> - Maps ont chance de full Delirium</li>
-                        <li><strong>Simulacrum Splinters</strong> - +50% splinter drop</li>
-                    </ul>
-
-                    <h4>Uniques à farmer</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Voices (Cluster Jewel)</div>
-                        <div class="drop-rate">Drop Rate: 0.3% (Wave 20 Simulacrum)</div>
-                        <div class="price">Prix Moyen: 80-200 Exalts (1 passive = mirror tier)</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Thread of Hope (Jewel)</div>
-                        <div class="drop-rate">Drop Rate: 1.2% (Delirium rewards)</div>
-                        <div class="price">Prix Moyen: 5-15 Exalts</div>
-                    </div>
-
-                    <h4>Stratégie</h4>
-                    <ul>
-                        <li>Maintain max fog stacks pour best rewards</li>
-                        <li>Skip si trop rippy (vaut mieux finish que die)</li>
-                        <li>Build nécessite minimum Medium Budget pour Delirium</li>
-                        <li>Use Flame Dash agressivement pour maintenir pace</li>
-                    </ul>
-                </div>
-
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><strong>⚔️ EXPEDITION - Explosive Remnants</strong></span>
-                    <span>▼</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Description</h4>
-                    <p>Place explosifs sur remnants pour farmer currency et reroll crafting materials. Moins intense que Breach/Delirium, excellent pour chill farming.</p>
-
-                    <h4>Tablets Recommandées</h4>
-                    <ul>
-                        <li><strong>Expedition Chance</strong> - +12% spawn par map</li>
-                        <li><strong>Logbook Drop Chance</strong> - Double logbook drops</li>
-                        <li><strong>Expedition Vendors</strong> - Tujen pour currency, Dannig pour trade</li>
-                        <li><strong>Remnant Effects</strong> - Augmente rewards par remnant</li>
-                    </ul>
-
-                    <h4>Currency Farming</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Astragali (Currency)</div>
-                        <div>Pour gamble chez Tujen</div>
-                        <div class="drop-rate">Drop: Common (5-15 par expedition)</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Logbooks</div>
-                        <div>Maps d'expedition avec rewards massifs</div>
-                        <div class="drop-rate">Drop Rate: 8-12% par expedition</div>
-                        <div class="price">Prix: 0.5-3 Exalts selon type</div>
-                    </div>
-
-                    <h4>Stratégie</h4>
-                    <ul>
-                        <li>Chain remnants pour maximize modifiers</li>
-                        <li>Avoid "Monsters immune to X" si possible</li>
-                        <li>Sell logbooks ou run pour mass currency</li>
-                        <li>Use Tujen rerolls intelligemment (check prices first)</li>
-                    </ul>
-                </div>
-
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><strong>🌀 RITUAL - Blood Altars</strong></span>
-                    <span>▼</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Description</h4>
-                    <p>Ritual spawns altars où vous combattez waves pour tribute points. Dépensez tribute pour acheter rewards. Excellent pour targeted farming.</p>
-
-                    <h4>Tablets Recommandées</h4>
-                    <ul>
-                        <li><strong>Ritual Altars</strong> - +1 altar par map</li>
-                        <li><strong>Tribute Gained</strong> - +25% tribute par ritual</li>
-                        <li><strong>Ritual Reroll Currency</strong> - Plus de rerolls gratuits</li>
-                        <li><strong>Favoured Rewards</strong> - Focus divination cards ou currency</li>
-                    </ul>
-
-                    <h4>Best Rewards</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">High-Value Uniques</div>
-                        <div>Peuvent apparaître dans ritual rewards</div>
-                        <div class="drop-rate">Chance: Variable (check prices before defer)</div>
-                    </div>
-
-                    <div class="unique-item">
-                        <div class="unique-name">Divination Cards</div>
-                        <div>The Doctor, House of Mirrors, etc.</div>
-                        <div class="drop-rate">Très rare mais possible</div>
-                    </div>
-
-                    <h4>Stratégie</h4>
-                    <ul>
-                        <li>Always defer expensive items si pas assez tribute</li>
-                        <li>Skip low-value items pour stack tribute</li>
-                        <li>Build excellent pour Ritual (good clear + tanky enough)</li>
-                        <li>Check market prices avant acheter</li>
-                    </ul>
-                </div>
-
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><strong>🗺️ MAPS FARMING - T16+ Strategy</strong></span>
-                    <span>▼</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Description</h4>
-                    <p>Maps standard avec focus sur density, pack size, et multiple mechanics. Base de tout endgame farming.</p>
-
-                    <h4>Atlas Passives Essentielles</h4>
-                    <ul>
-                        <li><strong>Map Modifier Effect</strong> - +20% effect des mods</li>
-                        <li><strong>Pack Size</strong> - +15% monster pack size</li>
-                        <li><strong>Magic Monster Packs</strong> - Plus rare/magic packs</li>
-                        <li><strong>Boss Rewards</strong> - Double boss drops</li>
-                        <li><strong>Awakening Bonus</strong> - Complete atlas pour +bonuses</li>
-                    </ul>
-
-                    <h4>Best Maps pour Spark</h4>
-                    <table class="stat-table">
-                        <tr>
-                            <th>Map</th>
-                            <th>Layout</th>
-                            <th>Pourquoi ?</th>
-                        </tr>
-                        <tr>
-                            <td>Strand</td>
-                            <td>Linear</td>
-                            <td>Parfait pour Spark bounces, super fast</td>
-                        </tr>
-                        <tr>
-                            <td>Toxic Sewer</td>
-                            <td>Linear</td>
-                            <td>High density, enclosed = Spark heaven</td>
-                        </tr>
-                        <tr>
-                            <td>Burial Chambers</td>
-                            <td>Semi-linear</td>
-                            <td>Doctor card farm + good layout</td>
-                        </tr>
-                        <tr>
-                            <td>Crimson Temple</td>
-                            <td>Compact</td>
-                            <td>High mob density, Comet clears everything</td>
-                        </tr>
-                    </table>
-
-                    <h4>Map Rolling Strategy</h4>
-                    <ul>
-                        <li><strong>Alch and Go:</strong> Simple alch pour T14-T16</li>
-                        <li><strong>Chisel + Alch + Vaal:</strong> Maximum juice</li>
-                        <li><strong>Avoid mods:</strong> Reflect Elemental, No Regen</li>
-                        <li><strong>Scarabs:</strong> Breach/Delirium/Expedition selon strat</li>
-                    </ul>
-
-                    <div class="tip-box">
-                        <strong>💡 Speed Farming:</strong> Ce build excelle en speed. Visez 2-3 minutes par map T16 fully juiced.
-                    </div>
-                </div>
-
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span><strong>👑 BOSS FARMING - Pinnacle Content</strong></span>
-                    <span>▼</span>
-                </div>
-                <div class="accordion-content">
-                    <h4>Description</h4>
-                    <p>Endgame boss fights pour les meilleurs uniques du jeu. Nécessite build optimisé (Medium-High budget minimum).</p>
-
-                    <h4>Maven (The Maven)</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Awakened Gems</div>
-                        <div class="drop-rate">Drop: Guaranteed (1 par kill)</div>
-                        <div class="price">Prix: 5-50 Exalts selon gem</div>
-                    </div>
-                    <p><strong>Difficulté:</strong> Moyenne - Patterns prévisibles. Comet freeze aide énormément.</p>
-
-                    <h4>Searing Exarch</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Omniscience (Amulet)</div>
-                        <div class="drop-rate">Drop Rate: ~3%</div>
-                        <div class="price">Prix: 80-150 Exalts</div>
-                    </div>
-                    <p><strong>Difficulté:</strong> Haute - Beaucoup de fire damage. Stack cold res.</p>
-
-                    <h4>Eater of Worlds</h4>
-                    <div class="unique-item">
-                        <div class="unique-name">Ashes of the Stars (Amulet)</div>
-                        <div class="drop-rate">Drop Rate: ~3%</div>
-                        <div class="price">Prix: 60-120 Exalts</div>
-                    </div>
-                    <p><strong>Difficulté:</strong> Haute - Chaos damage dangerous. Build a decent chaos res.</p>
-
-                    <h4>Stratégie Boss</h4>
-                    <ul>
-                        <li>Practice patterns en Standard first</li>
-                        <li>Use defensive flasks agressivement</li>
-                        <li>Comet pour freeze phases adds</li>
-                        <li>Spark pour constant DPS pendant movement</li>
-                        <li>Don't be greedy - dodge > DPS</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="temple">
-            <h2>🏛️ Temple d'Atzoatl - Configuration Optimale</h2>
-
-            <div class="tip-box">
-                <h4>📊 Votre Configuration Actuelle</h4>
-                <p>Configuration basée sur: <a href="https://sulozor.github.io/#/atziri-temple?t=ACFIIUghSCFIIUhgOWA5YDlgSCE5ESkRKRE5IUhgKQCYACkySCE5EjEAeRFpIUhgcGl6cClwSCE5eXpwMRJ6IUgyaXBhOXGASCIxOWEIQGkxIg" target="_blank" style="color: #4a9eff;">Temple Layout Viewer</a></p>
-            </div>
-
-            <div class="temple-layout">
-                <h3>Rooms Tier 3 Prioritaires</h3>
-
-                <div class="temple-room">
-                    <h4>⚡ Lightning Room (Locus of Corruption)</h4>
-                    <p><strong>Reward:</strong> Double corruption sur items</p>
-                    <p><strong>Utilité:</strong> BiS pour corrupting Shavonne's, amulets, jewels</p>
-                    <p><strong>Risque:</strong> Peut brick items (destroy)</p>
-                    <div class="cost-estimate">Value: 50-500 Exalts (si hit good corruption)</div>
-                </div>
-
-                <div class="temple-room">
-                    <h4>💎 Gem Room (Doryani's Institute)</h4>
-                    <p><strong>Reward:</strong> Double corrupt gems, +1-2 gem levels</p>
-                    <p><strong>Utilité:</strong> Level 21/23% quality gems = huge DPS boost</p>
-                    <p><strong>Priority:</strong> Corrupt Spark, Comet, supports critiques</p>
-                    <div class="cost-estimate">Value: 10-80 Exalts par gem réussie</div>
-                </div>
-
-                <div class="temple-room">
-                    <h4>🗺️ Map Room (Atlas of Worlds)</h4>
-                    <p><strong>Reward:</strong> +1 map tier upgrade</p>
-                    <p><strong>Utilité:</strong> Transform T15 → T16 pour sustain</p>
-                    <div class="cost-estimate">Value: 0.5-2 Exalts par map upgrade</div>
-                </div>
-
-                <div class="temple-room">
-                    <h4>💰 Currency Room (Wealth of the Vaal)</h4>
-                    <p><strong>Reward:</strong> Stacks of currency</p>
-                    <p><strong>Utilité:</strong> Pure profit, toujours worth</p>
-                    <div class="cost-estimate">Value: 5-15 Exalts par room</div>
-                </div>
-
-                <div class="temple-room">
-                    <h4>🛡️ Armour Room (Chamber of Iron)</h4>
-                    <p><strong>Reward:</strong> Rare armours avec bons mods</p>
-                    <p><strong>Utilité:</strong> Peut drop upgrades ou sell bases</p>
-                    <div class="cost-estimate">Value: 2-20 Exalts (RNG dependent)</div>
-                </div>
-
-                <div class="temple-room">
-                    <h4>⚔️ Weapon Room (Apex of Ascension)</h4>
-                    <p><strong>Reward:</strong> Rare weapons high ilvl</p>
-                    <p><strong>Utilité:</strong> Peut drop wand upgrade pour build</p>
-                    <div class="cost-estimate">Value: 5-40 Exalts (bonne base wand)</div>
-                </div>
-            </div>
-
-            <h3>Stratégie Temple Farming</h3>
-            <ul style="margin-left: 2rem; margin-top: 1rem;">
-                <li><strong>Atlas Passives:</strong> +Temple spawn chance, +Architect pack size</li>
-                <li><strong>Focus T3 rooms:</strong> Skip temples sans T3 rooms prioritaires</li>
-                <li><strong>Corruption Strategy:</strong> Corrupt Spark/Comet gems first, puis items</li>
-                <li><strong>Boss (Atzoatl):</strong> Easy avec ce build, always kill pour completion</li>
-            </ul>
-
-            <div class="warning-box">
-                <h4>⚠️ Corruption Risks</h4>
-                <p><strong>Important:</strong> Corruption peut transformer item en rare random ou le détruire complètement. Ne corrupt que:</p>
-                <ul style="margin-left: 1.5rem;">
-                    <li>Items dont vous avez backup</li>
-                    <li>Items à 6-link déjà établi</li>
-                    <li>Gems level 20/20% quality minimum</li>
-                    <li>Jamais corrupt votre seul équipement principal</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="crafting">
-            <h2>🔨 Guide de Craft Complet</h2>
-
-            <div class="intro-box">
-                <p>Le crafting est essentiel pour optimiser le build. Chaque slot peut être crafté avec des mods spécifiques pour maximiser DPS et survie. Voici le processus détaillé pour chaque pièce.</p>
-            </div>
-
-            <h3>🪄 Wand (Main Hand) - PRIORITY #1</h3>
-            
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Acquérir la base</strong>
-                <p>Achetez: <strong>Imbued Wand</strong> (ilvl 83+) avec implicit +spell damage</p>
-                <div class="cost-estimate">Coût: 1-3 Exalts (bonne base)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Craft T1 Spell Damage</strong>
-                <p>Méthode: Spam <strong>Essence of Woe</strong> jusqu'à hit T1 Spell Damage + 1-2 bons mods</p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Mods désirés: +Crit Multi, +Cast Speed, +Lightning Damage</li>
-                    <li>Essences nécessaires: 20-50 Essence of Woe</li>
-                </ul>
-                <div class="cost-estimate">Coût: 15-30 Exalts (essences)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">3</span>
-                <strong>Bench Craft le dernier mod</strong>
-                <p>Si 2 T1 mods + 1 ouvert: craft <strong>+Non-Chaos Damage as Chaos</strong> ou <strong>+Cast Speed</strong></p>
-                <div class="cost-estimate">Coût: Craft bench gratuit (hideout)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">4</span>
-                <strong>Quality Perfect</strong>
-                <p>Use <strong>Perfect Fossils</strong> ou <strong>Hillock (Betrayal)</strong> pour 28-30% quality</p>
-                <div class="cost-estimate">Coût: 2-5 Exalts</div>
-            </div>
-
-            <div class="warning-box">
-                <strong>Budget Alternative:</strong> Achetez wand déjà craftée sur market. Souvent moins cher que craft yourself (20-40 Exalts pour bonne wand).
-            </div>
-
-            <h3>🛡️ Body Armour - 6-Link</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Option Low Budget: Tabula Rasa</strong>
-                <p>Achetez <strong>Tabula Rasa</strong> pour 6-link temporaire</p>
-                <div class="cost-estimate">Coût: 1-2 Exalts</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Option Medium: Rare 6-Link</strong>
-                <p>Achetez base <strong>Vaal Regalia</strong> (high ES) déjà 6-linked</p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>ilvl 84+ pour T1 mods</li>
-                    <li>Corrupt avec +life/ES implicit si possible</li>
-                </ul>
-                <div class="cost-estimate">Coût: 15-30 Exalts (base 6L)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">3</span>
-                <strong>Spam Essence of Woe (ES)</strong>
-                <p>Essences: <strong>Deafening Essence of Woe</strong> pour T1 ES</p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Targets: +ES%, +flat ES, +Resistances</li>
-                    <li>Besoin: 30-80 essences</li>
-                </ul>
-                <div class="cost-estimate">Coût: 20-40 Exalts</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">4</span>
-                <strong>Option High: Shavonne's Wrappings</strong>
-                <p>Achetez <strong>Shavonne's Wrappings</strong> 6-linked pour Low Life build</p>
-                <div class="cost-estimate">Coût: 80-150 Exalts (6L corrupted)</div>
-            </div>
-
-            <h3>💍 Rings (x2) - Crit Multi Focus</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Base: Vermillion Ring ou Opal Ring</strong>
-                <p>Implicit: +Life (Vermillion) ou +Elemental Damage (Opal)</p>
-                <div class="cost-estimate">Coût: 0.5-2 Exalts (base ilvl 83+)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Fossil Crafting</strong>
-                <p>Combo: <strong>Pristine Fossil</strong> + <strong>Metallic Fossil</strong></p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Pristine: More life mods</li>
-                    <li>Metallic: More lightning mods</li>
-                    <li>Target: +Life, +Lightning Damage, +Crit Multi</li>
-                </ul>
-                <div class="cost-estimate">Coût: 10-25 Exalts par ring (fossiles)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">3</span>
-                <strong>Bench Craft Resistances</strong>
-                <p>Si manque resistances: craft bench pour cap 75%</p>
-            </div>
-
-            <h3>📿 Amulet - Crit/Attributes</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Low Budget: Astramentis</strong>
-                <p>Unique: <strong>Astramentis</strong> (+all attributes)</p>
-                <div class="cost-estimate">Coût: 5-10 Exalts</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>High Budget: Presence of Chayula</strong>
-                <p>Unique BiS: Cannot be Stunned + +ES + Chaos res</p>
-                <div class="cost-estimate">Coût: 60-100 Exalts</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">3</span>
-                <strong>Alternative Rare: Crit Multi Amulet</strong>
-                <p>Fossil craft avec <strong>Frigid Fossil</strong> + <strong>Metallic Fossil</strong></p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Target: +Crit Multi, +Cast Speed, +Life, +Attributes</li>
-                </ul>
-                <div class="cost-estimate">Coût: 15-40 Exalts</div>
-            </div>
-
-            <h3>👢 Boots - Movement + Resistances</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Base: Sorcerer Boots</strong>
-                <p>Implicit: +Movement Speed</p>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Essence Spam</strong>
-                <p><strong>Essence of Greed</strong> pour +Life garanti</p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Autres mods désirés: +Movement Speed 30%, +Resistances</li>
-                </ul>
-                <div class="cost-estimate">Coût: 5-15 Exalts</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">3</span>
-                <strong>Enchantement Lab</strong>
-                <p>Lab enchant: <strong>+Damage if killed recently</strong> ou <strong>+Regen</strong></p>
-            </div>
-
-            <h3>🧤 Gloves - Cast Speed Focus</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Base: Sorcerer Gloves (ilvl 82+)</strong>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Fossil Spam</strong>
-                <p>Combo: <strong>Frigid</strong> + <strong>Pristine</strong> + <strong>Metallic</strong></p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Target: +Life, +ES, +Cast Speed, +Resistances</li>
-                </ul>
-                <div class="cost-estimate">Coût: 8-20 Exalts</div>
-            </div>
-
-            <h3>⛑️ Helmet - ES + Resistances</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>High Budget: Influenced Helmet</strong>
-                <p>Shaper/Elder influenced pour <strong>+Spark Projectiles</strong></p>
-                <div class="cost-estimate">Coût: 30-80 Exalts (crafted)</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Medium/Low: Rare ES Helmet</strong>
-                <p>Essence spam: <strong>Essence of Woe</strong> pour ES</p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>Mods: +ES, +Life, +Resistances, +Attributes</li>
-                </ul>
-                <div class="cost-estimate">Coût: 10-25 Exalts</div>
-            </div>
-
-            <h3>🛡️ Shield (Option) - Block or ES</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Si dual wield: Skip shield</strong>
-                <p>Build utilise dual wield pour max DPS</p>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Alternative tank: Spirit Shield</strong>
-                <p>+Spell Damage, +Spell Crit, +ES pour plus de survie</p>
-                <div class="cost-estimate">Coût: 15-40 Exalts</div>
-            </div>
-
-            <h3>🎴 Jewels - Crit Multi Stacking</h3>
-
-            <div class="craft-step">
-                <span class="step-number">1</span>
-                <strong>Rare Jewels (besoin: 4-6)</strong>
-                <p>Mods prioritaires:</p>
-                <ul style="margin-left: 3.5rem;">
-                    <li>+Crit Multi (Lightning/Cold/Global)</li>
-                    <li>+Life%</li>
-                    <li>+Cast Speed</li>
-                    <li>+Damage</li>
-                </ul>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">2</span>
-                <strong>Craft Method: Alteration Spam</strong>
-                <p>Spam <strong>Orb of Alteration</strong> jusqu'à hit 2 T1 mods → Regal → Craft 3ème mod</p>
-                <div class="cost-estimate">Coût: 3-8 Exalts par jewel</div>
-            </div>
-
-            <div class="craft-step">
-                <span class="step-number">3</span>
-                <strong>High Budget: Cluster Jewels</strong>
-                <p>Large Cluster: <strong>+Lightning Damage</strong> with passives:</p>
-                <ul style="margin-left: 3.5rem;">
-                
+<header>
+  <h1>Path of Exile 2 – Guide Endgame complet (Early Access 0.4)</h1>
+  <nav>
+    <a href="#abyss">Abyss</a>
+    <a href="#breach">Breach</a>
+    <a href="#delirium">Delirium</a>
+    <a href="#expedition">Expedition</a>
+    <a href="#temple">Temple</a>
+    <a href="#bloodmage">Blood Mage</a>
+  </nav>
+</header>
+
+<main>
+
+<section>
+<h2>Philosophie du guide</h2>
+<p>
+Guide rédigé en <strong>français</strong>. Tous les éléments liés au jeu sont conservés en <strong>anglais</strong> :
+items, gemmes, mécaniques, Atlas passives, NPC, currencies.
+</p>
+<p>
+Objectif : expliquer <strong>ce qui rapporte vraiment</strong>, ce qui est une perte de temps,
+et comment optimiser chaque mécanique en solo mapping patch 0.4.
+</p>
+</section>
+
+<section id="abyss">
+<h2>Abyss</h2>
+<h3>Fonctionnement</h3>
+<p>
+Abyss génère une fissure mobile qui spawn des vagues de monstres.
+En PoE2, Abyss est une mécanique de <strong>clear speed</strong> et de densité,
+pas une mécanique de bossing.
+</p>
+<h3>Ce que Abyss apporte réellement</h3>
+<ul>
+<li>Jewels Abyss (scaling flat damage / utility)</li>
+<li>XP stable</li>
+<li>Coffres Abyssal Trove</li>
+</ul>
+<h3>Uniques Abyss (anglais)</h3>
+<ul>
+<li><strong>Tombfist</strong> – Faible</li>
+<li><strong>Lightpoacher</strong> – Très faible</li>
+</ul>
+<div class="note">Abyss n’est PAS une mécanique de target-farm fiable pour un unique précis.</div>
+<h3>Atlas Tree – priorités</h3>
+<ul>
+<li>Chance for Abyss</li>
+<li>Abysses have increased Depth</li>
+<li>Abysses spawn additional Troves</li>
+</ul>
+</section>
+
+<section id="breach">
+<h2>Breach</h2>
+<h3>Fonctionnement</h3>
+<p>
+Breach ouvre une zone circulaire temporaire. Plus tu tues vite,
+plus la Breach reste ouverte. En 0.4, Breach est une des meilleures
+mécaniques de densité.
+</p>
+<h3>Récompenses</h3>
+<ul>
+<li>Breach Splinters → Breachstones</li>
+<li>Breach Uniques</li>
+<li>XP élevée</li>
+</ul>
+<h3>Uniques Breach</h3>
+<ul>
+<li><strong>Skin of the Loyal</strong> – Faible</li>
+<li><strong>United in Dream</strong> – Très faible</li>
+<li><strong>Presence of Chayula</strong> – Extrêmement faible</li>
+</ul>
+<h3>Atlas Tree optimal</h3>
+<ul>
+<li>Additional Breach</li>
+<li>Breach opens faster</li>
+<li>More Splinters</li>
+</ul>
+<h3>Trade</h3>
+<a class="trade" target="_blank" href="https://www.pathofexile.com/trade2/search/poe2?q=Skin%20of%20the%20Loyal">Trade2 – Skin of the Loyal</a>
+</section>
+
+<section id="delirium">
+<h2>Delirium</h2>
+<h3>Fonctionnement</h3>
+<p>
+Delirium ajoute un brouillard qui augmente la difficulté et les récompenses
+en fonction du temps passé.
+</p>
+<h3>Forces / Faiblesses</h3>
+<div class="good">Excellente densité, très bon scaling loot</div>
+<div class="warn">Très dangereux pour builds fragiles</div>
+<h3>Loot</h3>
+<ul>
+<li>Delirium Orbs</li>
+<li>High tier currencies</li>
+</ul>
+<h3>Atlas Tree</h3>
+<ul>
+<li>Delirium chance</li>
+<li>Increased Delirium rewards</li>
+</ul>
+</section>
+
+<section id="expedition">
+<h2>Expedition</h2>
+<h3>Fonctionnement</h3>
+<p>
+Placement stratégique d’explosifs.
+Expedition est une mécanique de <strong>skill et lecture</strong>.
+</p>
+<h3>NPC</h3>
+<ul>
+<li><strong>Rog</strong> – Crafting</li>
+<li><strong>Gwennen</strong> – Gambling</li>
+<li><strong>Tujen</strong> – Currency</li>
+</ul>
+<h3>Atlas Tree</h3>
+<ul>
+<li>More Explosives</li>
+<li>More Remnants</li>
+<li>Logbook chance</li>
+</ul>
+</section>
+
+<section id="temple">
+<h2>Temple of Atzoatl</h2>
+<p>
+Temple analysé depuis ton lien.
+Objectif principal : salles de corruption et d’upgrade.
+</p>
+<h3>Salles prioritaires</h3>
+<ul>
+<li>Corruption Chamber (Tier 3)</li>
+<li>Gemcutter’s Workshop (Tier 3)</li>
+</ul>
+</section>
+
+<section id="bloodmage">
+<h2>Blood Mage – Guide de Craft</h2>
+<h3>Philosophie</h3>
+<p>
+Blood Mage scale via Life, Spell Damage et sustain.
+Les crafts doivent privilégier Life + Spell scaling.
+</p>
+<h3>Weapon</h3>
+<ul>
+<li>Base : <strong>High Spell Damage Wand</strong></li>
+<li>Mods : Spell Damage, +Level to Spell Gems</li>
+</ul>
+<a class="trade" target="_blank" href="https://www.pathofexile.com/trade2/search/poe2?q=Wand%20Spell%20Damage">Trade2 – Wand base</a>
+
+<h3>Chest</h3>
+<ul>
+<li>Base : <strong>High Armour or ES Chest</strong></li>
+<li>Life, Resistances</li>
+</ul>
+</section>
+
+</main>
+</body>
+</html>
