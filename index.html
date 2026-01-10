@@ -3,1769 +3,706 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guide Endgame Path of Exile 2 - Patch 0.4</title>
+    <title>Blood Mage - Guide Crafting Complet</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
-            min-height: 100vh;
+
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #151923;
+            --bg-tertiary: #1e2433;
+            --accent: #c41f3b;
+            --accent-bright: #ef4444;
+            --text-primary: #e8e8e8;
+            --text-secondary: #a8a8a8;
+            --border: #2a3144;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --lightning: #8ab4f8;
+            --prefix: #8b5cf6;
+            --suffix: #06b6d4;
         }
-        
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
-            text-align: center;
+            background: linear-gradient(135deg, #1a0a0e, #3a0a1e);
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            margin-bottom: 40px;
-            border: 2px solid #3a3a5c;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 2px solid var(--accent);
+            text-align: center;
         }
-        
+
         h1 {
-            font-size: 2.5rem;
-            color: #f39c12;
-            margin-bottom: 10px;
-            text-shadow: 0 0 20px rgba(243, 156, 18, 0.5);
+            font-size: 2.5em;
+            color: var(--accent-bright);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(196, 31, 59, 0.5);
         }
-        
+
         .subtitle {
-            font-size: 1.2rem;
-            color: #95a5a6;
+            font-size: 1.2em;
+            color: var(--text-secondary);
         }
-        
-        .version-badge {
-            display: inline-block;
-            background: #e74c3c;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-        
+
         nav {
-            background: rgba(0, 0, 0, 0.4);
+            background: var(--bg-secondary);
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 30px;
+            border: 1px solid var(--border);
             position: sticky;
             top: 10px;
             z-index: 100;
-            border: 1px solid #3a3a5c;
         }
-        
-        nav ul {
-            list-style: none;
+
+        .nav-tabs {
             display: flex;
+            gap: 10px;
             flex-wrap: wrap;
-            gap: 15px;
             justify-content: center;
         }
-        
-        nav a {
-            color: #3498db;
-            text-decoration: none;
-            padding: 8px 15px;
-            border-radius: 5px;
+
+        .tab-btn {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            border: 2px solid var(--border);
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 6px;
             transition: all 0.3s;
-            display: block;
+            font-weight: 600;
         }
-        
-        nav a:hover {
-            background: rgba(52, 152, 219, 0.2);
-            color: #5dade2;
-        }
-        
-        section {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            border: 1px solid #3a3a5c;
-        }
-        
-        h2 {
-            color: #e74c3c;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e74c3c;
-        }
-        
-        h3 {
-            color: #f39c12;
-            font-size: 1.5rem;
-            margin: 25px 0 15px 0;
-        }
-        
-        h4 {
-            color: #3498db;
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-        }
-        
-        .mechanic-card {
-            background: rgba(52, 73, 94, 0.3);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-        
-        .tablet-info {
-            background: rgba(46, 64, 83, 0.4);
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-        
-        .mod-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-            margin: 15px 0;
-        }
-        
-        .mod-item {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 12px;
-            border-radius: 5px;
-            border-left: 3px solid #27ae60;
-        }
-        
-        .mod-item.prefix {
-            border-left-color: #e67e22;
-        }
-        
-        .mod-item.suffix {
-            border-left-color: #9b59b6;
-        }
-        
-        .mod-item.meta {
-            border-left-color: #f1c40f;
-        }
-        
-        .mod-item.avoid {
-            border-left-color: #e74c3c;
-            opacity: 0.7;
-        }
-        
-        .atlas-link {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin: 10px 0;
-            transition: all 0.3s;
-        }
-        
-        .atlas-link:hover {
-            background: #2980b9;
+
+        .tab-btn:hover {
+            border-color: var(--accent);
             transform: translateY(-2px);
         }
-        
-        .warning {
-            background: rgba(231, 76, 60, 0.2);
-            border: 1px solid #e74c3c;
+
+        .tab-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent-bright);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            background: var(--bg-secondary);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+
+        h2 {
+            color: var(--accent-bright);
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--accent);
+            font-size: 1.5em;
+            margin: 25px 0 15px;
+        }
+
+        h4 {
+            color: var(--lightning);
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+        }
+
+        .item-box {
+            background: linear-gradient(135deg, var(--bg-tertiary), #1a1520);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid var(--accent);
+        }
+
+        .item-name {
+            font-size: 1.4em;
+            color: var(--accent-bright);
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        .base-info {
+            background: var(--bg-primary);
             padding: 15px;
-            border-radius: 5px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border-left: 4px solid var(--lightning);
+        }
+
+        .target-mods {
+            background: var(--bg-primary);
+            padding: 15px;
+            border-radius: 6px;
             margin: 15px 0;
         }
-        
-        .info {
-            background: rgba(52, 152, 219, 0.2);
-            border: 1px solid #3498db;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
+
+        .mod-list {
+            list-style: none;
+            padding: 0;
         }
-        
-        .tip {
-            background: rgba(46, 204, 113, 0.2);
-            border: 1px solid #27ae60;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
+
+        .mod-list li {
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 4px;
+            background: var(--bg-secondary);
         }
-        
+
+        .mod-list .prefix {
+            border-left: 4px solid var(--prefix);
+        }
+
+        .mod-list .suffix {
+            border-left: 4px solid var(--suffix);
+        }
+
+        .affix-type {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .affix-prefix {
+            background: var(--prefix);
+            color: white;
+        }
+
+        .affix-suffix {
+            background: var(--suffix);
+            color: white;
+        }
+
+        .method-section {
+            background: var(--bg-tertiary);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid var(--border);
+        }
+
+        .method-header {
+            font-size: 1.3em;
+            color: var(--accent-bright);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cost-badge {
+            display: inline-block;
+            background: var(--warning);
+            color: var(--bg-primary);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .step-by-step {
+            counter-reset: step;
+        }
+
+        .step {
+            background: var(--bg-secondary);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+            position: relative;
+            padding-left: 70px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: "ÉTAPE " counter(step);
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: var(--lightning);
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .omen-box {
+            background: linear-gradient(135deg, #1a0a2e, #0f0520);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 2px solid #8b5cf6;
+        }
+
+        .omen-name {
+            font-weight: bold;
+            color: #a78bfa;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid var(--accent-bright);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .success-box {
+            background: rgba(74, 222, 128, 0.1);
+            border: 2px solid var(--success);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .tip-box {
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left-width: 6px;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .comparison-item {
+            background: var(--bg-tertiary);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+        }
+
+        .comparison-item h4 {
+            margin-top: 0;
+        }
+
+        .priority-high {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .priority-medium {
+            color: var(--warning);
+        }
+
+        code {
+            background: var(--bg-primary);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: var(--accent-bright);
+            font-family: 'Courier New', monospace;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            background: rgba(0, 0, 0, 0.2);
         }
-        
-        th {
-            background: rgba(52, 73, 94, 0.5);
-            color: #f39c12;
+
+        th, td {
             padding: 12px;
             text-align: left;
-            border: 1px solid #3a3a5c;
+            border-bottom: 1px solid var(--border);
         }
-        
-        td {
-            padding: 10px 12px;
-            border: 1px solid #3a3a5c;
+
+        th {
+            background: var(--bg-tertiary);
+            color: var(--accent-bright);
+            font-weight: 600;
         }
-        
-        tr:nth-child(even) {
-            background: rgba(0, 0, 0, 0.2);
+
+        tr:hover {
+            background: var(--bg-tertiary);
         }
-        
-        code {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2px 6px;
-            border-radius: 3px;
-            color: #f39c12;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .rarity-low {
-            color: #95a5a6;
-        }
-        
-        .rarity-very-low {
-            color: #e74c3c;
-        }
-        
-        .rarity-extremely-low {
-            color: #9b59b6;
-            font-weight: bold;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #7f8c8d;
-            border-top: 1px solid #3a3a5c;
-            margin-top: 50px;
-        }
-        
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .mod-list {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 1.8em; }
+            .comparison { grid-template-columns: 1fr; }
+            .step { padding-left: 20px; }
+            .step::before { position: relative; left: 0; top: 0; display: block; margin-bottom: 10px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🔥 GUIDE ENDGAME PATH OF EXILE 2</h1>
-            <p class="subtitle">Atlas Optimisation • Tablets • Crafting • Blood Mage</p>
-            <span class="version-badge">Patch 0.4 - Fate of the Vaal</span>
+            <h1>🩸 Blood Mage - Guide Crafting Complet</h1>
+            <p class="subtitle">Tous les crafts détaillés pour chaque slot | Patch 0.4</p>
         </header>
-        
+
         <nav>
-            <ul>
-                <li><a href="#abyss">Abyss</a></li>
-                <li><a href="#breach">Breach</a></li>
-                <li><a href="#delirium">Delirium</a></li>
-                <li><a href="#expedition">Expedition</a></li>
-                <li><a href="#temple">Temple of Atzoatl</a></li>
-                <li><a href="#blood-mage">Blood Mage Crafting</a></li>
-            </ul>
+            <div class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab('intro')">📖 Introduction</button>
+                <button class="tab-btn" onclick="switchTab('weapon')">⚔️ Weapon</button>
+                <button class="tab-btn" onclick="switchTab('body')">🛡️ Body Armour</button>
+                <button class="tab-btn" onclick="switchTab('helmet')">🪖 Helmet</button>
+                <button class="tab-btn" onclick="switchTab('gloves')">🧤 Gloves</button>
+                <button class="tab-btn" onclick="switchTab('boots')">👢 Boots</button>
+                <button class="tab-btn" onclick="switchTab('shield')">🛡️ Shield</button>
+            </div>
         </nav>
 
-        <!-- ABYSS SECTION -->
-        <section id="abyss">
-            <h2>⚫ ABYSS</h2>
-            
-            <h3>Fonctionnement (Patch 0.4)</h3>
-            <div class="mechanic-card">
-                <p>Abyss est devenu une mécanique core en patch 0.4. Les fissures apparaissent dans les maps et spawent des vagues de monstres abyssaux. Chaque pit fermé multiplie les récompenses.</p>
+        <!-- INTRODUCTION -->
+        <div id="intro" class="tab-content active">
+            <div class="section">
+                <h2>📖 Vue d'ensemble - Blood Mage Crafting</h2>
                 
-                <div class="info">
-                    <strong>Scaling :</strong> Le nombre de pits et la densité de monstres sont les facteurs clés. Plus vous fermez de pits, plus les multiplicateurs s'appliquent.
+                <div class="success-box">
+                    <h3>🎯 Objectif Global</h3>
+                    <p>Le Blood Mage est un caster Lightning qui scale avec <strong>+Lightning Spell Gem Levels</strong>, <strong>Energy Shield</strong>, et <strong>Cast Speed</strong>. Chaque slot a un rôle précis et des méthodes de craft optimales.</p>
                 </div>
-                
-                <div class="warning">
-                    <strong>Erreurs fatales :</strong>
-                    <ul>
-                        <li>Ne pas prendre les passives Atlas qui augmentent le nombre de pits</li>
-                        <li>Utiliser des Tablets sans le mod "increased difficulty and reward for each closed pit"</li>
-                        <li>Ignorer les Remnants of Power pour doubler l'effet des Tablets</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Abyssal Precursor Tablet</h3>
-            <div class="tablet-info">
-                <h4>📋 PREFIXES (identiques à tous les Tablets)</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix">
-                        <strong>Increased Rare Monsters</strong><br>
-                        Augmente le nombre de rare monsters dans les maps affectées
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>Increased Magic Monsters</strong><br>
-                        Augmente le nombre de magic monsters
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>Increased Item Rarity</strong><br>
-                        Boost la rareté des items droppés (META en 0.4)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>Increased Item Quantity</strong><br>
-                        Augmente la quantité d'items (nerffé en 0.4, max 10% par Tablet)
-                    </div>
-                </div>
-                
-                <h4>🔮 SUFFIXES (spécifiques Abyss)</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>Abyss monsters have increased difficulty and reward for each closed pit</strong><br>
-                        ⭐ MOD ESSENTIEL - Multiplicateur par pit fermé
-                    </div>
-                    <div class="mod-item suffix meta">
-                        <strong>Map contains additional Abysses</strong><br>
-                        ⭐ Ajoute 1-4 Abyss supplémentaires par map
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Map has 24-40% chance to contain four additional Abysses</strong><br>
-                        Alternative budget au Unique Tablet
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Increased Abyssal monster effectiveness</strong><br>
-                        Augmente la difficulté et les récompenses
-                    </div>
-                </div>
-                
-                <div class="tip">
-                    <strong>Setup optimal :</strong> 2x Abyssal Tablets avec "difficulty/reward per pit" + 1x Delirium Tablet avec "increased effectiveness"
-                </div>
-            </div>
-            
-            <h3>Loot & Rentabilité</h3>
-            <table>
-                <tr>
-                    <th>Type de Loot</th>
-                    <th>Rentabilité</th>
-                    <th>Notes</th>
-                </tr>
-                <tr>
-                    <td>Divine Orbs</td>
-                    <td>40+ div/heure (groupe optimisé)</td>
-                    <td>Via conversion Exalted → Divine en Tier 7</td>
-                </tr>
-                <tr>
-                    <td>Abyssal Jewels</td>
-                    <td>Variable</td>
-                    <td>Heart of the Well recherché</td>
-                </tr>
-                <tr>
-                    <td>Currency Raw</td>
-                    <td>Très élevée</td>
-                    <td>Échelle avec rarity et pits fermés</td>
-                </tr>
-            </table>
-            
-            <h3>Uniques Spécifiques</h3>
-            <div class="mod-list">
-                <div class="mod-item">
-                    <strong>Unforeseen Consequences (Unique Tablet)</strong><br>
-                    Rareté: <span class="rarity-extremely-low">Extremely Low</span><br>
-                    Effet: Peut ajouter 40+ pits par map<br>
-                    Source: Drop des Abyss monsters en endgame
-                </div>
-                <div class="mod-item">
-                    <strong>Heart of the Well (Jewel)</strong><br>
-                    Rareté: <span class="rarity-very-low">Very Low</span><br>
-                    Effet: Instant Leech + mods aléatoires<br>
-                    Utilisation: Essential pour Blood Mage avec Atalui's Bloodletting
-                </div>
-            </div>
-            
-            <h3>Atlas Tree - Abyss (8 Points disponibles)</h3>
-            <div class="info">
-                <strong>Ordre d'allocation optimal :</strong>
-                <ol>
-                    <li><strong>From Out of the Pit</strong> - 25% increased effectiveness of Abyssal monsters (= quantity). PRIORITÉ ABSOLUE.</li>
-                    <li><strong>Stir the Swarm</strong> - Nearby maps are overrun by Abyssal (5% chance). Overrun maps = masse de pits.</li>
-                    <li><strong>Balance of Power</strong> - Path vers From Out of the Pit, augmente difficulty/rewards.</li>
-                    <li><strong>Sprawling Rupture</strong> - Augmente le nombre de monsters spawned.</li>
-                    <li><strong>Unholy Influence</strong> - Increased chance pour powerful Abyssal modifiers.</li>
-                </ol>
-            </div>
-            
-            <div class="tip">
-                <strong>Comment débloquer les 8 points :</strong><br>
-                - Complete an Abyss encounter (2 points)<br>
-                - Complete an Abyssal Depths (2 points)<br>
-                - Defeat Vessel of Kulemak (2 points) - Requiert Kulemak's Invitation<br>
-                - Defeat Kulemak (2 points) - Boss pinnacle dans le Well of Souls
-            </div>
-            
-            <a href="https://maxroll.gg/poe2/resources/abyss" class="atlas-link" target="_blank">
-                🔗 Guide Complet Abyss - Maxroll
-            </a>
-        </section>
 
-        <!-- BREACH SECTION -->
-        <section id="breach">
-            <h2>💜 BREACH</h2>
-            
-            <h3>Fonctionnement (Patch 0.4)</h3>
-            <div class="mechanic-card">
-                <p>Les Breaches spawent une main violette que le joueur traverse. Un cercle s'étend et spawn des monstres pendant une durée limitée. Tuer les monstres augmente la durée.</p>
-                
-                <div class="info">
-                    <strong>Scaling :</strong> Densité de monstres, nombre de Clasped Hands, et vitesse de clear. Les Breach Splinters échellent avec le tier de la map.
-                </div>
-                
-                <div class="warning">
-                    <strong>Erreurs fatales :</strong>
-                    <ul>
-                        <li>Utiliser des layouts de map défavorables (Mire, Seepage, Vaal Factory)</li>
-                        <li>Ne pas optimiser la vitesse de clear pour garder le Breach ouvert</li>
-                        <li>Ignorer les Catalysts qui se vendent extrêmement bien</li>
+                <h3>🔥 Priorités de Craft (Order)</h3>
+                <table>
+                    <tr>
+                        <th>Priority</th>
+                        <th>Slot</th>
+                        <th>Raison</th>
+                        <th>Budget</th>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-high">HAUTE</span></td>
+                        <td><strong>Weapon</strong></td>
+                        <td>+2 Lightning Gems = 30% more DPS. Le plus gros power spike.</td>
+                        <td>2-10 Divine</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-high">HAUTE</span></td>
+                        <td><strong>Body Armour</strong></td>
+                        <td>600+ ES requis pour survivre T16+. Base de défense.</td>
+                        <td>2-6 Divine</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-medium">MOYENNE</span></td>
+                        <td><strong>Helmet</strong></td>
+                        <td>+2 Lightning Gems (scaling) mais très cher à craft.</td>
+                        <td>5-15 Divine</td>
+                    </tr>
+                    <tr>
+                        <td><span class="priority-medium">MOYENNE</span></td>
+                        <td><strong>Shield</strong></td>
+                        <td>+1 All Gems + defensive stats. Bon mais pas critique.</td>
+                        <td>1-4 Divine</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--text-secondary);">BASSE</td>
+                        <td><strong>Gloves</strong></td>
+                        <td>Cast Speed + ES. Facile à obtenir via Rog/Essences.</td>
+                        <td>1-3 Divine</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--text-secondary);">BASSE</td>
+                        <td><strong>Boots</strong></td>
+                        <td>Movement Speed + resists. Le slot le plus facile.</td>
+                        <td>1-2 Divine</td>
+                    </tr>
+                </table>
+
+                <div class="warning-box">
+                    <h3>⚠️ Règles Importantes</h3>
+                    <ul style="line-height: 2;">
+                        <li>Ne JAMAIS utiliser <code>Exalted Orb</code> sur un item avec moins de 3 bons mods</li>
+                        <li>Les <code>Fracturing Orbs</code> doivent lock un T1 mod seulement</li>
+                        <li>Commence TOUJOURS par Weapon + Body Armour avant le reste</li>
+                        <li>Utilise Rog pour les slots secondaires (Gloves, Boots)</li>
                     </ul>
                 </div>
-            </div>
-            
-            <h3>Breach Precursor Tablet</h3>
-            <div class="tablet-info">
-                <h4>📋 PREFIXES (identiques)</h4>
-                <p>Voir section Abyss - mêmes prefixes pour tous les Tablets</p>
-                
-                <h4>🔮 SUFFIXES (spécifiques Breach)</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>Breaches spawn increased Magic Monsters</strong><br>
-                        40-70% increased Magic Monsters dans les Breaches
-                    </div>
-                    <div class="mod-item suffix meta">
-                        <strong>Breaches have increased Monster density</strong><br>
-                        5-10% increased density (buff en 0.4)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Increased Quantity of Breach Splinters</strong><br>
-                        15-30% increased splinters dropped
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Map has chance to contain additional Breaches</strong><br>
-                        15-30% chance pour +1 Breach, ou 6-10% pour +3
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Breaches expand to at least 20 metres</strong><br>
-                        Garantit une taille minimale du Breach
-                    </div>
-                </div>
-                
-                <div class="tip">
-                    <strong>Combo optimal :</strong> Density + Magic Monsters + Increased Rare Monsters (prefix) pour maximiser les Catalysts et Splinters
-                </div>
-            </div>
-            
-            <h3>Loot & Rentabilité</h3>
-            <table>
-                <tr>
-                    <th>Type de Loot</th>
-                    <th>Valeur</th>
-                    <th>Notes</th>
-                </tr>
-                <tr>
-                    <td>Breach Splinters</td>
-                    <td>300 pour 1 Breachstone</td>
-                    <td>Accès au boss Xesht</td>
-                </tr>
-                <tr>
-                    <td>Catalysts</td>
-                    <td>Haute demande</td>
-                    <td>Se vendent par stacks de dizaines d'exalted</td>
-                </tr>
-                <tr>
-                    <td>Breach Rings</td>
-                    <td>Jusqu'à 40% Quality</td>
-                    <td>Double la quality normale des rings</td>
-                </tr>
-            </table>
-            
-            <h3>Uniques Spécifiques</h3>
-            <div class="mod-list">
-                <div class="mod-item">
-                    <strong>Wraeclast Besieged (Unique Tablet)</strong><br>
-                    Rareté: <span class="rarity-very-low">Very Low</span><br>
-                    Effet: Soul Eater sur tous les Rares + increased Catalysts<br>
-                    Warning: Extremely dangerous
-                </div>
-                <div class="mod-item">
-                    <strong>Breach Rings (Base Type)</strong><br>
-                    Rareté: <span class="rarity-low">Low</span><br>
-                    Spécificité: 40% Quality maximum (vs 20% normal)<br>
-                    Craft: Permet des mods 20% plus puissants
-                </div>
-            </div>
-            
-            <h3>Atlas Tree - Breach (8 Points disponibles)</h3>
-            <div class="info">
-                <strong>Ordre d'allocation optimal :</strong>
-                <ol>
-                    <li><strong>Rising Fire</strong> - 40% increased monster density (KEYSTONE CRITIQUE). Prendre en priorité absolue.</li>
-                    <li><strong>Grasping Hands</strong> - Additional Clasped Hands spawned. À prendre en 2ème, puis respec.</li>
-                    <li><strong>Frantic Invasion</strong> - Significantly increased monsters. Remplace Grasping Hands après obtention du 3ème set de points.</li>
-                    <li><strong>Interdimensional Assault OU Sustained Siege</strong> - Choice basé sur la puissance du build :
+
+                <h3>💎 Outils de Craft Essentiels</h3>
+                <div class="comparison">
+                    <div class="comparison-item">
+                        <h4>Essences (Farming Required)</h4>
                         <ul>
-                            <li>Interdimensional Assault : Si clear rapide et complet du Breach</li>
-                            <li>Sustained Siege : Si difficulté à clear entièrement le Breach</li>
+                            <li><code>Essence of Woe</code> - Garantit T1 Spell Damage</li>
+                            <li><code>Essence of Insanity</code> - Garantit T1 Cast Speed</li>
+                            <li><code>Essence of Greed</code> - Garantit Life</li>
                         </ul>
-                    </li>
-                    <li><strong>Crumbling Walls</strong> - Aide à maintenir le Breach ouvert plus longtemps</li>
-                </ol>
-            </div>
-            
-            <div class="tip">
-                <strong>Comment débloquer les 8 points :</strong><br>
-                - Complete a Breach encounter (2 points)<br>
-                - Defeat Xesht, We That Are One Difficulty 1 (2 points)<br>
-                - Defeat Xesht Difficulty 2 (2 points)<br>
-                - Defeat Xesht Difficulty 3 (2 points)
-            </div>
-            
-            <div class="warning">
-                <strong>Focus sur Breach Hands :</strong> La rentabilité vient des Clasped Hands et splinters, PAS des rare monsters ou catalysts RNG. Prioriser les spawns de Hands.
-            </div>
-            
-            <a href="https://maxroll.gg/poe2/resources/breach" class="atlas-link" target="_blank">
-                🔗 Guide Complet Breach - Maxroll
-            </a>
-        </section>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Fossils (Trading/Delve)</h4>
+                        <ul>
+                            <li><code>Dense Fossil</code> - Force ES mods</li>
+                            <li><code>Metallic Fossil</code> - Force Lightning mods</li>
+                            <li><code>Pristine Fossil</code> - Ajoute Life/ES</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <!-- DELIRIUM SECTION -->
-        <section id="delirium">
-            <h2>🌫️ DELIRIUM</h2>
-            
-            <h3>Fonctionnement (Patch 0.4)</h3>
-            <div class="mechanic-card">
-                <p>Un Mirror de Delirium apparaît au début de certaines maps. Le traverser crée un fog gris qui se propage. Les monstres dans le fog deviennent plus dangereux mais droppent plus de loot. Le fog avance lentement et finit par disparaître.</p>
-                
-                <div class="info">
-                    <strong>Scaling :</strong> Distance parcourue dans le fog, Fractured Mirrors activés, % Delirious de la map (via Liquid Emotions).
-                </div>
-                
-                <div class="warning">
-                    <strong>Erreurs fatales :</strong>
-                    <ul>
-                        <li>Rester immobile trop longtemps (4 sec = fin du Delirium)</li>
-                        <li>Utiliser Liquid Emotions ET un Delirium Tablet (ne stack pas)</li>
-                        <li>Ne pas suivre les particules de fog pour optimiser la densité</li>
-                    </ul>
+                <div class="tip-box">
+                    <h3>💡 Astuce Pro</h3>
+                    <p>Pour chaque slot, je te donne <strong>plusieurs méthodes</strong> (Essence, Fossil, Harvest, Rog). Choisis selon tes ressources disponibles. La méthode la moins chère n'est pas toujours la plus rapide !</p>
                 </div>
             </div>
-            
-            <h3>Delirium Precursor Tablet</h3>
-            <div class="tablet-info">
-                <h4>📋 PREFIXES (identiques)</h4>
-                <p>Voir section Abyss</p>
-                
-                <h4>🔮 SUFFIXES (spécifiques Delirium)</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>Monsters have increased Effectiveness</strong><br>
-                        7-11% effectiveness = quantity + health<br>
-                        ⭐ CRITIQUE pour scaling avec Abyss
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Increased Simulacrum Splinter drops</strong><br>
-                        Augmente le nombre de splinters
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Delirium fog duration</strong><br>
-                        Modifications de la durée du fog
-                    </div>
-                </div>
-                
-                <div class="info">
-                    <strong>Clear Skies (Unique Tablet):</strong> Le fog ne disparaît jamais, mais vous gardez le reward counter. Alternative aux Liquid Emotions.
-                </div>
-            </div>
-            
-            <h3>Liquid Emotions (Distilled Emotions)</h3>
-            <table>
-                <tr>
-                    <th>Type</th>
-                    <th>Effet sur Waystone</th>
-                    <th>Utilisation</th>
-                </tr>
-                <tr>
-                    <td>Distilled Greed</td>
-                    <td>% Delirious + Item Quantity</td>
-                    <td>Farming général</td>
-                </tr>
-                <tr>
-                    <td>Distilled Paranoia</td>
-                    <td>% Delirious + Rare Monsters</td>
-                    <td>Combo avec Abyss/Breach</td>
-                </tr>
-                <tr>
-                    <td>Distilled Envy</td>
-                    <td>% Delirious + Item Rarity</td>
-                    <td>Meta en 0.4</td>
-                </tr>
-                <tr>
-                    <td>Autres (17 types)</td>
-                    <td>Effets variés</td>
-                    <td>Instill sur Amulets aussi</td>
-                </tr>
-            </table>
-            
-            <h3>Loot & Rentabilité</h3>
-            <table>
-                <tr>
-                    <th>Récompense</th>
-                    <th>Obtention</th>
-                    <th>Valeur</th>
-                </tr>
-                <tr>
-                    <td>Simulacrum Splinters</td>
-                    <td>Kill Delirium monsters</td>
-                    <td>300 = 1 Simulacrum (2 Atlas points)</td>
-                </tr>
-                <tr>
-                    <td>Liquid Emotions</td>
-                    <td>Remplir reward bar</td>
-                    <td>Craft Amulets + juice maps</td>
-                </tr>
-                <tr>
-                    <td>Megalomaniac</td>
-                    <td>Simulacrum +4 difficulty</td>
-                    <td class="rarity-extremely-low">Extremely rare</td>
-                </tr>
-                <tr>
-                    <td>Strugglescream</td>
-                    <td>Simulacrum +4 difficulty</td>
-                    <td class="rarity-extremely-low">Extremely rare</td>
-                </tr>
-            </table>
-            
-            <h3>Atlas Tree - Delirium (8 Points disponibles)</h3>
-            <div class="info">
-                <strong>Passives prioritaires :</strong>
-                <ol>
-                    <li><strong>Isn't It Tempting</strong> - Le boss de map vole la currency pendant Delirium, puis la drop amplifiée au kill.</li>
-                    <li><strong>It's Not Real, It's Not Real!</strong> - Augmente quantity de Liquid Emotions droppées.</li>
-                    <li><strong>Get Out of My Head!</strong> - Increased chance pour Delirious Waystones.</li>
-                    <li><strong>They're Coming to Get You</strong> - Increased duration on rare kill + boss encounter chance.</li>
-                </ol>
-            </div>
-            
-            <div class="tip">
-                <strong>Comment débloquer les 8 points :</strong><br>
-                - Complete a Delirium encounter (2 points)<br>
-                - Complete the Simulacrum Difficulty 1 (2 points)<br>
-                - Complete the Simulacrum Difficulty 2 (2 points)<br>
-                - Complete the Simulacrum Difficulty 3 (2 points)
-            </div>
-            
-            <div class="warning">
-                <strong>CRITIQUE :</strong> Ne pas utiliser Liquid Emotions ET Delirium Tablet ensemble - l'effet ne stack pas. Choisir l'un ou l'autre.
-            </div>
-            
-            <a href="https://maxroll.gg/poe2/resources/delirium" class="atlas-link" target="_blank">
-                🔗 Guide Complet Delirium - Maxroll (à venir)
-            </a>
-        </section>
+        </div>
 
-        <!-- EXPEDITION SECTION -->
-        <section id="expedition">
-            <h2>💥 EXPEDITION</h2>
-            
-            <h3>Fonctionnement (Patch 0.4)</h3>
-            <div class="mechanic-card">
-                <p>Un NPC Kalguuran (Rog, Dannig, Tujen, Gwennen) présente un site de fouilles. Vous placez 5 explosifs en chaîne pour déterrer des monstres, coffres et Remnants qui buffent les monstres suivants.</p>
-                
-                <div class="info">
-                    <strong>Scaling :</strong> Ordre des explosifs, Remnants activés en premier, équilibre risk/reward des mods.
-                </div>
-                
-                <div class="warning">
-                    <strong>Erreurs fatales :</strong>
-                    <ul>
-                        <li>Activer "Immune to X Damage" qui brick votre encounter</li>
-                        <li>Ne pas prioriser les good Remnants en début de chaîne</li>
-                        <li>Oublier la Recombination pour le crafting avancé</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Expedition Precursor Tablet</h3>
-            <div class="tablet-info">
-                <h4>📋 PREFIXES (identiques)</h4>
-                <p>Voir section Abyss</p>
-                
-                <h4>🔮 SUFFIXES (spécifiques Expedition)</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>Increased Quantity of Expedition Artifacts</strong><br>
-                        15-30% increased Verisium Artifacts (buff en 0.4)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Increased Logbook drop chance</strong><br>
-                        Augmente les drops de Logbooks
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Additional Remnants</strong><br>
-                        Plus de Remnants disponibles
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Increased Expedition monster density</strong><br>
-                        Plus de monstres déterrés par explosif
-                    </div>
-                </div>
-            </div>
-            
-            <h3>NPCs & Spécialités</h3>
-            <table>
-                <tr>
-                    <th>NPC</th>
-                    <th>Spécialité</th>
-                    <th>Currency</th>
-                    <th>Utilisation</th>
-                </tr>
-                <tr>
-                    <td>Rog</td>
-                    <td>Crafting contrôlé</td>
-                    <td>Scrap Metal</td>
-                    <td>Meilleur crafting budget en 0.4</td>
-                </tr>
-                <tr>
-                    <td>Dannig</td>
-                    <td>Artefacts exchange</td>
-                    <td>Verisium Artefacts</td>
-                    <td>Convertir les artefacts des autres NPCs</td>
-                </tr>
-                <tr>
-                    <td>Tujen</td>
-                    <td>Haggling vendor</td>
-                    <td>Burial Medallions</td>
-                    <td>Currency bulk à prix réduit</td>
-                </tr>
-                <tr>
-                    <td>Gwennen</td>
-                    <td>Gambling</td>
-                    <td>Astragali</td>
-                    <td>Items uniques/rares bases</td>
-                </tr>
-            </table>
-            
-            <h3>Loot & Rentabilité</h3>
-            <div class="tip">
-                <strong>Stratégie optimale :</strong>
-                <ol>
-                    <li>Prioriser Rog > Tujen > Dannig > Gwennen en termes de rentabilité</li>
-                    <li>Farmer les Logbooks (mini-maps dédiées Expedition)</li>
-                    <li>Utiliser Recombination pour fusionner les items (craft avancé)</li>
-                </ol>
-            </div>
-            
-            <h3>Uniques Spécifiques</h3>
-            <div class="mod-list">
-                <div class="mod-item">
-                    <strong>Tujen's Blessing (Currency)</strong><br>
-                    Rareté: <span class="rarity-very-low">Very Low</span><br>
-                    Effet: Reroll Tujen inventory avec discount réduit<br>
-                    Source: Logbooks
-                </div>
-                <div class="mod-item">
-                    <strong>Gwennen's Gambit (Currency)</strong><br>
-                    Rareté: <span class="rarity-very-low">Very Low</span><br>
-                    Effet: Reroll Gwennen inventory<br>
-                    Source: Logbooks
-                </div>
-            </div>
-            
-            <h3>Atlas Tree - Expedition (8 Points disponibles)</h3>
-            <div class="info">
-                <strong>Passives recommandées :</strong>
-                <ol>
-                    <li><strong>Explosive Radius</strong> - Increased area of explosions = plus de monstres/coffres touchés.</li>
-                    <li><strong>Archaeologist's Log</strong> - Increased Logbook drop chance.</li>
-                    <li><strong>Merchants of the Kalguur</strong> - Free vendor rerolls (économie massive).</li>
-                    <li><strong>Hidden Verisium</strong> - Increased Verisium Artifacts quantity.</li>
-                    <li><strong>Detailed Records</strong> - Logbooks have +1 Level et 4 implicit modifiers garantis (patch 0.4).</li>
-                </ol>
-            </div>
-            
-            <div class="tip">
-                <strong>Comment débloquer les 8 points :</strong><br>
-                - Complete an Expedition encounter (2 points)<br>
-                - Defeat bosses dans Logbooks pour les 6 autres points (détails variables)
-            </div>
-            
-            <div class="warning">
-                <strong>Focus Rog :</strong> Le crafting via Rog (Scrap Metal) est devenu LA meilleure méthode budget en 0.4. Prioriser farm d'Expedition pour Scrap Metal.
-            </div>
-            
-            <a href="https://maxroll.gg/poe2/getting-started/atlas-tips-and-tricks" class="atlas-link" target="_blank">
-                🔗 Atlas Tips - Maxroll
-            </a>
-        </section>
+        <!-- WEAPON -->
+        <div id="weapon" class="tab-content">
+            <div class="section">
+                <h2>⚔️ Weapon - Sceptre</h2>
 
-        <!-- ATLAS GLOBAL -->
-        <section id="atlas-global">
-            <h2>🗺️ ATLAS TREE GLOBAL (40+ Points)</h2>
-            
-            <h3>Passives Universelles (Recommandées pour tous)</h3>
-            <div class="info">
-                <strong>Priorités absolues :</strong>
-                <ul>
-                    <li><strong>Remnants of Power</strong> - 20% chance pour que les Tablets doublent leur effet. ESSENTIEL pour tout farming.</li>
-                    <li><strong>Local Knowledge</strong> - Swamp et Water biomes ont 40% increased chance pour basic currency.</li>
-                    <li><strong>Map Effect nodes</strong> - Tous les nodes qui augmentent l'effet général des maps.</li>
-                    <li><strong>Pack Size nodes</strong> - Increased monster pack size = plus de loot.</li>
-                    <li><strong>Item Rarity nodes</strong> - Meta en 0.4 après le nerf de Quantity.</li>
-                </ul>
-            </div>
-            
-            <h3>Progression Atlas 0-40 Points</h3>
-            <div class="mechanic-card">
-                <h4>Comment obtenir les 40 points Atlas :</h4>
-                <ol>
-                    <li><strong>30 points via Corrupted Nexuses</strong> - 6 Nexuses à compléter (5 points chacun). Clear le node central.</li>
-                    <li><strong>10 points via Uniques</strong> - Slay 5 distinct unique bosses (2 points chacun).</li>
-                </ol>
-                
-                <h4>Stratégie de progression rapide :</h4>
-                <ul>
-                    <li>Focus sur Corrupted Zones (fog rouge) pour trouver les Nexuses</li>
-                    <li>Tiers impairs requis (T1 avec 4 mods jusqu'à T15)</li>
-                    <li>Chain Nexus + boss maps pour efficiency</li>
-                    <li>Exploration linéaire pour trigger citadel spawns</li>
-                    <li>Plus besoin d'interact avec towers (patch 0.4)</li>
-                </ul>
-            </div>
-            
-            <h3>Setup Atlas par stratégie de farm</h3>
-            <table>
-                <tr>
-                    <th>Stratégie</th>
-                    <th>Points Atlas Global</th>
-                    <th>Points Spécifiques</th>
-                </tr>
-                <tr>
-                    <td>Abyss Solo/Groupe</td>
-                    <td>Remnants of Power, Pack Size, Rarity</td>
-                    <td>8 points Abyss (From Out of the Pit prioritaire)</td>
-                </tr>
-                <tr>
-                    <td>Breach Farming</td>
-                    <td>Remnants of Power, Pack Size</td>
-                    <td>8 points Breach (Rising Fire keystone)</td>
-                </tr>
-                <tr>
-                    <td>Ritual (Solo)</td>
-                    <td>Rarity, Pack Size</td>
-                    <td>8 points Ritual (Promise Devotion, Tempting Offers)</td>
-                </tr>
-                <tr>
-                    <td>Hybrid Multi-meca</td>
-                    <td>Remnants of Power, Local Knowledge, Map Effect</td>
-                    <td>Split entre 2-3 mécaniques (Abyss + Delirium + Breach)</td>
-                </tr>
-            </table>
-        </section>
+                <div class="item-box">
+                    <div class="item-name">Vaal Sceptre (iLvl 86+)</div>
+                    
+                    <div class="base-info">
+                        <h4>Pourquoi cette base ?</h4>
+                        <p>Le <code>Vaal Sceptre</code> a le meilleur implicite Spell Damage (40-59%). Alternative : <code>Sambar Sceptre</code> (budget) ou <code>Opal Sceptre</code> (hybrid builds).</p>
+                    </div>
 
-        <!-- TEMPLE OF ATZOATL -->
-        <section id="temple">
-            <h2>🏛️ TEMPLE OF ATZOATL</h2>
-            
-            <h3>Fonctionnement</h3>
-            <div class="mechanic-card">
-                <p>Le Temple d'Atzoatl fonctionne par Incursions. Vous entrez dans le passé pour upgrader/connecter des salles. Après 12 Incursions, vous accédez au Temple présent avec les salles que vous avez préparées.</p>
-                
-                <div class="info">
-                    <strong>Scaling :</strong> Upgrade des salles au Tier 3, connexion au Stone of Passage, choix des salles pivots.
+                    <div class="target-mods">
+                        <h4>🎯 Mods Cibles</h4>
+                        <ul class="mod-list">
+                            <li class="prefix">
+                                <strong>+1 to Level of all Spell Skill Gems</strong>
+                                <span class="affix-type affix-prefix">PREFIX</span>
+                                <p>Le mod le plus important. Scale TOUS tes spell gems. Plus facile à obtenir que +2 spécifique.</p>
+                            </li>
+                            <li class="prefix">
+                                <strong>60-79% increased Spell Damage</strong>
+                                <span class="affix-type affix-prefix">PREFIX</span>
+                                <p>T1 Spell Damage. Essentiel pour scale ton DPS baseline.</p>
+                            </li>
+                            <li class="suffix">
+                                <strong>25-30% increased Cast Speed</strong>
+                                <span class="affix-type affix-suffix">SUFFIX</span>
+                                <p>T1 Cast Speed. Plus de casts = plus de DPS.</p>
+                            </li>
+                            <li class="suffix">
+                                <strong>30-38% to Global Critical Strike Multiplier</strong>
+                                <span class="affix-type affix-suffix">SUFFIX</span>
+                                <p>T1 Crit Multi. Augmente ton burst damage significativement.</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
-                <div class="warning">
-                    <strong>Erreurs fatales (IRRÉVERSIBLES) :</strong>
-                    <ul>
-                        <li>Connecter une salle inutile au Stone of Passage (bloque les bonnes salles)</li>
-                        <li>Upgrader une salle trash au Tier 2+ (consomme des Incursions)</li>
-                        <li>Ne pas kill les Architects pour changer le type de salle</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>Salles Prioritaires (Tier 3)</h3>
-            <table>
-                <tr>
-                    <th>Salle T3</th>
-                    <th>Récompense</th>
-                    <th>Priorité</th>
-                </tr>
-                <tr>
-                    <td>Apex of Atzoatl</td>
-                    <td>Boss Omnitect (Uniques)</td>
-                    <td>⭐⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                    <td>Locus of Corruption</td>
-                    <td>Double Corrupt items</td>
-                    <td>⭐⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                    <td>Doryani's Institute</td>
-                    <td>Upgrade items to Unique</td>
-                    <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                    <td>House of the Others</td>
-                    <td>Sacrifice uniques pour Unique chest</td>
-                    <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                    <td>Gemcutter's Workshop</td>
-                    <td>21/20 Gems ou Double Corrupt</td>
-                    <td>⭐⭐⭐⭐</td>
-                </tr>
-                <tr>
-                    <td>Royal Meeting Room</td>
-                    <td>Masse de Rare items</td>
-                    <td>⭐⭐⭐</td>
-                </tr>
-                <tr>
-                    <td>Storage Room</td>
-                    <td>Divination Cards</td>
-                    <td>⭐⭐⭐</td>
-                </tr>
-            </table>
-            
-            <h3>Ordre Optimal des Incursions</h3>
-            <div class="tip">
-                <strong>Stratégie recommandée :</strong>
-                <ol>
-                    <li><strong>Incursions 1-4 :</strong> Identifier les salles disponibles, kill Architects pour obtenir Locus/Doryani/Gemcutter si absentes</li>
-                    <li><strong>Incursions 5-8 :</strong> Upgrader les salles META au Tier 2, connecter au Stone of Passage</li>
-                    <li><strong>Incursions 9-12 :</strong> Upgrade Tier 3 des salles clés, dernières connexions</li>
-                </ol>
-            </div>
-            
-            <div class="warning">
-                <strong>Salles à ÉVITER :</strong>
-                <ul>
-                    <li>Vault (loot négligeable)</li>
-                    <li>Workshop (items rares inutiles)</li>
-                    <li>Strongbox rooms (valeur faible en endgame)</li>
-                    <li>Torment rooms (spectres inutiles)</li>
-                </ul>
-            </div>
-            
-            <h3>Résultat Final Recherché</h3>
-            <div class="info">
-                <strong>Temple optimal :</strong>
-                <ul>
-                    <li>Locus of Corruption (T3) connecté au Stone</li>
-                    <li>Doryani's Institute (T3) connecté au Stone</li>
-                    <li>Gemcutter's Workshop (T3) connecté si possible</li>
-                    <li>House of the Others (T3) si uniques en stock</li>
-                    <li>Apex of Atzoatl (automatique) pour Omnitect boss</li>
-                </ul>
-            </div>
-            
-            <h3>Uniques Spécifiques</h3>
-            <div class="mod-list">
-                <div class="mod-item">
-                    <strong>Apep's Supremacy (Shield)</strong><br>
-                    Rareté: <span class="rarity-extremely-low">Extremely Low</span><br>
-                    Source: Omnitect boss<br>
-                    Effet: Chaos Immunity + Chaos damage conversion
-                </div>
-                <div class="mod-item">
-                    <strong>Coward's Legacy (Belt)</strong><br>
-                    Rareté: <span class="rarity-very-low">Very Low</span><br>
-                    Source: Omnitect boss<br>
-                    Effet: You always count as on Low Life
-                </div>
-            </div>
-            
-            <a href="https://sulozor.github.io/#/atziri-temple" class="atlas-link" target="_blank">
-                🔗 Temple of Atzoatl Planner
-            </a>
-        </section>
 
-        <!-- BLOOD MAGE CRAFTING -->
-        <section id="blood-mage">
-            <h2>🩸 BLOOD MAGE - CRAFTING ULTRA DÉTAILLÉ</h2>
-            
-            <h3>Vue d'Ensemble</h3>
-            <div class="mechanic-card">
-                <p>Le Blood Mage en patch 0.4 utilise <strong>Atalui's Bloodletting</strong> comme unique clé. Cette dague permet l'instant life leech + conversion du damage en life loss. Le build scale via +Levels, ES, et Chaos Damage.</p>
-                
-                <div class="info">
-                    <strong>Core Stats recherchés :</strong>
-                    <ul>
-                        <li>+Levels to Chaos/Intelligence/All Gems</li>
-                        <li>% Increased Energy Shield</li>
-                        <li>Flat Energy Shield</li>
-                        <li>+Maximum Energy Shield</li>
-                        <li>Chaos Damage over Time Multiplier</li>
-                        <li>Cast Speed</li>
-                        <li>Mana (via Eldritch Battery)</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <h3>🗡️ WEAPON - Atalui's Bloodletting</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Atalui's Bloodletting (Unique Dagger)</strong></p>
-                <ul>
-                    <li>Non craftable - Unique item fixe</li>
-                    <li>Instant Life Leech from Chaos Damage</li>
-                    <li>Damage taken from Mana before Life (= Eldritch Battery automatique)</li>
-                </ul>
-                
-                <div class="warning">
-                    <strong>Rareté :</strong> <span class="rarity-extremely-low">Extremely Low</span> - Prix 40-100 Exalted selon mods variables
-                </div>
-                
-                <h4>Stratégie d'acquisition</h4>
-                <div class="tip">
-                    Acheter sur Trade plutôt que farmer. Budget requis : 50-80 Exalted minimum pour version utilisable.
-                </div>
-            </div>
-            
-            <h3>🪖 HELMET</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Hubris Circlet (Armour/ES base)</strong></p>
-                <p>Justification : Plus haut ES de toutes les bases casque (Tier 1 = 45-53 flat ES)</p>
-                
-                <h4>PREFIXES recherchés</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix meta">
-                        <strong>+1 to Level of All Chaos Skill Gems</strong><br>
-                        ⭐ CRITIQUE - Augmente tous les Chaos gems
+                <h3>📋 Méthode 1 : Essence Spam (Recommandée - Budget Moyen)</h3>
+                <div class="method-section">
+                    <div class="method-header">
+                        Essence of Woe Spam
+                        <span class="cost-badge">2-5 Divine</span>
                     </div>
-                    <div class="mod-item prefix meta">
-                        <strong>+1 to Level of All Intelligence Skill Gems</strong><br>
-                        ⭐ Synergise avec +1 Chaos (somme à +2)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>+X to Maximum Energy Shield</strong><br>
-                        Flat ES (40-60 Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>X% Increased Energy Shield</strong><br>
-                        % ES (60-80% Tier 1)
-                    </div>
-                </div>
-                
-                <h4>SUFFIXES recherchés</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>+X% to Chaos Damage over Time Multiplier</strong><br>
-                        DoT scaling (15-20% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>X% Increased Cast Speed</strong><br>
-                        QoL majeur (10-15% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>+X to Maximum Mana</strong><br>
-                        Synergie Eldritch Battery (80-100 Tier 1)
-                    </div>
-                </div>
-                
-                <div class="mod-item avoid">
-                    <strong>Mods à ÉVITER :</strong> Life, Armour pur, Elemental Resistances (suffixes gaspillés)
-                </div>
-                
-                <h4>Méthode de Craft</h4>
-                <div class="info">
-                    <strong>Étapes :</strong>
-                    <ol>
-                        <li><strong>Base acquisition :</strong> Acheter ilvl 80+ Hubris Circlet (1-5 Exalted)</li>
-                        <li><strong>Essence spam :</strong> Utiliser <code>Essence of Torment</code> (garantit +1 All Gems)</li>
-                        <li><strong>Target :</strong> +1 All Gems + 1-2 bons mods ES</li>
-                        <li><strong>Bench craft :</strong> Ajouter Cast Speed ou Chaos DoT Multi si affixe libre</li>
-                        <li><strong>Si 3+ bons mods :</strong> Exalted Orb slam les affixes manquants</li>
-                    </ol>
-                </div>
-                
-                <h4>Coût estimé</h4>
-                <table>
-                    <tr>
-                        <th>Item</th>
-                        <th>Quantité</th>
-                        <th>Prix unitaire</th>
-                        <th>Total</th>
-                    </tr>
-                    <tr>
-                        <td>Hubris Circlet ilvl 80+</td>
-                        <td>1</td>
-                        <td>1-5 Exalted</td>
-                        <td>5 Ex</td>
-                    </tr>
-                    <tr>
-                        <td>Essence of Torment</td>
-                        <td>50-100</td>
-                        <td>0.5-1 Exalted</td>
-                        <td>50-100 Ex</td>
-                    </tr>
-                    <tr>
-                        <td>Exalted Orbs (slam)</td>
-                        <td>5-10</td>
-                        <td>1 Exalted</td>
-                        <td>5-10 Ex</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><strong>TOTAL</strong></td>
-                        <td><strong>60-115 Ex</strong></td>
-                    </tr>
-                </table>
-                
-                <div class="tip">
-                    <strong>Alternative budget :</strong> Acheter casque pré-crafté avec +1 Chaos + ES à 30-50 Exalted sur Trade.
-                </div>
-            </div>
-            
-            <h3>👕 CHEST - Vaal Regalia</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Vaal Regalia (Pure ES base)</strong></p>
-                <p>Justification : Plus haut ES de toutes les bases chest (200+ ES possible)</p>
-                
-                <h4>PREFIXES recherchés</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix meta">
-                        <strong>+X to Maximum Energy Shield</strong><br>
-                        Flat ES (120-150 Tier 1)
-                    </div>
-                    <div class="mod-item prefix meta">
-                        <strong>X% Increased Energy Shield</strong><br>
-                        % ES (100-120% Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>+1 to Level of All Socketed Gems</strong><br>
-                        Bonus si 6L avec setup principal
-                    </div>
-                </div>
-                
-                <h4>SUFFIXES recherchés</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>+X% to Chaos Damage over Time Multiplier</strong><br>
-                        DoT scaling (20-25% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>+X to Maximum Mana</strong><br>
-                        Synergie EB (100-130 Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>X% Increased Mana Regeneration Rate</strong><br>
-                        Sustain (40-50% Tier 1)
-                    </div>
-                </div>
-                
-                <h4>Méthode de Craft</h4>
-                <div class="info">
-                    <strong>Étapes :</strong>
-                    <ol>
-                        <li><strong>Base :</strong> Vaal Regalia ilvl 80+ (5-10 Exalted)</li>
-                        <li><strong>Méthode 1 - Essence spam :</strong> <code>Essence of Woe</code> (garantit % ES)</li>
-                        <li><strong>Méthode 2 - Fossil :</strong> <code>Dense Fossil</code> (augmente chance ES mods)</li>
-                        <li><strong>Target :</strong> % ES + Flat ES minimum, Chaos DoT Multi en suffix</li>
-                        <li><strong>Finalisation :</strong> Bench craft ou Exalt slam</li>
-                    </ol>
-                </div>
-                
-                <h4>Coût estimé</h4>
-                <p><strong>100-200 Exalted</strong> pour version correcte (% + Flat ES + 1 bon suffix)</p>
-            </div>
-            
-            <h3>🧤 GLOVES - Sorcerer Gloves</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Sorcerer Gloves (ES base)</strong></p>
-                
-                <h4>PREFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix meta">
-                        <strong>+X to Maximum Energy Shield</strong><br>
-                        Flat ES (30-40 Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>X% Increased Energy Shield</strong><br>
-                        % ES (50-70% Tier 1)
-                    </div>
-                </div>
-                
-                <h4>SUFFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>+X% to Chaos Damage over Time Multiplier</strong><br>
-                        ⭐ CRITIQUE (15-20% Tier 1)
-                    </div>
-                    <div class="mod-item suffix meta">
-                        <strong>X% Increased Cast Speed</strong><br>
-                        QoL essentiel (10-15% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>+X to Maximum Mana</strong><br>
-                        Synergie EB (60-80 Tier 1)
-                    </div>
-                </div>
-                
-                <h4>Méthode</h4>
-                <p><strong>Essence of Torment</strong> ou <strong>Dense Fossil</strong> jusqu'à obtenir ES + Chaos DoT Multi, bench craft Cast Speed.</p>
-                
-                <h4>Coût</h4>
-                <p><strong>40-80 Exalted</strong></p>
-            </div>
-            
-            <h3>👢 BOOTS - Sorcerer Boots</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Sorcerer Boots (ES base)</strong></p>
-                
-                <h4>PREFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix">
-                        <strong>+X to Maximum Energy Shield</strong><br>
-                        Flat ES (30-40 Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>X% Increased Energy Shield</strong><br>
-                        % ES (50-70% Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>X% Increased Movement Speed</strong><br>
-                        QoL majeur (25-30% Tier 1)
-                    </div>
-                </div>
-                
-                <h4>SUFFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix">
-                        <strong>+X to Maximum Mana</strong><br>
-                        Synergie EB (60-80 Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>Resistances (Chaos de préférence)</strong><br>
-                        Defensive layer
-                    </div>
-                </div>
-                
-                <h4>Méthode</h4>
-                <p>Essence spam ou acheter pré-crafté. Movement Speed est essentiel.</p>
-                
-                <h4>Coût</h4>
-                <p><strong>30-60 Exalted</strong></p>
-            </div>
-            
-            <h3>💍 RINGS - Breach Ring ou Moonstone Ring</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Breach Ring</strong> (si disponible) ou <strong>Moonstone Ring</strong> (+15-25 ES implicite)</p>
-                <p>Justification : Breach Ring peut avoir 40% Quality (vs 20% normal) = mods 20% plus puissants</p>
-                
-                <h4>PREFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix meta">
-                        <strong>+X to Maximum Energy Shield</strong><br>
-                        Flat ES (20-30 Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>X% Increased Energy Shield</strong><br>
-                        % ES local (30-50% Tier 1)
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>+X to Maximum Mana</strong><br>
-                        60-80 Tier 1
-                    </div>
-                </div>
-                
-                <h4>SUFFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>+X% to Chaos Damage over Time Multiplier</strong><br>
-                        ⭐ (15-20% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>+X% to Chaos Resistance</strong><br>
-                        Defensive (30-40% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>X% Increased Cast Speed</strong><br>
-                        QoL (8-12% Tier 1)
-                    </div>
-                </div>
-                
-                <h4>Méthode</h4>
-                <p><strong>Rog crafting</strong> (Expedition NPC) = meilleure méthode pour rings. Sinon Essence spam.</p>
-                
-                <h4>Coût</h4>
-                <p><strong>50-100 Exalted par ring</strong></p>
-            </div>
-            
-            <h3>📿 AMULET - Paua Amulet ou Agate Amulet</h3>
-            <div class="tablet-info">
-                <h4>Base</h4>
-                <p><strong>Paua Amulet</strong> (+20-30 Mana) ou <strong>Agate Amulet</strong> (+16-24 to all Attributes)</p>
-                
-                <h4>PREFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item prefix meta">
-                        <strong>+1 to Level of All Chaos Skill Gems</strong><br>
-                        ⭐ CRITIQUE
-                    </div>
-                    <div class="mod-item prefix meta">
-                        <strong>+1 to Level of All Intelligence Skill Gems</strong><br>
-                        ⭐ Combinaison avec +1 Chaos
-                    </div>
-                    <div class="mod-item prefix">
-                        <strong>+X to Maximum Energy Shield</strong><br>
-                        Flat ES (40-60 Tier 1)
-                    </div>
-                </div>
-                
-                <h4>SUFFIXES</h4>
-                <div class="mod-list">
-                    <div class="mod-item suffix meta">
-                        <strong>+X% to Chaos Damage over Time Multiplier</strong><br>
-                        ⭐ (20-25% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>X% Increased Cast Speed</strong><br>
-                        (10-15% Tier 1)
-                    </div>
-                    <div class="mod-item suffix">
-                        <strong>+X to all Attributes</strong><br>
-                        Stats requirements (30-50 Tier 1)
-                    </div>
-                </div>
-                
-                <h4>Méthode</h4>
-                <div class="info">
-                    <ol>
-                        <li><strong>Essence of Torment</strong> pour garantir +1 All Gems</li>
-                        <li>Viser +1 All Gems + ES ou DoT Multi</li>
-                        <li>Bench craft ou Exalt slam</li>
-                        <li><strong>Optionnel :</strong> Instill Liquid Emotion (Distilled Envy pour +Rarity)</li>
-                    </ol>
-                </div>
-                
-                <h4>Coût</h4>
-                <p><strong>80-150 Exalted</strong></p>
-            </div>
-            
-            <h3>🧪 FLASKS</h3>
-            <div class="tablet-info">
-                <h4>Types recommandés</h4>
-                <table>
-                    <tr>
-                        <th>Flask</th>
-                        <th>Mod recherché</th>
-                        <th>Utilisation</th>
-                    </tr>
-                    <tr>
-                        <td>Life Flask</td>
-                        <td>Instant Recovery</td>
-                        <td>Panic button</td>
-                    </tr>
-                    <tr>
-                        <td>Mana Flask</td>
-                        <td>Increased Mana Recovery</td>
-                        <td>Sustain via EB</td>
-                    </tr>
-                    <tr>
-                        <td>Granite Flask</td>
-                        <td>Increased Armour</td>
-                        <td>Physical mitigation</td>
-                    </tr>
-                    <tr>
-                        <td>Quicksilver Flask</td>
-                        <td>Increased Movement Speed</td>
-                        <td>Clear speed</td>
-                    </tr>
-                    <tr>
-                        <td>Diamond Flask</td>
-                        <td>Lucky Critical Strikes (si crit build)</td>
-                        <td>DPS boost</td>
-                    </tr>
-                </table>
-                
-                <div class="tip">
-                    Craft flasks avec <strong>Glassblower's Bauble</strong> (20% Quality) puis roll avec Orb of Alteration pour mods désirés.
-                </div>
-            </div>
-            
-            <h3>🎯 Synergies Blood Mage</h3>
-            <div class="info">
-                <h4>Interactions mécaniques clés :</h4>
-                <ul>
-                    <li><strong>Atalui's Bloodletting :</strong> Damage taken from Mana before Life = Eldritch Battery gratuit. Stack Mana = effective HP</li>
-                    <li><strong>Instant Leech from Chaos Damage :</strong> Permet sustain instantané via Chaos DoTs</li>
-                    <li><strong>Heart of the Well (Jewel) :</strong> Mandatory avec Atalui pour scaling leech</li>
-                    <li><strong>Energy Shield > Life :</strong> ES = defensive layer, Mana = absorb layer</li>
-                    <li><strong>+Levels Chaos Gems :</strong> Double scaling (damage + DoT effectiveness)</li>
-                    <li><strong>Chaos DoT Multi :</strong> Stack sur chaque slot (helmet/chest/gloves/rings/amulet)</li>
-                </ul>
-            </div>
-            
-            <h3>📊 Build Analysis (Budget Estimé)</h3>
-            <table>
-                <tr>
-                    <th>Slot</th>
-                    <th>Item</th>
-                    <th>Stats critiques</th>
-                    <th>Coût</th>
-                </tr>
-                <tr>
-                    <td>Weapon</td>
-                    <td>Atalui's Bloodletting</td>
-                    <td>Instant Leech, EB</td>
-                    <td>50-80 Ex</td>
-                </tr>
-                <tr>
-                    <td>Helmet</td>
-                    <td>Hubris Circlet</td>
-                    <td>+1 Chaos, +1 Int, ES, DoT Multi</td>
-                    <td>60-115 Ex</td>
-                </tr>
-                <tr>
-                    <td>Chest</td>
-                    <td>Vaal Regalia</td>
-                    <td>% ES, Flat ES, DoT Multi</td>
-                    <td>100-200 Ex</td>
-                </tr>
-                <tr>
-                    <td>Gloves</td>
-                    <td>Sorcerer Gloves</td>
-                    <td>ES, DoT Multi, Cast Speed</td>
-                    <td>40-80 Ex</td>
-                </tr>
-                <tr>
-                    <td>Boots</td>
-                    <td>Sorcerer Boots</td>
-                    <td>ES, Movement Speed</td>
-                    <td>30-60 Ex</td>
-                </tr>
-                <tr>
-                    <td>Ring 1</td>
-                    <td>Breach/Moonstone</td>
-                    <td>ES, DoT Multi, Mana</td>
-                    <td>50-100 Ex</td>
-                </tr>
-                <tr>
-                    <td>Ring 2</td>
-                    <td>Breach/Moonstone</td>
-                    <td>ES, DoT Multi, Mana</td>
-                    <td>50-100 Ex</td>
-                </tr>
-                <tr>
-                    <td>Amulet</td>
-                    <td>Paua/Agate</td>
-                    <td>+2 Gems, DoT Multi</td>
-                    <td>80-150 Ex</td>
-                </tr>
-                <tr>
-                    <td>Jewels</td>
-                    <td>Heart of the Well + rares</td>
-                    <td>Instant Leech, ES, DoT Multi</td>
-                    <td>30-60 Ex</td>
-                </tr>
-                <tr>
-                    <td colspan="3"><strong>TOTAL BUILD</strong></td>
-                    <td><strong>490-945 Ex</strong></td>
-                </tr>
-            </table>
-            
-            <div class="warning">
-                <strong>Bottlenecks identifiés :</strong>
-                <ul>
-                    <li><strong>Atalui's Bloodletting :</strong> Unique extremely rare, build impossible sans elle</li>
-                    <li><strong>+Levels Gems :</strong> Augmente exponentiellement le coût du helmet/amulet</li>
-                    <li><strong>Chaos DoT Multi :</strong> Mod rare, difficile à combiner avec ES + Cast Speed</li>
-                </ul>
-            </div>
-            
-            <div class="tip">
-                <strong>Stratégie budget (200-300 Ex total) :</strong>
-                <ol>
-                    <li>Acheter Atalui's Bloodletting (priorité absolue)</li>
-                    <li>Acheter gear pré-crafté avec 2-3 bons mods (moins cher que craft from scratch)</li>
-                    <li>Sacrifier +1 Int Gems sur helmet/amulet (garder seulement +1 Chaos)</li>
-                    <li>Utiliser Rog (Expedition) pour rings/amulet à moindre coût</li>
-                </ol>
-            </div>
-        </section>
 
-        <!-- COHÉRENCE ATLAS / CRAFT / BUILD -->
-        <section id="coherence">
-            <h2>🎯 COHÉRENCE ATLAS / CRAFT / BUILD</h2>
-            
-            <h3>Atlas Strategy pour Blood Mage</h3>
-            <div class="mechanic-card">
-                <h4>Recommandations prioritaires :</h4>
-                
-                <div class="mod-list">
-                    <div class="mod-item meta">
-                        <strong>ABYSS + DELIRIUM</strong><br>
-                        Setup 2+1 Tablet pour maximiser les Divines/heure<br>
-                        ⭐ Rentabilité : 40+ div/h en groupe optimisé
-                    </div>
-                    <div class="mod-item">
-                        <strong>BREACH</strong><br>
-                        Farm Catalysts pour sell bulk<br>
-                        Accès aux Breach Rings (craft optimisé)
-                    </div>
-                    <div class="mod-item">
-                        <strong>EXPEDITION</strong><br>
-                        Utiliser Rog pour craft rings/amulet à moindre coût<br>
-                        Tujen pour bulk currency
-                    </div>
-                    <div class="mod-item avoid">
-                        <strong>À ÉVITER : Temple of Atzoatl</strong><br>
-                        Temps investi élevé, rentabilité aléatoire<br>
-                        Seulement si Double Corrupt pour endgame items
-                    </div>
-                </div>
-            </div>
-            
-            <h3>Items à Craft vs Acheter</h3>
-            <table>
-                <tr>
-                    <th>Item</th>
-                    <th>Recommandation</th>
-                    <th>Justification</th>
-                </tr>
-                <tr>
-                    <td>Atalui's Bloodletting</td>
-                    <td>❌ ACHETER</td>
-                    <td>Unique extremely rare, impossible à craft</td>
-                </tr>
-                <tr>
-                    <td>Helmet (+2 Gems)</td>
-                    <td>⚠️ ACHETER pré-crafté</td>
-                    <td>Essence spam très coûteux, acheter +1 Chaos + ES moins cher</td>
-                </tr>
-                <tr>
-                    <td>Chest (Vaal Regalia)</td>
-                    <td>✅ CRAFT</td>
-                    <td>Dense Fossil accessible, ES + DoT Multi obtennables</td>
-                </tr>
-                <tr>
-                    <td>Gloves</td>
-                    <td>✅ CRAFT</td>
-                    <td>Essence spam efficace pour ES + DoT Multi</td>
-                </tr>
-                <tr>
-                    <td>Boots</td>
-                    <td>⚠️ ACHETER</td>
-                    <td>Movement Speed + ES difficile, acheter 25-30 Ex</td>
-                </tr>
-                <tr>
-                    <td>Rings</td>
-                    <td>✅ ROG (Expedition)</td>
-                    <td>Meilleur cost/efficiency, permet targeting mods</td>
-                </tr>
-                <tr>
-                    <td>Amulet</td>
-                    <td>✅ CRAFT ou ROG</td>
-                    <td>+1 Chaos via Essence accessible, finaliser avec Rog</td>
-                </tr>
-            </table>
-            
-            <h3>Timeline de Progression</h3>
-            <div class="info">
-                <strong>Phase 1 - Budget Initial (100-150 Ex) :</strong>
-                <ol>
-                    <li>Farm Abyss + Delirium en groupe (15-20 div/heure même sans gear)</li>
-                    <li>Convertir Divines en Exalted via Trade (ratio 1:10 environ)</li>
-                    <li>Acheter Atalui's Bloodletting (50-80 Ex)</li>
-                    <li>Acheter gear budget avec 1-2 bons mods par slot</li>
-                </ol>
-                
-                <strong>Phase 2 - Optimisation (300-500 Ex) :</strong>
-                <ol>
-                    <li>Farm Expedition pour Rog crafting (rings/amulet)</li>
-                    <li>Craft chest via Dense Fossil</li>
-                    <li>Upgrade helmet vers +1 Chaos + ES minimum</li>
-                    <li>Acheter Heart of the Well (Abyssal Jewel)</li>
-                </ol>
-                
-                <strong>Phase 3 - Min-Max (800+ Ex) :</strong>
-                <ol>
-                    <li>Craft ou acheter +2 Gems helmet</li>
-                    <li>Craft ou acheter +2 Gems amulet</li>
-                    <li>Optimiser tous les slots avec Chaos DoT Multi</li>
-                    <li>Temple Double Corrupt pour perfect items (extrême risk)</li>
-                </ol>
-            </div>
-        </section>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <div class="step-title">Acquérir la base</div>
+                            <p>Achète ou farm un <code>Vaal Sceptre</code> avec <strong>iLvl 86+</strong>. Vérifie qu'il est normal (blanc) ou utilise <code>Orb of Scouring</code> pour le nettoyer.</p>
+                        </div>
 
-        <!-- GEMMES PATCH 0.4 -->
-        <section id="gems">
-            <h2>💎 GEMMES PERTINENTES (PATCH 0.4)</h2>
-            
-            <h3>Setup Blood Mage Core</h3>
-            <table>
-                <tr>
-                    <th>Gemme</th>
-                    <th>Rôle</th>
-                    <th>Synergies</th>
-                </tr>
-                <tr>
-                    <td>Chaos Bolt</td>
-                    <td>Main Skill</td>
-                    <td>Scale avec +Levels, Instant Leech via Atalui</td>
-                </tr>
-                <tr>
-                    <td>Essence Drain</td>
-                    <td>Alternative DoT</td>
-                    <td>Chaos DoT Multi scaling</td>
-                </tr>
-                <tr>
-                    <td>Contagion</td>
-                    <td>Clear Speed</td>
-                    <td>Spread Essence Drain, massive AoE</td>
-                </tr>
-                <tr>
-                    <td>Despair (Curse)</td>
-                    <td>Debuff</td>
-                    <td>-Chaos Resistance enemies, DoT Multi</td>
-                </tr>
-                <tr>
-                    <td>Chaos Mastery (Support)</td>
-                    <td>Damage boost</td>
-                    <td>Added Chaos Damage to Spells</td>
-                </tr>
-                <tr>
-                    <td>Controlled Destruction (Support)</td>
-                    <td>More Spell Damage</td>
-                    <td>No crit penalty si non-crit build</td>
-                </tr>
-            </table>
-            
-            <h3>Nouvelles Gemmes 0.4</h3>
-            <div class="info">
-                <p>Patch 0.4 a introduit plusieurs gemmes, mais peu impactent directement Blood Mage. Les gemmes Chaos existantes restent optimales.</p>
-            </div>
-            
-            <div class="tip">
-                <strong>Setup 6L recommandé (Chest) :</strong><br>
-                <code>Chaos Bolt</code> + <code>Chaos Mastery</code> + <code>Controlled Destruction</code> + <code>Spell Echo</code> + <code>Concentrated Effect</code> + <code>Empower (Level 4)</code>
-            </div>
-        </section>
+                        <div class="step">
+                            <div class="step-title">Spam Essence of Woe</div>
+                            <p>Utilise <code>Essence of Woe</code> (50-100x recommandé). Chaque utilisation garantit <strong>T1 Spell Damage</strong>.</p>
+                            <p><strong>Continue jusqu'à voir :</strong> <code>+1 to Level of all Spell Skill Gems</code> en prefix.</p>
+                            <p><em>Probabilité : ~8-10% par essence. Moyenne 10-12 essences pour hit.</em></p>
+                        </div>
 
-        <!-- RESSOURCES & OUTILS -->
-        <section id="tools">
-            <h2>🛠️ RESSOURCES & OUTILS</h2>
-            
-            <h3>Planners & Calculateurs</h3>
-            <div class="mod-list">
-                <div class="mod-item">
-                    <strong>Maxroll PoE2 Database</strong><br>
-                    <a href="https://maxroll.gg/poe2" target="_blank">https://maxroll.gg/poe2</a><br>
-                    Guides, Atlas Tree, mécaniques détaillées
-                </div>
-                <div class="mod-item">
-                    <strong>PoE2DB</strong><br>
-                    <a href="https://poe2db.tw/" target="_blank">https://poe2db.tw/</a><br>
-                    Base de données complète (mods, items, gems)
-                </div>
-                <div class="mod-item">
-                    <strong>Path of Building (PoB)</strong><br>
-                    <a href="https://pobb.in/" target="_blank">https://pobb.in/</a><br>
-                    Planificateur de builds (attention version PoE2)
-                </div>
-                <div class="mod-item">
-                    <strong>PoE2 Trade</strong><br>
-                    <a href="https://www.pathofexile.com/trade2" target="_blank">https://www.pathofexile.com/trade2</a><br>
-                    Market officiel GGG
-                </div>
-                <div class="mod-item">
-                    <strong>Sulo Tools - Temple Planner</strong><br>
-                    <a href="https://sulozor.github.io/" target="_blank">https://sulozor.github.io/</a><br>
-                    Planificateur Temple of Atzoatl
-                </div>
-            </div>
-            
-            <h3>Communauté</h3>
-            <div class="info">
-                <ul>
-                    <li><strong>Reddit :</strong> /r/PathOfExile2 - Meta discussions, build guides</li>
-                    <li><strong>Discord Officiel PoE2 :</strong> Channels dédiés endgame</li>
-                    <li><strong>YouTube :</strong> Channels spécialisés (Zizaran, Mathil, etc.)</li>
-                </ul>
-            </div>
-        </section>
+                        <div class="step">
+                            <div class="step-title">Vérifier les mods</div>
+                            <p>Une fois +1 All Spell Gems obtenu, regarde les suffixes :</p>
+                            <ul style="margin-top: 10px;">
+                                <li>Si Cast Speed ou Crit Multi présent = EXCELLENT</li>
+                                <li>Si suffixes vides ou mauvais = passe à étape 4</li>
+                            </ul>
+                        </div>
 
-        <!-- NOTES DE PATCH -->
-        <section id="patch-notes">
-            <h2>📝 CHANGEMENTS MAJEURS PATCH 0.4</h2>
-            
-            <div class="mechanic-card">
-                <h3>Abyss</h3>
-                <ul>
-                    <li>✅ Devenu core mechanic (spawn garanti avec passives Atlas)</li>
-                    <li>✅ Remnants of Power ajouté (double effet Tablets 20% chance)</li>
-                    <li>✅ Unforeseen Consequences (Unique Tablet) buffé</li>
-                </ul>
-                
-                <h3>Breach</h3>
-                <ul>
-                    <li>✅ Density augmentée (+10% sur Tablet suffix)</li>
-                    <li>✅ Catalysts drop rate buffé</li>
-                    <li>⚠️ Wraeclast Besieged nerfé (Soul Eater plus équilibré)</li>
-                </ul>
-                
-                <h3>Delirium</h3>
-                <ul>
-                    <li>✅ Clear Skies (Unique Tablet) ajouté</li>
-                    <li>✅ Liquid Emotions peuvent instill Amulets</li>
-                    <li>⚠️ Simulacrum difficulty +4 requis pour Megalomaniac/Strugglescream</li>
-                </ul>
-                
-                <h3>Expedition</h3>
-                <ul>
-                    <li>✅ Artifact quantity buffé (+30% max sur Tablet)</li>
-                    <li>✅ Rog crafting amélioré (plus d'options)</li>
-                    <li>✅ Recombination introduite (fusion items)</li>
-                </ul>
-                
-                <h3>Crafting Global</h3>
-                <ul>
-                    <li>⚠️ Item Quantity nerfé (max 10% par Tablet vs 20% avant)</li>
-                    <li>✅ Item Rarity META (stacking massif possible)</li>
-                    <li>✅ Breach Rings 40% Quality confirmé</li>
-                </ul>
-            </div>
-        </section>
+                        <div class="step">
+                            <div class="step-title">Craft "Cannot Roll Attack Modifiers"</div>
+                            <p>Va au Crafting Bench, craft <code>Cannot Roll Attack Modifiers</code> (coût : 2 Divine).</p>
+                            <p><strong>Pourquoi ?</strong> Bloque tous les mods Attack, garantissant que ton <code>Exalted Orb</code> ajoute un mod Spell.</p>
+                        </div>
 
-        <footer>
-            <p>Guide créé pour <strong>Path of Exile 2 - Early Access Patch 0.4 (Fate of the Vaal)</strong></p>
-            <p>Toutes les mécaniques et valeurs sont basées sur le patch actuel et peuvent évoluer.</p>
-            <p>⚠️ <strong>DISCLAIMER :</strong> Les prix en Exalted Orbs sont estimatifs et dépendent du marché (Trade2).</p>
-            <p style="margin-top: 20px; color: #95a5a6;">Dernière mise à jour : Janvier 2026</p>
-        </footer>
-    </div>
-</body>
-</html>
+                        <div class="step">
+                            <div class="step-title">Exalt Slam</div>
+                            <p>Utilise <code>Exalted Orb</code> pour ajouter Cast Speed ou Crit Multi.</p>
+                            <p>Avec "Cannot Roll Attack", tu forces un suffix spell (Cast Speed, Crit Multi, Spell Crit Chance).</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Finition</div>
+                            <p>Si un suffix est encore ouvert, craft au bench :</p>
+                            <ul>
+                                <li><code>Cast Speed</code> si pas présent</li>
+                                <li><code>Critical Strike Multiplier</code> sinon</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="omen-box">
+                        <div class="omen-name">🔮 Omen of Greater Fortune</div>
+                        <p><strong>Utilisation :</strong> AVANT ton Exalt Slam (Étape 5)</p>
+                        <p><strong>Effet :</strong> Double les chances d'obtenir un T1 mod au lieu de T3-T4</p>
+                        <p><strong>Coût :</strong> 50-80 Chaos</p>
+                        <p><strong>Pourquoi :</strong> Garantir T1 Cast Speed au lieu d'un roll médiocre. Worth l'investissement.</p>
+                    </div>
+
+                    <div class="success-box">
+                        <h4>✅ Résultat Final</h4>
+                        <p>Tu devrais avoir :</p>
+                        <ul class="mod-list">
+                            <li class="prefix">+1 to Level of all Spell Skill Gems</li>
+                            <li class="prefix">60-79% increased Spell Damage (Essence)</li>
+                            <li class="suffix">25-30% increased Cast Speed</li>
+                            <li class="suffix">Crafted mod ou natural Crit Multi</li>
+                        </ul>
+                        <p><strong>Coût total :</strong> 12 Essences (36c) + Cannot Roll Attack (2 Divine) + Exalt (15c) + Omen (60c) = <strong>~2-2.5 Divine</strong></p>
+                    </div>
+                </div>
+
+                <h3>📋 Méthode 2 : Harvest Reforge Lightning (Plus Cher, Plus Rapide)</h3>
+                <div class="method-section">
+                    <div class="method-header">
+                        Harvest "Reforge with Lightning Modifiers"
+                        <span class="cost-badge">5-10 Divine</span>
+                    </div>
+
+                    <div class="step-by-step">
+                        <div class="step">
+                            <div class="step-title">Préparer la base</div>
+                            <p>Commence avec <code>Vaal Sceptre iLvl 86+</code> qui a déjà <strong>T1 Spell Damage</strong> (via Essence of Woe).</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Acheter Harvest Crafts</div>
+                            <p>Achète <code>Reforge a Rare item with Lightning modifiers</code> sur TFT ou via Harvest farming (80-120 Chaos chacun).</p>
+                            <p>Prévois 8-12 reforges.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Spam Harvest Lightning</div>
+                            <p>Utilise les Harvest crafts jusqu'à ce que <code>+1 to All Spell Skill Gems</code> apparaisse.</p>
+                            <p><em>Probabilité avec Harvest : ~15% (meilleur que spam normal). Moyenne 7-8 reforges.</em></p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Fixer les Suffixes</div>
+                            <p>Si les suffixes sont mauvais, utilise <code>Reforge Keep Prefixes</code> (1 Divine).</p>
+                            <p>Cela reroll tous les suffixes mais garde tes prefixes (+2 gems + Spell Damage).</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Finition</div>
+                            <p>Craft Cast Speed ou Crit Multi au bench si suffix ouvert.</p>
+                            <p>Sinon, Exalt Slam avec "Cannot Roll Attack" pour forcer un bon suffix.</p>
+                        </div>
+                    </div>
+
+                    <div class="omen-box">
+                        <div class="omen-name">🔮 Omen of Refreshing</div>
+                        <p><strong>Utilisation :</strong> AVANT Harvest Reforge Lightning</p>
+                        <p><strong>Effet :</strong> Garantit au moins 2 mods Lightning sur l'item</p>
+                        <p><strong>Coût :</strong> 1 Divine</p>
+                        <p><strong>Pourquoi :</strong> Augmente chances d'avoir +Lightning Gems + Lightning Damage ensemble.</p>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>⚠️ Important</h4>
+                        <p>Cette méthode est plus chère (8-10 Divine total) mais PLUS RAPIDE. Si tu as la currency, c'est la meilleure option.</p>
+                    </div>
+                </div>
+
+                <h3>📋 Méthode 3 : Fossil Crafting (Alternative)</h3>
+                <div class="method-section">
+                    <div class="method-header">
+                        Metallic Fossil + Pristine Fossil
+                        <span class="cost-badge">3-7 Divine</span>
+                    </div>
+
+                    <div class="step-by-step">
+                        <div class="step">
+                            <div class="step-title">Acheter les Fossils</div>
+                            <p>Achète 30-50x <code>Metallic Fossil</code> (force Lightning mods) + 30-50x <code>Pristine Fossil</code> (ajoute Life).</p>
+                            <p>Achète des <code>2-socket Resonators</code>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Combiner les Fossils</div>
+                            <p>Place <strong>Metallic + Pristine</strong> dans le resonator.</p>
+                            <p>Applique sur <code>Vaal Sceptre iLvl 86+</code>.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Spam jusqu'à +2 Lightning Gems</div>
+                            <p>Metallic Fossil augmente le weighting des mods Lightning par <strong>10x</strong>.</p>
+                            <p>Probabilité de +2 gems passe à ~18%. Moyenne 6 fossils.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Vérifier Spell Damage</div>
+                            <p>Si pas de T1 Spell Damage, craft "Cannot Roll Attack" puis Exalt pour forcer un prefix spell.</p>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-title">Finition Suffixes</div>
+                            <p>Craft Cast Speed au bench si ouvert. Sinon Exalt Slam avec "Cannot Roll Attack".</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>💡 Quand utiliser cette méthode ?</h4>
+                        <p>Si tu farm Delve et as accès à beaucoup de fossils. Moins predictible que Essence mais peut être moins cher.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BODY ARMOUR -->
+        <div id="body" class="tab-content">
+            <div class="section">
+                <h2>🛡️ Body Armour - Vaal Regalia</h2>
+
+                <div class="item-box">
+                    <div class="item-name
